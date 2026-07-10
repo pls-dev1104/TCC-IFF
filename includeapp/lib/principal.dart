@@ -30,9 +30,22 @@ TextEditingController nomeUs = TextEditingController();
       appBar: AppBar(centerTitle: true, title: Text("IncludeApp")),
       body: Center(child: 
         Column(children: [
-            TextField(controller: nomeUs,
-            decoration: InputDecoration(labelText: "Digitar o seu nome"),
+          SizedBox(height: 20),
+          
+            SizedBox(
+              width: 800,
+              height: 60,
+              child: TextField(
+                controller: nomeUs,
+                decoration: InputDecoration(
+                  labelText: "Digitar o seu nome",
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
+                ),
+              ),
             ),
+
             ElevatedButton(onPressed: salvar, child: Text("Cadastrar")),
           ]
         )

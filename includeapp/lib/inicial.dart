@@ -20,14 +20,35 @@ class _InicialState extends State<Inicial> {
         body: Center(
           child: Column(
             children: [
-              Text("Bem-vindo , ${widget.nome}!"),
+              Text("Bem-vindo, ${widget.nome}!"),
               Text("Jogos Educacionais"),
-              ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
-              }, child: const Text("Celular")),
-              ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
-              }, child: const Text("Computador"))
+              SizedBox(height: 20),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      
+                    ),
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
+                    }, child: const Icon(Icons.phone_android, color: Colors.white),
+                  ),
+                
+                  SizedBox(width: 40),
+
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue
+                    ),
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
+                    }, child: const Icon(Icons.computer, color: Colors.white)
+                  )
+                ]
+              )
             ],
           ),
         ),
