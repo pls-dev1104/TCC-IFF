@@ -28,15 +28,51 @@ TextEditingController nomeUs = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text("IncludeApp")),
-      body: Center(child: 
-        Column(children: [
-            TextField(controller: nomeUs,
-            decoration: InputDecoration(labelText: "Digitar o seu nome"),
+      body: Center(
+        child: Column(
+          children: [
+          SizedBox(height: 200),
+          
+            Container(
+              width: 300,
+              height: 150,
+              margin: EdgeInsets.all(16),
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: Colors.black
+                ),
+              ),
+
+            child: Column(
+              children: [
+                TextField(
+                  controller: nomeUs,
+                  decoration: InputDecoration(
+                    labelText: "Digite o seu nome",
+                    enabledBorder: OutlineInputBorder(   
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 20),
+
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 70, 127, 224),
+                    foregroundColor: Colors.white,
+                    fixedSize: Size(255, 45)
+                  ),
+                  onPressed: salvar, 
+                  child: Text("Cadastrar", style: TextStyle(fontSize: 16),)),
+              ],
             ),
-            ElevatedButton(onPressed: salvar, child: Text("Cadastrar")),
-          ]
-        )
-      ),
-    );
-  }
+          ),
+        ]
+      )
+    ),
+  );
+}
 }
