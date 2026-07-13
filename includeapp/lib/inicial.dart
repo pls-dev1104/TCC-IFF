@@ -16,7 +16,8 @@ class _InicialState extends State<Inicial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(centerTitle: true, title: Text("Tela Inicial")),
+        appBar: AppBar(
+          centerTitle: true, title: Text("Tela Inicial")),
         body: Center(
           child: Column(
             children: [
@@ -30,14 +31,13 @@ class _InicialState extends State<Inicial> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
-                      
                     ),
                     onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
                     }, child: const Icon(Icons.phone_android, color: Colors.white),
                   ),
                 
-                  SizedBox(width: 40),
+                  SizedBox(height: 80, width: 40),
 
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -48,7 +48,31 @@ class _InicialState extends State<Inicial> {
                     }, child: const Icon(Icons.computer, color: Colors.white)
                   )
                 ]
-              )
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue
+                    ),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
+                    }, child: const Icon(Icons.warning, color: Colors.white,)
+                  ),
+
+                  SizedBox(width: 40),
+
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
+                    }, child: const Icon(Icons.home, color: Colors.white,))
+                ],
+              ),
             ],
           ),
         ),
