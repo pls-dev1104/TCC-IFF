@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/celular.dart';
 import 'package:includeapp/computador.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Inicial extends StatefulWidget {
   final String nome;
@@ -15,6 +16,11 @@ class _InicialState extends State<Inicial> {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> efetuarLogoff() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.remove("usuario");
+    }
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true, title: Text("Tela Inicial")),
@@ -57,9 +63,7 @@ class _InicialState extends State<Inicial> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue
                     ),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
-                    }, child: const Icon(Icons.warning, color: Colors.white,)
+                    onPressed: efetuarLogoff, child: const Icon(Icons.warning, color: Colors.white,)
                   ),
 
                   SizedBox(width: 40),
