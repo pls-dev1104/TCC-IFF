@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/celular.dart';
 import 'package:includeapp/computador.dart';
+import 'package:includeapp/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Inicial extends StatefulWidget {
@@ -19,8 +20,12 @@ class _InicialState extends State<Inicial> {
     Future<void> efetuarLogoff() async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.remove("usuario");
-    }
+    
+      if (!context.mounted) return;
 
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Principal())
+        );
+    }
     return Scaffold(
         appBar: AppBar(
           centerTitle: true, title: Text("Tela Inicial")),

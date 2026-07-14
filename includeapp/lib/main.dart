@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'package:includeapp/home.dart';
+
 
 void main() {
   runApp(const App());
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
         appBarTheme: AppBarTheme(backgroundColor: Color(0xFF2563EB)),
       ),
       debugShowCheckedModeBanner: false,
-      home: Principal(),
+      home: Home(),
     );
   }
 }
