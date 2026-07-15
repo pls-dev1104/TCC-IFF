@@ -24,11 +24,11 @@ class _InicialState extends State<Inicial> {
               SizedBox(height: 20),
               Text("Bem-vindo, ${widget.nome}!\n"),
               Text("Esta é a sua página de Jogos Educativos.\nAqui, nós guardamos vários minijogos onde\nvocê pode passar o tempo e aprender novas\ncoisas sobre como usar estes aparelhos"),
-              SizedBox(height: 120),
+              SizedBox(height: 100),
 
               Container(
-                width: 450,
-                height: 400,
+                width: 350,
+                height: 550,
                 margin: EdgeInsets.all(16),
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -41,77 +41,51 @@ class _InicialState extends State<Inicial> {
                   children: [
                     SizedBox(height: 30),
 
-                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(140, 120),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadiusGeometry.circular(20)
-                            ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          foregroundColor: Colors.white,
+                          fixedSize: Size(140, 120),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusGeometry.circular(20)
                           ),
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
-                          }, 
-                          child: const Icon(Icons.phone_android, size: 65)),
+                        ),
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
+                        }, 
+                        child: const Text("Nível 1", style: TextStyle(fontSize: 22),)),
 
-                          SizedBox(height: 80, width: 100),
+                    SizedBox(height: 45),
 
                         ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(140, 120),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadiusGeometry.circular(20)
-                            ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          foregroundColor: Colors.white,
+                          fixedSize: Size(140, 120),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusGeometry.circular(20)
                           ),
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
-                          }, 
-                          child: const Icon(Icons.computer_sharp, size: 65)),
-                      ],
-                     ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
+                        }, 
+                        child: const Text("Nível 2", style: TextStyle(fontSize: 22),)),
 
-                    SizedBox(height: 80),
-
-                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(140, 120),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadiusGeometry.circular(20)
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
-                          }, 
-                          child: const Icon(Icons.message_rounded, size: 65)),
-
-                          SizedBox(height: 80, width: 100),
+                    SizedBox(height: 45),
 
                         ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(140, 120),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadiusGeometry.circular(20)
-                            ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          foregroundColor: Colors.white,
+                          fixedSize: Size(140, 120),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusGeometry.circular(20)
                           ),
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
-                          }, 
-                          child: const Icon(Icons.email_outlined, size: 65)),
-                      ],
-                     ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
+                        }, 
+                        child: const Text("Nível 3", style: TextStyle(fontSize: 22),)),
                   ],
                 ),
               ),
