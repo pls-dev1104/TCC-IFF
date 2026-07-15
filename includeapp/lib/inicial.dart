@@ -14,64 +14,106 @@ class Inicial extends StatefulWidget {
 class _InicialState extends State<Inicial> {
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {  
     return Scaffold(
         appBar: AppBar(
           centerTitle: true, title: Text("Tela Inicial")),
         body: Center(
           child: Column(
             children: [
-              Text("Bem-vindo, ${widget.nome}!"),
-              Text("Jogos Educacionais"),
               SizedBox(height: 20),
+              Text("Bem-vindo, ${widget.nome}!\n"),
+              Text("Esta é a sua página de Jogos Educativos.\nAqui, nós guardamos vários minijogos onde\nvocê pode passar o tempo e aprender novas\ncoisas sobre como usar estes aparelhos"),
+              SizedBox(height: 120),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                    ),
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
-                    }, child: const Icon(Icons.phone_android, color: Colors.white),
-                  ),
-                
-                  SizedBox(height: 80, width: 40),
-
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue
-                    ),
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
-                    }, child: const Icon(Icons.computer, color: Colors.white)
+              Container(
+                width: 450,
+                height: 400,
+                margin: EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Colors.black
                   )
-                ]
-              ),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(height: 30),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue
-                    ),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
-                    }, child: const Icon(Icons.warning, color: Colors.white,)
-                  ),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                            foregroundColor: Colors.white,
+                            fixedSize: Size(140, 120),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusGeometry.circular(20)
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
+                          }, 
+                          child: const Icon(Icons.phone_android, size: 65)),
 
-                  SizedBox(width: 40),
+                          SizedBox(height: 80, width: 100),
 
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                    ),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
-                    }, child: const Icon(Icons.home, color: Colors.white,))
-                ],
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                            foregroundColor: Colors.white,
+                            fixedSize: Size(140, 120),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusGeometry.circular(20)
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
+                          }, 
+                          child: const Icon(Icons.computer_sharp, size: 65)),
+                      ],
+                     ),
+
+                    SizedBox(height: 80),
+
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                            foregroundColor: Colors.white,
+                            fixedSize: Size(140, 120),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusGeometry.circular(20)
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Celular()));
+                          }, 
+                          child: const Icon(Icons.message_rounded, size: 65)),
+
+                          SizedBox(height: 80, width: 100),
+
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                            foregroundColor: Colors.white,
+                            fixedSize: Size(140, 120),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusGeometry.circular(20)
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Computador()));
+                          }, 
+                          child: const Icon(Icons.email_outlined, size: 65)),
+                      ],
+                     ),
+                  ],
+                ),
               ),
             ],
           ),
