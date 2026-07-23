@@ -37,7 +37,7 @@ class _InicialState extends State<Inicial> {
               SizedBox(height: 20),
               Text("Bem-vindo, ${widget.nome}!"),
               Text("Jogos Educacionais"),
-              SizedBox(height: 40),
+              SizedBox(height: 20),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -132,6 +132,66 @@ class _InicialState extends State<Inicial> {
                   ),
                 ],
               ),
+
+              SizedBox(
+                width: 100,
+                height: 100,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(60)
+                      ),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context, 
+                        builder: (context) => AlertDialog(
+                          title: Text("Mapa do conhecimento"),
+                          content: SizedBox(
+                            width: 160,
+                            height: 410,
+                            child: Column(
+                              children: [
+                                Text("Este local tem o intuito de ser o lugar você aprenderá a usar o celular de forma divertida por meio de minijogos.\n", style: TextStyle(fontSize: 16)),
+                                Column(
+                                  children: [
+                                    Text("Nível 0:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                    Text("você aprenderá a criar um alarme, salvar o contato de alguém, chamadas e muito mais.\n"),
+
+                                    Text("Nível 1:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                    Text("você aprenderá a criar um email, instalação de apps, whatsapp e etc.\n"),
+
+                                    Text("Nível 2:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                    Text("você aprenderá a navegar na internet, login em apps, mexer no youtube, além de outras coisas.\n")
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                          actions: [
+                            SizedBox(
+                              width: 100,
+                              height: 40,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.red,
+                                  foregroundColor: Colors.white
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                }, 
+                                child: Text("Voltar", style: TextStyle(fontSize: 16))),
+                            ),                        
+                          ],
+                        ));
+                    }, child: Icon(Icons.live_help_outlined, size: 50,)),
+              ),
+
+              SizedBox(height: 10),
+
+              Text("Ajuda?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500), ),
             ],
           ),
         ),
