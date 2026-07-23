@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'inicial.dart';
 
-class Principal extends StatefulWidget {
-  const Principal({super.key});
+class Prelobby extends StatefulWidget {
+  const Prelobby({super.key});
 
   @override
-  State<Principal> createState() => _PrincipalState();
+  State<Prelobby> createState() => _PrelobbyState();
 }
 
-class _PrincipalState extends State<Principal> {
+class _PrelobbyState extends State<Prelobby> {
 TextEditingController nomeUs = TextEditingController();
 
  Future<void> salvar() async {
@@ -27,10 +27,10 @@ TextEditingController nomeUs = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("IncludeApp")),
+      appBar: AppBar(centerTitle: true, title: Text("Prelobby")),
       body: Center(
         child: Column(
-          children: [
+          children: [                  
           SizedBox(height: 200),          
             Container(
               width: 300,
@@ -66,7 +66,6 @@ TextEditingController nomeUs = TextEditingController();
                   ),
                   onPressed: salvar, 
                   child: Text("Cadastrar", style: TextStyle(fontSize: 16),)),
-                
               ],
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/inicial.dart';
-import 'package:includeapp/login.dart';
+import 'package:includeapp/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
 
     if (!mounted) return;
     if (usuario == null){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const Principal()),);
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const Prelobby()),);
     }else{
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Inicial(nome: usuario)));
     }

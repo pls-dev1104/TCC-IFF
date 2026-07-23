@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/nivelUm.dart';
 import 'package:includeapp/nivelZero.dart';
-import 'package:includeapp/login.dart';
+import 'package:includeapp/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'nivelDois.dart';
@@ -25,7 +25,7 @@ class _InicialState extends State<Inicial> {
     
       if (!context.mounted) return;
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Principal())
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Prelobby())
         );
     }
     return Scaffold(
@@ -36,7 +36,6 @@ class _InicialState extends State<Inicial> {
             children: [
               SizedBox(height: 20),
               Text("Bem-vindo, ${widget.nome}!"),
-              Text("Jogos Educacionais"),
               SizedBox(height: 20),
 
               Row(
@@ -193,6 +192,7 @@ class _InicialState extends State<Inicial> {
                     SizedBox(height: 10),
 
                     Text("Ajuda?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500), ),
+                    ElevatedButton(onPressed: efetuarLogoff, child: Text('Logoof'))
                   ],
                 ),
               ),
