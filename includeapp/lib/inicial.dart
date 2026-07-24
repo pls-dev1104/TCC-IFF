@@ -132,7 +132,7 @@ class _InicialState extends State<Inicial> {
                 ],
               ),
 
-              Container(
+              Expanded(
                 child: Column(
                   children: [
                   SizedBox(
@@ -173,7 +173,8 @@ class _InicialState extends State<Inicial> {
                               ),
                               actions: [
                                 SizedBox(
-                                  width: 100,                                    height: 40,
+                                  width: 100,                                    
+                                  height: 40,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.red,

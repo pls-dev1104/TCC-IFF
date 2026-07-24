@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:just_bubble/just_bubble.dart';
 import 'inicial.dart';
 
 class Prelobby extends StatefulWidget {
@@ -28,50 +30,70 @@ TextEditingController nomeUs = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text("Prelobby")),
-      body: Center(
-        child: Column(
-          children: [                  
-          SizedBox(height: 200),          
-            Container(
-              width: 300,
-              height: 150,
-              margin: EdgeInsets.all(16),
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: Colors.black
-                ),
-              ),
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final telaWidth = constraints.maxWidth;
+            final telaHeight = constraints.maxHeight;
 
-            child: Column(
+            return Column(
               children: [
-                TextField(
-                  controller: nomeUs,
-                  decoration: InputDecoration(
-                    labelText: "Digite o seu nome",
-                    enabledBorder: OutlineInputBorder(   
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+                Expanded(
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: telaWidth * 0.12,
+                        bottom: 0,
+                        top: telaHeight * 0.1,
+                        child: Image.asset(
+                          "assets/imagem/MeninoIncludeAPP.png",
+                          width: telaWidth * 0.40,
+                        ),
+                      ),
+
+                      Positioned(
+                        left: telaWidth * 0.45,
+                        top: telaHeight * 0.22,
+                        right: telaWidth * 0.16,
+                        child: Bubble(
+                          padding: EdgeInsets.all(12),
+                          color: Colors.white,
+                          border: BubbleBorder(
+                            tail: Tail.triangle(
+                              tailJoin: TailJoin.sharp,
+                            ),
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(10),
+                            width: 2,
+                          ),
+                          child: Text(
+                            "Olá, seja muito bem-vindo ao IncludeAPP", 
+                            style: TextStyle(fontSize: telaWidth * 0.045), 
+                          ),
+                        ),
+                      )
+                    ],
+                  ), 
                 ),
-
-                SizedBox(height: 20),
-
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 70, 127, 224),
-                    foregroundColor: Colors.white,
-                    fixedSize: Size(255, 45)
+                Padding(
+                  padding: EdgeInsetsGeometry.only(bottom: telaHeight * 0.015),
+                  child: SizedBox(
+                    width: telaWidth * 0.8,
+                    height: telaHeight * 0.065,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blueAccent,
+                        foregroundColor: Colors.white
+                      ),
+                      onPressed: () {
+                    }, child: Text("Continuar", style: TextStyle(fontSize: telaWidth * 0.07),)),
                   ),
-                  onPressed: salvar, 
-                  child: Text("Cadastrar", style: TextStyle(fontSize: 16),)),
+                )
               ],
-            ),
-          ),
-        ]
-      )
-    ),
-  );
-}
+            );
+          }
+        ),
+      ),
+    );
+  }
 }

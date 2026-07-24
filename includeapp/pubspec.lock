@@ -168,6 +168,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
+  just_bubble:
+    dependency: "direct main"
+    description:
+      name: just_bubble
+      sha256: "97c9c27ac20b20ab3f21501be4ca73697f92ece801ca3967ba119ffbf48fe4a1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   leak_tracker:
     dependency: transitive
     description:
