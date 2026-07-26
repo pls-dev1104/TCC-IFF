@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/inputLogin.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:just_bubble/just_bubble.dart';
+import 'inicial.dart';
 
-class Prelobby extends StatefulWidget {
-  const Prelobby({super.key});
+class Inputlogin extends StatefulWidget {
+  const Inputlogin({super.key});
 
   @override
-  State<Prelobby> createState() => _PrelobbyState();
+  State<Inputlogin> createState() => _InputloginState();
 }
 
-class _PrelobbyState extends State<Prelobby> {
+class _InputloginState extends State<Inputlogin> {
+TextEditingController nomeUs = TextEditingController();
+
+ Future<void> salvar() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString("usuario", nomeUs.text);
+
+    if (!mounted) return;
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => Inicial(nome: nomeUs.text)),
+    );
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +54,17 @@ class _PrelobbyState extends State<Prelobby> {
               botaoPadding = telaWidth * 0.0075;
               balaoTop = telaHeight * 0.18;
               balaoEsquerda = telaWidth * 0.46;
-              balaoDireito = telaWidth * 0.32;
+              balaoDireito = telaWidth * 0.375;
             } else {
               pessoaWidth = telaWidth * 0.40;
               pessoaEsquerdo = telaWidth * 0.10;
               pessoaTop = telaHeight * 0.1;
-              fontSizeBalao = telaWidth * 0.045;
+              fontSizeBalao = telaWidth * 0.036;
               fontSizeElevated = telaWidth * 0.07;
               botaoPadding = telaHeight * 0.015;
               balaoTop = telaHeight * 0.22;
               balaoEsquerda = telaWidth * 0.45;
-              balaoDireito = telaWidth * 0.16;
+              balaoDireito = telaWidth * 0.115;
             }
 
             return Column(
@@ -73,24 +87,31 @@ class _PrelobbyState extends State<Prelobby> {
                         top: balaoTop,
                         right: balaoDireito,
                         child: Bubble(
-                          padding: EdgeInsets.all(12),
-                          color: Colors.white,
-                          border: BubbleBorder(
-                            tail: Tail.triangle(
-                              tailJoin: TailJoin.sharp,
-                            ),
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(10),
-                            width: 2,
-                          ),
-                          child: Text(
-                            "Olá, seja muito bem-vindo ao IncludeAPP", 
-                            style: TextStyle(fontSize: fontSizeBalao), 
-                          ),
+                              padding: EdgeInsets.all(12),
+                              color: Colors.white,
+                              border: BubbleBorder(
+                                tail: Tail.triangle(
+                                  tailJoin: TailJoin.sharp
+                                ),
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(10),
+                                width: 2
+                              ),
+                              child: Column(
+                                children: [
+                                  Text("Meu nome é Rogério. Qual seu nome?", style: TextStyle(fontSize: fontSizeBalao),),
+
+                                  TextField(
+                                   controller: nomeUs,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: fontSizeBalao),
+                                  ),
+                                ],
+                              ),
                         ),
-                      )
+                      ),
                     ],
-                  ), 
+                  )
                 ),
 
                 Padding(
@@ -103,11 +124,8 @@ class _PrelobbyState extends State<Prelobby> {
                         backgroundColor: Colors.blueAccent,
                         foregroundColor: Colors.white
                       ),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (_) => Inputlogin()));
-                    }, child: Text("Continuar", style: TextStyle(fontSize: fontSizeElevated),)),
+                      onPressed: salvar, 
+                      child: Text("Continuar", style: TextStyle(fontSize: fontSizeElevated),)),
                   ),
                 )
               ],
