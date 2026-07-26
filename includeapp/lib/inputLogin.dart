@@ -47,14 +47,14 @@ TextEditingController nomeUs = TextEditingController();
 
             if (telaPC) {
               pessoaWidth = telaWidth * 0.2;
-              pessoaEsquerdo = telaWidth * 0.30;
+              pessoaEsquerdo = telaWidth * 0.32;
               pessoaTop = telaHeight * 0.05;
               fontSizeBalao = telaWidth * 0.015;
               fontSizeElevated = telaWidth * 0.02;
               botaoPadding = telaWidth * 0.0075;
-              balaoTop = telaHeight * 0.18;
-              balaoEsquerda = telaWidth * 0.46;
-              balaoDireito = telaWidth * 0.375;
+              balaoTop = telaHeight * 0.12;
+              balaoEsquerda = telaWidth * 0.48;
+              balaoDireito = telaWidth * 0.355;
             } else {
               pessoaWidth = telaWidth * 0.40;
               pessoaEsquerdo = telaWidth * 0.10;
@@ -77,7 +77,7 @@ TextEditingController nomeUs = TextEditingController();
                         bottom: 0,
                         top: pessoaTop,
                         child: Image.asset(
-                          "assets/imagem/MeninoIncludeAPP.png",
+                          "assets/imagem/MeninoInputNome.png",
                           width: pessoaWidth,
                         ),
                       ),

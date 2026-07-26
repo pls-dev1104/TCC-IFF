@@ -63,7 +63,7 @@ class _PrelobbyState extends State<Prelobby> {
                         bottom: 0,
                         top: pessoaTop,
                         child: Image.asset(
-                          "assets/imagem/MeninoIncludeAPP.png",
+                          "assets/imagem/MeninoBemVindo.png",
                           width: pessoaWidth,
                         ),
                       ),
