@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/prelobby.dart';
-
+import 'package:includeapp/home.dart';
+  
 void main() {
   runApp(const App());
 }
@@ -16,7 +16,7 @@ class App extends StatelessWidget {
         appBarTheme: AppBarTheme(backgroundColor: Color(0xFF2563EB)),
       ),
       debugShowCheckedModeBanner: false,
-      home: Prelobby(),
+      home: Home(),
     );
   }
 }

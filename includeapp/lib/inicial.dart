@@ -3,7 +3,6 @@ import 'package:includeapp/nivelUm.dart';
 import 'package:includeapp/nivelZero.dart';
 import 'package:includeapp/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'nivelDois.dart';
 
 class Inicial extends StatefulWidget {
@@ -25,8 +24,7 @@ class _InicialState extends State<Inicial> {
     
       if (!context.mounted) return;
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Prelobby())
-        );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Prelobby()));
     }
     return Scaffold(
         appBar: AppBar(
@@ -37,6 +35,8 @@ class _InicialState extends State<Inicial> {
               SizedBox(height: 20),
               Text("Bem-vindo, ${widget.nome}!"),
               SizedBox(height: 20),
+
+              ElevatedButton(onPressed: efetuarLogoff, child: Text('Logoof')),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -193,7 +193,6 @@ class _InicialState extends State<Inicial> {
                     SizedBox(height: 10),
 
                     Text("Ajuda?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500), ),
-                    ElevatedButton(onPressed: efetuarLogoff, child: Text('Logoof'))
                   ],
                 ),
               ),

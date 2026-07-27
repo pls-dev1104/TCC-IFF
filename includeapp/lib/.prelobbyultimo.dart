@@ -1,34 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/rendering.dart';
+import 'package:includeapp/prelobby.dart';
 import 'package:just_bubble/just_bubble.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'inicial.dart';
 
-class Inputlogin extends StatefulWidget {
-  const Inputlogin({super.key});
+class PreLobbyUltimo extends StatefulWidget {
+  const PreLobbyUltimo({super.key});
 
   @override
-  State<Inputlogin> createState() => _InputloginState();
+  State<PreLobbyUltimo> createState() => _PreLobbyUltimoState();
 }
 
-class _InputloginState extends State<Inputlogin> {
-TextEditingController nomeUs = TextEditingController();
-
- Future<void> salvar() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString("usuario", nomeUs.text);
-
-    if (!mounted) return;
-
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (_) => Inicial(nome: nomeUs.text)),
-    );
- }
-
+class _PreLobbyUltimoState extends State<PreLobbyUltimo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("Prelobby", style: TextStyle(color: Colors.white),)),
+      appBar: AppBar(title: Text("Prelobby", style: TextStyle(color: Colors.white)), centerTitle: true,),
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -46,9 +34,9 @@ TextEditingController nomeUs = TextEditingController();
             double balaoDireito;
 
             if (telaPC) {
-              pessoaWidth = telaWidth * 0.15;
+              pessoaWidth = telaWidth * 0.2;
               pessoaEsquerdo = telaWidth * 0.32;
-              pessoaTop = telaHeight * 0.08;
+              pessoaTop = telaHeight * 0.05;
               fontSizeBalao = telaWidth * 0.015;
               fontSizeElevated = telaWidth * 0.02;
               botaoPadding = telaWidth * 0.0075;
@@ -58,7 +46,7 @@ TextEditingController nomeUs = TextEditingController();
             } else {
               pessoaWidth = telaWidth * 0.40;
               pessoaEsquerdo = telaWidth * 0.10;
-              pessoaTop = telaHeight * 0.10;
+              pessoaTop = telaHeight * 0.1;
               fontSizeBalao = telaWidth * 0.036;
               fontSizeElevated = telaWidth * 0.07;
               botaoPadding = telaHeight * 0.015;
@@ -77,37 +65,14 @@ TextEditingController nomeUs = TextEditingController();
                         bottom: 0,
                         top: pessoaTop,
                         child: Image.asset(
-                          "assets/imagem/MeninoInputNome.png",
+                          "assets/imagem/MeninoUltimoPreLobby.png",
                           width: pessoaWidth,
-                        ),
+                        ), 
                       ),
 
                       Positioned(
-                        left: balaoEsquerda,
-                        top: balaoTop,
-                        right: balaoDireito,
                         child: Bubble(
-                              padding: EdgeInsets.all(12),
-                              color: Colors.white,
-                              border: BubbleBorder(
-                                tail: Tail.triangle(
-                                  tailJoin: TailJoin.sharp
-                                ),
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(10),
-                                width: 2
-                              ),
-                              child: Column(
-                                children: [
-                                  Text("Meu nome é Rogério. Qual seu nome?", style: TextStyle(fontSize: fontSizeBalao),),
-
-                                  TextField(
-                                   controller: nomeUs,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: fontSizeBalao),
-                                  ),
-                                ],
-                              ),
+                          child: Text(""),
                         ),
                       ),
                     ],
@@ -124,14 +89,17 @@ TextEditingController nomeUs = TextEditingController();
                         backgroundColor: Colors.blueAccent,
                         foregroundColor: Colors.white
                       ),
-                      onPressed: salvar, 
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (_) => PreLobbyUltimo()));
+                      }, 
                       child: Text("Continuar", style: TextStyle(fontSize: fontSizeElevated),)),
                   ),
                 )
               ],
             );
-          }
-        ),
+          }),
       ),
     );
   }
