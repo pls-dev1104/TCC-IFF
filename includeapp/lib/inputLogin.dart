@@ -13,17 +13,24 @@ class Inputlogin extends StatefulWidget {
 class _InputloginState extends State<Inputlogin> {
 TextEditingController nomeUs = TextEditingController();
 
- Future<void> salvar() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString("usuario", nomeUs.text);
+  Future<void> salvar() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setString("usuario", nomeUs.text);
 
-    if (!mounted) return;
+  if (!mounted) return;
+
+    String nome = nomeUs.text;
+
+    if (nome.isEmpty){
+      return;
+    }
 
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (_) => Inicial(nome: nomeUs.text)),
     );
  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +39,7 @@ TextEditingController nomeUs = TextEditingController();
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
+            
             final telaWidth = constraints.maxWidth;
             final telaHeight = constraints.maxHeight;
             final telaPC = telaWidth > 600;
