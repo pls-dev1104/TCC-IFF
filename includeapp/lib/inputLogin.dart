@@ -35,7 +35,7 @@ TextEditingController nomeUs = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("Prelobby", style: TextStyle(color: Colors.white),)),
+      appBar: AppBar(centerTitle: true, title: Text("InputLogin", style: TextStyle(color: Colors.white),)),
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
