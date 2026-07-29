@@ -117,9 +117,11 @@ TextEditingController nomeUs = TextEditingController();
                                   Text("Meu nome é Rogério. Qual seu nome?", style: TextStyle(fontSize: fontSizeBalao),),
 
                                   TextField(
+                                    autofocus: true,
                                    controller: nomeUs,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: fontSizeBalao),
+
                                   ),
                                 ],
                               ),

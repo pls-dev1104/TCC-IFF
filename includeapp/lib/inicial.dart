@@ -38,9 +38,7 @@ class _InicialState extends State<Inicial> {
                 children: [
                   SizedBox(height: 20),
                   Text("Bem-vindo, ${widget.nome}!"),
-                  SizedBox(height: 20),
-
-                  ElevatedButton(onPressed: efetuarLogoff, child: Text('Logoof')),
+                  SizedBox(height: 20),          
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -157,7 +155,8 @@ class _InicialState extends State<Inicial> {
                                 content: SizedBox(
                                   width: 160,
                                   height: 410,
-                                  child: Column(
+                                  child:SingleChildScrollView(
+                                    child: Column(
                                     children: [
                                       Text("Este local tem o intuito de ser o lugar você aprenderá a usar o celular de forma divertida por meio de minijogos.\n", style: TextStyle(fontSize: 16)),
                                       Column(
@@ -173,6 +172,7 @@ class _InicialState extends State<Inicial> {
                                       )
                                     ],
                                   ),
+                                ),
                                 ),
                                 actions: [
                                   SizedBox(
@@ -192,10 +192,14 @@ class _InicialState extends State<Inicial> {
                               ));
                           }, child: Icon(Icons.live_help_outlined, size: 50,)),
                     ),
-                          
+                           
                       SizedBox(height: 10),
 
                       Text("Ajuda?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+
+                      SizedBox(height: 20),
+
+                       ElevatedButton(onPressed: efetuarLogoff, child: Text('Logoof')),
 
                       SizedBox(height: 20),
                     ],
