@@ -28,8 +28,6 @@ class _InicialState extends State<Inicial> {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Prelobby()));
     }
 
-    final gap;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true, title: Text("Tela Inicial")),
@@ -155,7 +153,7 @@ class _InicialState extends State<Inicial> {
                             showDialog(
                               context: context, 
                               builder: (context) => AlertDialog(
-                                title: Text("Mapa do conhecimento"),
+                                title: Text("Mapa do conhecimento", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                                 content: SizedBox(
                                   width: 160,
                                   height: 410,
@@ -164,12 +162,12 @@ class _InicialState extends State<Inicial> {
                                       Text("Este local tem o intuito de ser o lugar você aprenderá a usar o celular de forma divertida por meio de minijogos.\n", style: TextStyle(fontSize: 16)),
                                       Column(
                                         children: [
-                                          Text("Nível 0:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                          Text("Nível 0:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                                           Text("você aprenderá a criar um alarme, salvar o contato de alguém, chamadas e muito mais.\n"),
 
-                                          Text("Nível 1:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),                                          Text("você aprenderá a criar um email, instalação de apps, whatsapp e etc.\n"),
+                                          Text("Nível 1:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),                                          Text("você aprenderá a criar um email, instalação de apps, whatsapp e etc.\n"),
 
-                                          Text("Nível 2:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                                          Text("Nível 2:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                                           Text("você aprenderá a navegar na internet, login em apps, mexer no youtube, além de outras coisas.\n")
                                         ],
                                       )
