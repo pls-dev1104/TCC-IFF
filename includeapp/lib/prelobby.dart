@@ -34,21 +34,21 @@ class _PrelobbyState extends State<Prelobby> {
             if (telaPC) {
               pessoaWidth = telaWidth * 0.22;
               pessoaEsquerdo = telaWidth * 0.3125;
-              pessoaTop = telaHeight * 0.04;
+              pessoaTop = telaHeight * 0.15;
               fontSizeBalao = telaWidth * 0.015;
               fontSizeElevated = telaWidth * 0.02;
               botaoPadding = telaWidth * 0.0075;
-              balaoTop = telaHeight * 0.18;
+              balaoTop = telaHeight * 0.13;
               balaoEsquerda = telaWidth * 0.46;
               balaoDireito = telaWidth * 0.32;
             } else {
               pessoaWidth = telaWidth * 0.55;
               pessoaEsquerdo = telaWidth * 0.10;
-              pessoaTop = telaHeight * 0.10;
+              pessoaTop = telaHeight * 0.25;
               fontSizeBalao = telaWidth * 0.045;
               fontSizeElevated = telaWidth * 0.07;
               botaoPadding = telaHeight * 0.015;
-              balaoTop = telaHeight * 0.22;
+              balaoTop = telaHeight * 0.15;
               balaoEsquerda = telaWidth * 0.45;
               balaoDireito = telaWidth * 0.16;
             }
@@ -60,7 +60,6 @@ class _PrelobbyState extends State<Prelobby> {
                     children: [
                       Positioned(
                         left: pessoaEsquerdo,
-                        bottom: 0,
                         top: pessoaTop,
                         child: Image.asset(
                           "assets/imagem/MeninoBemVindo2.png",
