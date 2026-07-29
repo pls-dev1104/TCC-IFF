@@ -12,6 +12,7 @@ class Inputlogin extends StatefulWidget {
 
 class _InputloginState extends State<Inputlogin> {
 TextEditingController nomeUs = TextEditingController();
+  bool mensagem = false;
 
   Future<void> salvar() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -21,7 +22,10 @@ TextEditingController nomeUs = TextEditingController();
 
     String nome = nomeUs.text;
 
-    if (nome.isEmpty){
+    if (nome.isEmpty){    
+      setState(() {
+        mensagem = true;
+      });  
       return;
     }
 
@@ -49,28 +53,32 @@ TextEditingController nomeUs = TextEditingController();
             double fontSizeBalao;
             double fontSizeElevated;
             double botaoPadding;
+            double botaoErro;
             double balaoTop;
             double balaoEsquerda;
             double balaoDireito;
+            
 
             if (telaPC) {
               pessoaWidth = telaWidth * 0.15;
               pessoaEsquerdo = telaWidth * 0.32;
-              pessoaTop = telaHeight * 0.08;
+              pessoaTop = telaHeight * 0.15;
               fontSizeBalao = telaWidth * 0.015;
               fontSizeElevated = telaWidth * 0.02;
               botaoPadding = telaWidth * 0.0075;
-              balaoTop = telaHeight * 0.12;
+              botaoErro = telaWidth * 0.35;
+              balaoTop = telaHeight * 0.07;
               balaoEsquerda = telaWidth * 0.48;
               balaoDireito = telaWidth * 0.355;
             } else {
               pessoaWidth = telaWidth * 0.40;
               pessoaEsquerdo = telaWidth * 0.10;
-              pessoaTop = telaHeight * 0.10;
+              pessoaTop = telaHeight * 0.25;
               fontSizeBalao = telaWidth * 0.036;
               fontSizeElevated = telaWidth * 0.07;
               botaoPadding = telaHeight * 0.015;
-              balaoTop = telaHeight * 0.20;
+              botaoErro = telaWidth * 0.55;
+              balaoTop = telaHeight * 0.15;
               balaoEsquerda = telaWidth * 0.45;
               balaoDireito = telaWidth * 0.115;
             }
@@ -82,7 +90,6 @@ TextEditingController nomeUs = TextEditingController();
                     children: [
                       Positioned(
                         left: pessoaEsquerdo,
-                        bottom: 0,
                         top: pessoaTop,
                         child: Image.asset(
                           "assets/imagem/MeninoInputNome.png",
@@ -120,6 +127,32 @@ TextEditingController nomeUs = TextEditingController();
                       ),
                     ],
                   )
+                ),
+
+                Column(
+                  children: [
+                    if (mensagem)
+                      SizedBox(
+                        width: botaoErro,
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(16),
+                          margin: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(color: Colors.red),
+                            color: const Color.fromARGB(255, 255, 54, 54)
+                          ),
+                        child: Text(
+                          "Nome inválido",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                        ),
+                        ),
+                      )
+                  ],
                 ),
 
                 Padding(
