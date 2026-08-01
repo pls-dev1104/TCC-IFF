@@ -14,6 +14,12 @@ class App extends StatelessWidget {
       title: "IncludeApp",
       theme: ThemeData(
         appBarTheme: AppBarTheme(backgroundColor: Color(0xFF2563EB)),
+        drawerTheme: DrawerThemeData(
+          backgroundColor: Colors.blueAccent,
+        ),
+        listTileTheme: ListTileThemeData(
+          textColor: Colors.white,
+        )
       ),
       debugShowCheckedModeBanner: false,
       home: Home(),

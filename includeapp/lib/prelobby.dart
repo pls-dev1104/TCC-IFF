@@ -21,15 +21,15 @@ class _PrelobbyState extends State<Prelobby> {
             final telaWidth = constraints.maxWidth;
             final telaHeight = constraints.maxHeight;
             final telaPC = telaWidth > 600;
-            double pessoaWidth;
-            double pessoaEsquerdo;
-            double pessoaTop;
-            double fontSizeBalao;
-            double fontSizeElevated;
-            double botaoPadding;
-            double balaoTop;
-            double balaoEsquerda;
-            double balaoDireito;
+            final double pessoaWidth;
+            final double pessoaEsquerdo;
+            final double pessoaTop;
+            final double fontSizeBalao;
+            final double fontSizeElevated;
+            final double botaoPadding;
+            final double balaoTop;
+            final double balaoEsquerda;
+            final double balaoDireito;
 
             if (telaPC) {
               pessoaWidth = telaWidth * 0.22;
