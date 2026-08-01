@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/funcoes/alertDialogAjuda.dart';
 
 Widget drawerFazer(BuildContext context) {
   return Drawer(
@@ -38,6 +39,9 @@ Widget drawerFazer(BuildContext context) {
               fontSize: 20
             ),
           ),
+          onTap: () {
+            alertDialogAjuda(context);
+          },
         ),
 
         ListTile(
