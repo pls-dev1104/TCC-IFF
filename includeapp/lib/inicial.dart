@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/funcoes/alertDialogAjuda.dart';
-import 'package:includeapp/funcoes/drawer.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/nivelUm.dart';
 import 'package:includeapp/nivelZero.dart';
 import 'package:includeapp/prelobby.dart';
@@ -31,17 +31,13 @@ class _InicialState extends State<Inicial> {
 
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true, title: Text("Tela Inicial", 
-          style: TextStyle(
-            color: Colors.white
-          ),
-        ),
+        centerTitle: true, title: Text("Tela Inicial", style: TextStyle(color: Colors.white),),
         iconTheme: IconThemeData(
           color: Colors.white
         ),
       ),
       drawer: drawerFazer(context),
-        
+
         body: SingleChildScrollView(
           child: LayoutBuilder(
             builder: (context, constraints) {

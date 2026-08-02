@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: AppBarTheme(backgroundColor: Color(0xFF2563EB)),
         drawerTheme: DrawerThemeData(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Color(0xFF2563EB),
         ),
         listTileTheme: ListTileThemeData(
           textColor: Colors.white,

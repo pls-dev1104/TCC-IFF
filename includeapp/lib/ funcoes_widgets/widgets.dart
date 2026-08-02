@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/funcoes/alertDialogAjuda.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 
 Widget drawerFazer(BuildContext context) {
   return Drawer(
@@ -7,7 +7,7 @@ Widget drawerFazer(BuildContext context) {
       children: [
         DrawerHeader(
           decoration: BoxDecoration(
-            color: Colors.blueAccent
+            color: Color(0xFF2563EB),
           ),
           child: Text("Atalhos", 
             style: TextStyle(
@@ -55,3 +55,5 @@ Widget drawerFazer(BuildContext context) {
     ),
   );
 }
+
+// ===

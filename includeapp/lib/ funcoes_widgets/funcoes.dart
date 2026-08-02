@@ -7,7 +7,7 @@ void alertDialogAjuda(BuildContext context) {
       title: Text("Mapa do conhecimento", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
       content: SizedBox(
         width: 160,
-        height: 410,
+        height: 400,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -46,3 +46,5 @@ void alertDialogAjuda(BuildContext context) {
     )
   );
 }
+
+// ===
