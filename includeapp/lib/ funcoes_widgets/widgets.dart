@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/configura%C3%A7%C3%B5es.dart';
+import 'package:includeapp/configura%C3%A7%C3%B5es.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/inicial.dart';
 import "package:includeapp/nivelUm.dart";
@@ -81,15 +81,15 @@ PreferredSizeWidget appBarWidget(BuildContext context) {
         ),
         child: Row(
           children: [
-            ElevatedButton.icon(
+            IconButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF2563EB),
               ),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => NivelUm()));
               },
-              icon: Icon(Icons.person_2, color: Colors.white, size: 20,), 
-              label: Text("Level: 0", style: TextStyle(color: Colors.white, fontSize: 16),)),
+              icon: Icon(Icons.settings, color: Colors.white, size: 20,), 
+              )
           ],              
         )    
       ),
