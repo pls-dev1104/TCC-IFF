@@ -30,13 +30,8 @@ class _InicialState extends State<Inicial> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true, title: Text("Tela Inicial", style: TextStyle(color: Colors.white),),
-        iconTheme: IconThemeData(
-          color: Colors.white
-        ),
-      ),
-      drawer: drawerFazer(context),
+      appBar: appBarWidget(context),
+      drawer: drawerFazer(context, widget.nome),
 
         body: SingleChildScrollView(
           child: LayoutBuilder(
