@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
-class Configuracoes extends StatefulWidget {
+class Perfil extends StatefulWidget {
   final String nome;
 
-  const Configuracoes({super.key, required this.nome});
+  const Perfil({super.key, required this.nome});
 
   @override
-  State<Configuracoes> createState() => _ConfiguracoesState();
+  State<Perfil> createState() => _PerfilState();
 }
 
-class _ConfiguracoesState extends State<Configuracoes> {
+class _PerfilState extends State<Perfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidget(context),
+      appBar: appBarWidget(context, "Perfil", widget.nome),
       drawer: drawerFazer(context, widget.nome),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/inputLogin.dart';
+import 'package:includeapp/prelooby/inputLogin.dart';
 import 'package:just_bubble/just_bubble.dart';
 
 class Prelobby extends StatefulWidget {

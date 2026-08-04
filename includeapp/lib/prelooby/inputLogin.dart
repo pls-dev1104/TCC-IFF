@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:just_bubble/just_bubble.dart';
-import 'inicial.dart';
+import '../inicial.dart';
 
 class Inputlogin extends StatefulWidget {
   const Inputlogin({super.key});

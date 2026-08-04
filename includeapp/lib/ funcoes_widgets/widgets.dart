@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/configura%C3%A7%C3%B5es.dart';
+import 'package:includeapp/configurancoes.dart';
+import 'package:includeapp/perfil.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/inicial.dart';
-import "package:includeapp/nivelUm.dart";
 
 Widget drawerFazer(BuildContext context, String nome) {
   return Drawer(
@@ -57,7 +57,7 @@ Widget drawerFazer(BuildContext context, String nome) {
             ),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Configuracoes(nome: nome)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: nome)));
           },
         ),
       ],
@@ -67,32 +67,26 @@ Widget drawerFazer(BuildContext context, String nome) {
 
 // ===
 
-PreferredSizeWidget appBarWidget(BuildContext context) {
+PreferredSizeWidget appBarWidget(BuildContext context, String titulo, String nome) {
   return AppBar(
-    centerTitle: true, title: Text("Tela Inicial", style: TextStyle(color: Colors.white),),
+    centerTitle: true, title: Text(titulo, style: TextStyle(color: Colors.white),),
     iconTheme: IconThemeData(
       color: Colors.white
     ),
     actions: [
-      Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(20)
-        ),
-        child: Row(
+        Row(
           children: [
             IconButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF2563EB),
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => NivelUm()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Perfil(nome: nome)));
               },
-              icon: Icon(Icons.settings, color: Colors.white, size: 20,), 
+              icon: Icon(Icons.account_circle, color: Colors.white, size: 24), 
               )
           ],              
-        )    
-      ),
+        ),    
       SizedBox(width: 10),
     ],
   );

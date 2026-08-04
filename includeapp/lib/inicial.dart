@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/nivelUm.dart';
-import 'package:includeapp/nivelZero.dart';
-import 'package:includeapp/prelobby.dart';
+import 'package:includeapp/jogos/nivelUm.dart';
+import 'package:includeapp/jogos/nivelZero.dart';
+import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'nivelDois.dart';
+import 'jogos/nivelDois.dart';
 
 class Inicial extends StatefulWidget {
   final String nome;
@@ -30,7 +30,7 @@ class _InicialState extends State<Inicial> {
     }
 
     return Scaffold(
-      appBar: appBarWidget(context),
+      appBar: appBarWidget(context, "Inicial", widget.nome),
       drawer: drawerFazer(context, widget.nome),
 
         body: SingleChildScrollView(
