@@ -27,7 +27,7 @@ Widget drawerFazer(BuildContext context, String nome) {
             ),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Inicial(nome: nome)));
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Inicial(nome: nome)), (route) => false);
           },
         ),
 

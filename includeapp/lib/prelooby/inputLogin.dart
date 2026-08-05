@@ -44,19 +44,19 @@ TextEditingController nomeUs = TextEditingController();
         child: LayoutBuilder(
           builder: (context, constraints) {
             
-            final telaWidth = constraints.maxWidth;
-            final telaHeight = constraints.maxHeight;
+            final telaWidth = MediaQuery.of(context).size.width;
+            final telaHeight = MediaQuery.of(context).size.height;
             final telaPC = telaWidth > 600;
-            double pessoaWidth;
-            double pessoaEsquerdo;
-            double pessoaTop;
-            double fontSizeBalao;
-            double fontSizeElevated;
-            double botaoPadding;
-            double botaoErro;
-            double balaoTop;
-            double balaoEsquerda;
-            double balaoDireito;
+            final double pessoaWidth;
+            final double pessoaEsquerdo;
+            final double pessoaTop;
+            final double fontSizeBalao;
+            final double fontSizeElevated;
+            final double botaoPadding;
+            final double botaoErro;
+            final double balaoTop;
+            final double balaoEsquerda;
+            final double balaoDireito;
             
 
             if (telaPC) {
