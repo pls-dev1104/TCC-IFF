@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+import 'package:includeapp/jogos/nivelDois.dart';
 
 class Perfil extends StatefulWidget {
   final String nome;
@@ -45,12 +46,12 @@ class _PerfilState extends State<Perfil> {
               bolaPerfil = telaHeight * 0.1;
             } else {
               gapSuperiorInferior = telaHeight * 0.02;
-              telaSuperiorWidth = telaWidth * 0.50;
-              telaInferiorWidth = telaWidth * 0.50;
+              telaSuperiorWidth = telaWidth * 0.75;
+              telaInferiorWidth = telaWidth * 0.75;
               telaSuperiorHeight = telaHeight * 0.15;
-              telaInferiorHeight = telaHeight * 0.75;
-              telaLeftPessoa = telaWidth * 0.015;
-              telaTopPessoa = telaSuperiorHeight * 0.4;
+              telaInferiorHeight = telaHeight * 0.70;
+              telaLeftPessoa = telaWidth * 0.03;
+              telaTopPessoa = telaSuperiorHeight * 0.60;
               bolaPerfil = telaHeight * 0.1;
             }
 
@@ -78,7 +79,10 @@ class _PerfilState extends State<Perfil> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("OI"),
+                                  Text("Informações do ${widget.nome}", style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold
+                                  ),),
                                 ],
                               ),
                             ),
@@ -114,7 +118,47 @@ class _PerfilState extends State<Perfil> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("OI"),
+                              Expanded(
+                                child: ListView(
+                                  children: [
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
+                                      leading: Icon(Icons.abc_outlined),
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois()));
+                                      },
+                                    ),
+                    
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
+                                      leading: Icon(Icons.abc_outlined),
+                                    ),
+
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
+                                      leading: Icon(Icons.abc_outlined),
+                                    ),
+
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
+                                      leading: Icon(Icons.abc_outlined),
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois()));
+                                      },
+                                    ),
+                                    
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
+                                      leading: Icon(Icons.abc_outlined),
+                                    ),
+
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
+                                      leading: Icon(Icons.abc_outlined),
+                                    ),
+                                  ],
+                                )
+                              ),
                             ],
                           ),
                         ),
