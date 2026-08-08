@@ -40,6 +40,17 @@ Widget drawerFazer(BuildContext context, String nome) {
         ),
 
         ListTile(
+          title: Text("Perfil", style: 
+            TextStyle(
+              fontSize: 20
+            ),
+          ),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Perfil(nome: nome)));
+          },
+        ),
+
+        ListTile(
           title: Text("Ajuda", style: 
             TextStyle(
               fontSize: 20

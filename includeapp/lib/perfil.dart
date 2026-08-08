@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+import 'package:includeapp/configurancoes.dart';
 import 'package:includeapp/jogos/nivelDois.dart';
 
 class Perfil extends StatefulWidget {
@@ -33,10 +34,14 @@ class _PerfilState extends State<Perfil> {
             final double telaLeftPessoa;
             final double telaTopPessoa;
             final double gapSuperiorInferior;
+            final double gapInterSuperiorInferior;
             final double bolaPerfil;
+            final double fontSizePerfil;
+            final double fontSizeTelaInferior;
 
             if (telaPC) {
               gapSuperiorInferior = telaHeight * 0.02;
+              gapInterSuperiorInferior = telaHeight * 0.05;
               telaSuperiorWidth = telaWidth * 0.40;
               telaInferiorWidth = telaWidth * 0.40;
               telaSuperiorHeight = telaHeight * 0.15;
@@ -44,15 +49,20 @@ class _PerfilState extends State<Perfil> {
               telaLeftPessoa = telaWidth * 0.015;
               telaTopPessoa = telaSuperiorHeight * 0.60;
               bolaPerfil = telaHeight * 0.1;
+              fontSizePerfil = 30;
+              fontSizeTelaInferior = 30;
             } else {
               gapSuperiorInferior = telaHeight * 0.02;
-              telaSuperiorWidth = telaWidth * 0.75;
-              telaInferiorWidth = telaWidth * 0.75;
-              telaSuperiorHeight = telaHeight * 0.15;
-              telaInferiorHeight = telaHeight * 0.70;
+              gapInterSuperiorInferior = telaHeight * 0.04;
+              telaSuperiorWidth = telaWidth * 0.80;
+              telaInferiorWidth = telaWidth * 0.80;
+              telaSuperiorHeight = telaHeight * 0.125;
+              telaInferiorHeight = telaHeight * 0.65;
               telaLeftPessoa = telaWidth * 0.03;
-              telaTopPessoa = telaSuperiorHeight * 0.60;
-              bolaPerfil = telaHeight * 0.1;
+              telaTopPessoa = telaSuperiorHeight * 0.675;
+              bolaPerfil = telaHeight * 0.075;
+              fontSizePerfil = 20;
+              fontSizeTelaInferior = 20;
             }
 
             return Center(
@@ -80,7 +90,7 @@ class _PerfilState extends State<Perfil> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text("Informações do ${widget.nome}", style: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: fontSizePerfil,
                                     fontWeight: FontWeight.bold
                                   ),),
                                 ],
@@ -102,7 +112,7 @@ class _PerfilState extends State<Perfil> {
                       ],
                     ),
 
-                    SizedBox(height: 40),
+                    SizedBox(height: gapInterSuperiorInferior),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -122,39 +132,42 @@ class _PerfilState extends State<Perfil> {
                                 child: ListView(
                                   children: [
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
-                                      leading: Icon(Icons.abc_outlined),
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25),
                                       onTap: () {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois()));
                                       },
                                     ),
                     
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
-                                      leading: Icon(Icons.abc_outlined),
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25,),
                                     ),
 
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
-                                      leading: Icon(Icons.abc_outlined),
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25,),
                                     ),
 
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
-                                      leading: Icon(Icons.abc_outlined),
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25,),
                                       onTap: () {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois()));
                                       },
                                     ),
                                     
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
-                                      leading: Icon(Icons.abc_outlined),
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25,),
                                     ),
 
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black),),
-                                      leading: Icon(Icons.abc_outlined),
+                                      title: Text("Configurações", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.settings, size: 25),
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: widget.nome)));
+                                      },
                                     ),
                                   ],
                                 )
