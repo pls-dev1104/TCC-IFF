@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/configurancoes.dart';
 import 'package:includeapp/jogos/nivelDois.dart';
+import 'package:includeapp/prelooby/prelobby.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Perfil extends StatefulWidget {
   final String nome;
@@ -13,6 +15,15 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
+
+Future<void> efetuarLogoff() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.remove("usuario");
+    
+      if (!context.mounted) return;
+
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Prelobby()));
+    }
 
   @override
   void initState() {
@@ -173,6 +184,14 @@ class _PerfilState extends State<Perfil> {
                                       leading: Icon(Icons.settings, size: 25),
                                       onTap: () {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: widget.nome)));
+                                      },
+                                    ),
+
+                                    ListTile(
+                                      title: Text("Sair do perfil", style: TextStyle(color: Colors.red, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc, size: 25),
+                                      onTap: () {
+                                        efetuarLogoff();
                                       },
                                     ),
                                   ],

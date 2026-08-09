@@ -4,8 +4,7 @@ import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivelUm.dart';
 import 'package:includeapp/jogos/nivelZero.dart';
 import 'package:includeapp/jogos/telaCarregamento.dart';
-import 'package:includeapp/prelooby/prelobby.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'jogos/nivelDois.dart';
 
 class Inicial extends StatefulWidget {
@@ -26,14 +25,7 @@ class _InicialState extends State<Inicial> {
 
   @override
   Widget build(BuildContext context) {
-    Future<void> efetuarLogoff() async {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.remove("usuario");
     
-      if (!context.mounted) return;
-
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Prelobby()));
-    }
 
     return Scaffold(
       appBar: appBarWidget(context, "Inicial", widget.nome),
@@ -162,13 +154,7 @@ class _InicialState extends State<Inicial> {
                            
                       SizedBox(height: 10),
 
-                      Text("Ajuda?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
-
-                      SizedBox(height: 20),
-
-                       ElevatedButton(onPressed: efetuarLogoff, child: Text('Logoof')),
-
-                      SizedBox(height: 20),
+                      Text("Ajuda?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500))
                     ],
                   ),
                 ],
