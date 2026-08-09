@@ -15,6 +15,12 @@ class Perfil extends StatefulWidget {
 class _PerfilState extends State<Perfil> {
 
   @override
+  void initState() {
+    super.initState();
+
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarWidget(context, "Perfil", widget.nome),
@@ -135,7 +141,7 @@ class _PerfilState extends State<Perfil> {
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: Icon(Icons.abc_outlined, size: 25),
                                       onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois()));
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois(nome: widget.nome,)));
                                       },
                                     ),
                     
@@ -153,7 +159,7 @@ class _PerfilState extends State<Perfil> {
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: Icon(Icons.abc_outlined, size: 25,),
                                       onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois()));
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois(nome: widget.nome)));
                                       },
                                     ),
                                     

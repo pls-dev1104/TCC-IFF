@@ -12,6 +12,11 @@ class Prelobby extends StatefulWidget {
 class _PrelobbyState extends State<Prelobby> {
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text("Prelobby", style: TextStyle(color: Colors.white),)),

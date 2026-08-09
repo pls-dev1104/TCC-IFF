@@ -11,6 +11,12 @@ class Configurancoes extends StatefulWidget {
 }
 
 class _ConfigurancoesState extends State<Configurancoes> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

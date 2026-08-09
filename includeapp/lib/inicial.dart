@@ -3,6 +3,7 @@ import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivelUm.dart';
 import 'package:includeapp/jogos/nivelZero.dart';
+import 'package:includeapp/jogos/telaCarregamento.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'jogos/nivelDois.dart';
@@ -17,6 +18,11 @@ class Inicial extends StatefulWidget {
 }
 
 class _InicialState extends State<Inicial> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +73,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => NivelZero()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => telaCarregamento(nome: widget.nome, proximaTelaNivel: NivelZero(nome: widget.nome,),)));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +99,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => NivelUm()));
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => telaCarregamento(nome: widget.nome, proximaTelaNivel: NivelUm(nome: widget.nome,),)));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -119,7 +125,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois()));
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => telaCarregamento(nome: widget.nome, proximaTelaNivel: NivelDois(nome: widget.nome,))));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,

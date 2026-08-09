@@ -25,6 +25,11 @@ TextEditingController nomeUs = TextEditingController();
  }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text("IncludeApp")),

@@ -13,6 +13,12 @@ class PreLobbyUltimo extends StatefulWidget {
 }
 
 class _PreLobbyUltimoState extends State<PreLobbyUltimo> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

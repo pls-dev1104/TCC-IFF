@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
 class NivelDois extends StatefulWidget {
-  const NivelDois({super.key});
+  final String nome;
+
+  const NivelDois({super.key, required this.nome});
 
   @override
   State<NivelDois> createState() => _NivelDoisState();
 }
 
 class _NivelDoisState extends State<NivelDois> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true,title: const Text("Nível 2"),),
+      appBar: appBarWidget(context, "Nível 2", widget.nome),
+      drawer: drawerFazer(context, widget.nome),
     );
   }
 }
