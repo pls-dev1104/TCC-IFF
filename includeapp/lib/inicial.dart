@@ -65,7 +65,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => telaCarregamento(nome: widget.nome, proximaTelaNivel: NivelZero(nome: widget.nome,),)));
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCarregamento(nome: widget.nome, proximaTelaNivel: NivelZero(nome: widget.nome,),)));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +91,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => telaCarregamento(nome: widget.nome, proximaTelaNivel: NivelUm(nome: widget.nome,),)));
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TelaCarregamento(nome: widget.nome, proximaTelaNivel: NivelUm(nome: widget.nome,),)));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +117,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => telaCarregamento(nome: widget.nome, proximaTelaNivel: NivelDois(nome: widget.nome,))));
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TelaCarregamento(nome: widget.nome, proximaTelaNivel: NivelDois(nome: widget.nome,))));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,

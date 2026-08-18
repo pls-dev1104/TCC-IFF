@@ -104,3 +104,14 @@ PreferredSizeWidget appBarWidget(BuildContext context, String titulo, String nom
 }
 
 // ===
+
+ButtonStyle botaoMiniJogo() {
+  return ElevatedButton.styleFrom(
+    backgroundColor: Colors.blueAccent,
+    foregroundColor: Colors.white,
+    minimumSize: Size(100, 75),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadiusGeometry.circular(30),
+    ),
+  );
+}

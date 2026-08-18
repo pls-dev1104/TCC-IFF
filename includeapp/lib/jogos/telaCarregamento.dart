@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class telaCarregamento extends StatefulWidget {
+class TelaCarregamento extends StatefulWidget {
   final String nome;
   final Widget proximaTelaNivel; //Lobato, parâmetro pra já passar pra tela dos níveis, é widget pq está referenciando o NivelZero, NivelUm e o NívelDois, que são widgets
 
-  const telaCarregamento({super.key, required this.nome, required this.proximaTelaNivel});
+  const TelaCarregamento({super.key, required this.nome, required this.proximaTelaNivel});
 
   @override
-  State<telaCarregamento> createState() => _telaCarregamentoState();
+  State<TelaCarregamento> createState() => _TelaCarregamentoState();
 }
 
-class _telaCarregamentoState extends State<telaCarregamento> {
+class _TelaCarregamentoState extends State<TelaCarregamento> {
   @override
   void initState() {
     super.initState();
