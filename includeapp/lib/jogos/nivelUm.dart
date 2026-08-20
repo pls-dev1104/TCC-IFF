@@ -27,7 +27,7 @@ class _NivelUmState extends State<NivelUm> {
           builder: (context, constraints) {
             final telaWidth = MediaQuery.of(context).size.width;
             final telaHeigth = MediaQuery.of(context).size.height;
-            final telaPc = telaWidth > 600;
+            
 
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
