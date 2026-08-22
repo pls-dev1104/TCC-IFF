@@ -1,45 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/configurancoes.dart';
-import 'package:includeapp/jogos/nivelDois.dart';
+//import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+//import 'package:includeapp/configurancoes.dart';
+//import 'package:includeapp/jogos/nivelDois.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Perfil extends StatefulWidget {
-  final String nome;
-
-  const Perfil({super.key, required this.nome});
+  const Perfil({super.key});
 
   @override
   State<Perfil> createState() => _PerfilState();
 }
 
 class _PerfilState extends State<Perfil> {
+  Future<void> efetuarLogoff() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove("usuario");
 
-Future<void> efetuarLogoff() async {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.remove("usuario");
-    
-      if (!context.mounted) return;
+    if (!context.mounted) return;
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Prelobby()));
-    }
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => Prelobby()),
+    );
+  }
 
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidget(context, "Perfil", widget.nome),
-      drawer: drawerFazer(context, widget.nome),
+      //appBar: appBarWidget(context, "Perfil", widget.nome),
+      //drawer: drawerFazer(context, widget.nome),
       body: SingleChildScrollView(
         child: LayoutBuilder(
           builder: (context, constraints) {
-
             final telaWidth = MediaQuery.of(context).size.width;
             final telaHeight = MediaQuery.of(context).size.height;
             final telaPC = telaWidth > 600;
@@ -106,10 +104,13 @@ Future<void> efetuarLogoff() async {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("Informações do ${widget.nome}", style: TextStyle(
-                                    fontSize: fontSizePerfil,
-                                    fontWeight: FontWeight.bold
-                                  ),),
+                                  Text(
+                                    "Informações do ",
+                                    style: TextStyle(
+                                      fontSize: fontSizePerfil,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -121,7 +122,10 @@ Future<void> efetuarLogoff() async {
                                   color: Colors.white,
                                   shape: BoxShape.circle,
                                 ),
-                                child: Icon(Icons.account_circle, size: bolaPerfil),
+                                child: Icon(
+                                  Icons.account_circle,
+                                  size: bolaPerfil,
+                                ),
                               ),
                             ),
                           ],
@@ -149,53 +153,104 @@ Future<void> efetuarLogoff() async {
                                 child: ListView(
                                   children: [
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25),
-                                      onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois(nome: widget.nome,)));
-                                      },
-                                    ),
-                    
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25,),
-                                    ),
-
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25,),
+                                      title: Text(
+                                        "Oi",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
+                                      leading: Icon(
+                                        Icons.abc_outlined,
+                                        size: 25,
+                                      ),
+                                      onTap: () {},
                                     ),
 
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25,),
-                                      onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => NivelDois(nome: widget.nome)));
-                                      },
-                                    ),
-                                    
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25,),
+                                      title: Text(
+                                        "Oi",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
+                                      leading: Icon(
+                                        Icons.abc_outlined,
+                                        size: 25,
+                                      ),
                                     ),
 
                                     ListTile(
-                                      title: Text("Configurações", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      title: Text(
+                                        "Oi",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
+                                      leading: Icon(
+                                        Icons.abc_outlined,
+                                        size: 25,
+                                      ),
+                                    ),
+
+                                    ListTile(
+                                      title: Text(
+                                        "Oi",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
+                                      leading: Icon(
+                                        Icons.abc_outlined,
+                                        size: 25,
+                                      ),
+                                      onTap: () {},
+                                    ),
+
+                                    ListTile(
+                                      title: Text(
+                                        "Oi",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
+                                      leading: Icon(
+                                        Icons.abc_outlined,
+                                        size: 25,
+                                      ),
+                                    ),
+
+                                    ListTile(
+                                      title: Text(
+                                        "Configurações",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
                                       leading: Icon(Icons.settings, size: 25),
-                                      onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: widget.nome)));
-                                      },
+                                      onTap: () {},
                                     ),
 
                                     ListTile(
-                                      title: Text("Sair do perfil", style: TextStyle(color: Colors.red, fontSize: fontSizeTelaInferior),),
+                                      title: Text(
+                                        "Sair do perfil",
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
                                       leading: Icon(Icons.abc, size: 25),
                                       onTap: () {
                                         efetuarLogoff();
                                       },
                                     ),
                                   ],
-                                )
+                                ),
                               ),
                             ],
                           ),

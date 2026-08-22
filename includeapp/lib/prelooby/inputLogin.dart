@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/prelooby/gerador_senha.dart';
+import 'package:includeapp/prelooby/login_teste.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:just_bubble/just_bubble.dart';
-import '../inicial.dart';
 
 class Inputlogin extends StatefulWidget {
   const Inputlogin({super.key});
@@ -11,7 +12,9 @@ class Inputlogin extends StatefulWidget {
 }
 
 class _InputloginState extends State<Inputlogin> {
+
 TextEditingController nomeUs = TextEditingController();
+
   bool mensagem = false;
 
   Future<void> salvar() async {
@@ -31,7 +34,7 @@ TextEditingController nomeUs = TextEditingController();
 
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => Inicial(nome: nomeUs.text)),
+      MaterialPageRoute(builder: (_) => GeradorSenha(nome: nomeUs.text)),
     );
  }
 
@@ -161,7 +164,23 @@ TextEditingController nomeUs = TextEditingController();
                       )
                   ],
                 ),
+                //Botao de Login
+                Padding(
+                  padding: EdgeInsetsGeometry.only(bottom: botaoPadding),
+                  child: SizedBox(
+                    width: telaWidth * 0.8,
+                    height: telaHeight * 0.065,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blueAccent,
+                        foregroundColor: Colors.white
+                      ),
+                      onPressed:(){ Navigator.push(context, MaterialPageRoute(builder: (context) => LoginTeste()));},
+                      child: Text("Login", style: TextStyle(fontSize: fontSizeElevated),)),
+                  ),
+                ),
 
+                //Botao de continuar
                 Padding(
                   padding: EdgeInsetsGeometry.only(bottom: botaoPadding),
                   child: SizedBox(
