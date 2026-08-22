@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 //import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 //import 'package:includeapp/configurancoes.dart';
 //import 'package:includeapp/jogos/nivelDois.dart';
+=======
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+import 'package:includeapp/configurancoes.dart';
+import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
+>>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -153,6 +159,7 @@ class _PerfilState extends State<Perfil> {
                                 child: ListView(
                                   children: [
                                     ListTile(
+<<<<<<< HEAD
                                       title: Text(
                                         "Oi",
                                         style: TextStyle(
@@ -165,6 +172,18 @@ class _PerfilState extends State<Perfil> {
                                         size: 25,
                                       ),
                                       onTap: () {},
+=======
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25),
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada(nome: widget.nome,)));
+                                      },
+                                    ),
+                    
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25,),
+>>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
                                     ),
 
                                     ListTile(
@@ -182,6 +201,7 @@ class _PerfilState extends State<Perfil> {
                                     ),
 
                                     ListTile(
+<<<<<<< HEAD
                                       title: Text(
                                         "Oi",
                                         style: TextStyle(
@@ -193,6 +213,18 @@ class _PerfilState extends State<Perfil> {
                                         Icons.abc_outlined,
                                         size: 25,
                                       ),
+=======
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25,),
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada(nome: widget.nome)));
+                                      },
+                                    ),
+                                    
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: Icon(Icons.abc_outlined, size: 25,),
+>>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
                                     ),
 
                                     ListTile(

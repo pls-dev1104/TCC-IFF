@@ -49,3 +49,6 @@ void alertDialogAjuda(BuildContext context) {
 
 // ===
 
+void acerto(BuildContext context, Widget Function(BuildContext) navegar) {
+  Navigator.push(context, MaterialPageRoute(builder: navegar));
+}

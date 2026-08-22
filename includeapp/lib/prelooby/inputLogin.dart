@@ -100,7 +100,7 @@ TextEditingController nomeUs = TextEditingController();
                         left: pessoaEsquerdo,
                         top: pessoaTop,
                         child: Image.asset(
-                          "assets/imagem/MeninoInputNome.png",
+                          "assets/imagem/login/MeninoInputNome.png",
                           width: pessoaWidth,
                         ),
                       ),
