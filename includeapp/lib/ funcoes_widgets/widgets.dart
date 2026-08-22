@@ -134,3 +134,99 @@ ButtonStyle VerificacaoBotao(bool numero) {
     return botaoMiniJogoErro();
   }
 }
+
+Widget padronizacaoJogo(BuildContext context, String pNome, String pImagem, String pPergunta, Widget Function(BuildContext) pProximaTela, double pTelaWidth, double pTelaHeight, bool pbotao1, bool pbotao2, bool pbotao3, bool pbotao4, bool pEscolhaCerta1, bool pEscolhaCerta2, bool pEscolhaCerta3, bool pEscolhaCerta4, void Function() pErro1, void Function() pErro2, void Function() pErro3, void Function() pErro4, Widget pOpcao1, Widget pOpcao2, Widget pOpcao3, Widget pOpcao4) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        padding: EdgeInsets.all(20),
+        margin: EdgeInsets.all(20),
+        width: pTelaWidth * 0.30,
+        height: pTelaHeight * 0.9,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsetsGeometry.only(top: 0),
+              child: Image.asset(
+                pImagem,
+                width: 285,
+                cacheWidth: 570,
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsetsGeometry.only(top: 30),
+              child: Text(
+                pPergunta,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+            ),
+
+            Padding(
+              padding: EdgeInsetsGeometry.only(top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    style: VerificacaoBotao(pbotao1),
+                    onPressed: () {
+                      if (pEscolhaCerta1) {
+                        acerto(context, pProximaTela);
+                      } else {
+                        pErro1();
+                      }
+                    },
+                    child: pOpcao1,
+                  ),
+
+                  ElevatedButton(
+                    style: VerificacaoBotao(pbotao2),
+                    onPressed: () {
+                      if (pEscolhaCerta2) {
+                        acerto(context, pProximaTela);
+                      } else {
+                        pErro2();
+                      }
+                    },
+                    child: pOpcao2,
+                  ),
+
+                  ElevatedButton(
+                    style: VerificacaoBotao(pbotao3),
+                    onPressed: () {
+                      if (pEscolhaCerta3) {
+                        acerto(context, pProximaTela);
+                      } else {
+                        pErro3();
+                      }
+                    },
+                    child: pOpcao3,
+                  ),
+
+                  ElevatedButton(
+                    style: VerificacaoBotao(pbotao4),
+                    onPressed: () {
+                      if (pEscolhaCerta4) {
+                        acerto(context, pProximaTela);
+                      } else {
+                        pErro4();
+                      }
+                    },
+                    child: pOpcao4,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
+}

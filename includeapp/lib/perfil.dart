@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/configurancoes.dart';
-import 'package:includeapp/jogos/nivel2/etapa2Chamada.dart';
+import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

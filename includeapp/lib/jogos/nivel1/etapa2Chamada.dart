@@ -1,33 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
 
-class Etapa1Chamada extends StatefulWidget {
+class Etapa2Chamada extends StatefulWidget {
   final String nome;
 
-  const Etapa1Chamada({super.key, required this.nome});
+  const Etapa2Chamada({super.key, required this.nome});
 
   @override
-  State<Etapa1Chamada> createState() => _Etapa1Chamada();
+  State<Etapa2Chamada> createState() => _Etapa2ChamadaState();
 }
 
-class _Etapa1Chamada extends State<Etapa1Chamada> {
+class _Etapa2ChamadaState extends State<Etapa2Chamada> {
   bool botao1 = false;
   bool botao2 = false;
   bool botao3 = false;
   bool botao4 = false;
 
-  bool escolhaCerta1 = true;
+  bool escolhaCerta1 = false;
   bool escolhaCerta2 = false;
   bool escolhaCerta3 = false;
-  bool escolhaCerta4 = false;
+  bool escolhaCerta4 = true;
 
-  final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "Onde devo clicar para entrar na tela de discar?";
-  final opcao1 = Icon(Icons.dialpad, size: 30);
-  final opcao2 = Icon(Icons.home_filled, size: 30);
-  final opcao3 = Icon(Icons.person_add_alt, size: 30);
-  final opcao4 = Icon(Icons.menu, size: 30,);
+  final imagem = "assets/imagem/jogosImagem/level1/telaDiscarNumero.jpg";
+  final pergunta = "Depois de digitar o nome completo,\n qual botão devo apertar para realizar a chamada?";
+  final opcao1 = Icon(Icons.grid_3x3, size: 30);
+  final opcao2 = Icon(Icons.backspace_outlined, size: 30);
+  final opcao3 = Icon(Icons.home_filled, size: 30);
+  final opcao4 = Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Icon(Icons.call, size: 25,),
+      SizedBox(width: 5,),
+      Text("Ligar", style: TextStyle(fontSize: 25),)
+    ],
+  );
+
 
   void Erro1() {
     setState(() {
@@ -61,7 +68,7 @@ class _Etapa1Chamada extends State<Etapa1Chamada> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidget(context, "Etapa 1", widget.nome),
+      appBar: appBarWidget(context, "Etapa 2", widget.nome),
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {

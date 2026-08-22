@@ -4,7 +4,7 @@ import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/telaCarregamento.dart';
 import 'jogos/nivel0/etapa0Chamada.dart';
 import 'jogos/nivel1/etapa1Chamada.dart';
-import 'jogos/nivel2/etapa2Chamada.dart';
+import 'jogos/nivel2/etapa1Alarme.dart';
 
 class Inicial extends StatefulWidget {
   final String nome;
@@ -64,7 +64,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => TelaCarregamento(nome: widget.nome, proximaTelaNivel: Etapa0Chamada(nome: widget.nome,),)), (route) => false);
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCarregamento(nome: widget.nome, proximaTelaNivel: Etapa0Chamada(nome: widget.nome,))));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +90,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => TelaCarregamento(nome: widget.nome, proximaTelaNivel: Etapa1Chamada(nome: widget.nome,),)), (route) => false);
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCarregamento(nome: widget.nome, proximaTelaNivel: Etapa1Chamada(nome: widget.nome,))));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +116,7 @@ class _InicialState extends State<Inicial> {
                                   )
                                 ),
                                 onPressed: () {
-                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Etapa2Chamada(nome: widget.nome,),), (route) => false);
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => TelaCarregamento(nome: widget.nome, proximaTelaNivel: Etapa1Alarme(nome: widget.nome,))));
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
