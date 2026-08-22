@@ -46,7 +46,7 @@ Widget drawerFazer(BuildContext context, String nome) {
             ),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Perfil(nome: nome)));
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Perfil(nome: nome)), (route) => false);
           },
         ),
 
@@ -68,7 +68,7 @@ Widget drawerFazer(BuildContext context, String nome) {
             ),
           ),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: nome)));
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: nome)), (route) => false);
           },
         ),
       ],
@@ -114,4 +114,23 @@ ButtonStyle botaoMiniJogo() {
       borderRadius: BorderRadiusGeometry.circular(30),
     ),
   );
+}
+
+ButtonStyle botaoMiniJogoErro() {
+  return ElevatedButton.styleFrom(
+    backgroundColor: Colors.redAccent,
+    foregroundColor: Colors.white,
+    minimumSize: Size(100, 75),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadiusGeometry.circular(30),
+    ),
+  );
+}
+
+ButtonStyle VerificacaoBotao(bool numero) {
+  if (!numero) {
+    return botaoMiniJogo();
+  } else {
+    return botaoMiniJogoErro();
+  }
 }

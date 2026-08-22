@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/inicial.dart';
 
 void alertDialogAjuda(BuildContext context) {
   showDialog(
@@ -49,3 +50,7 @@ void alertDialogAjuda(BuildContext context) {
 
 // ===
 
+
+void acerto(BuildContext context, String nome) {
+  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Inicial(nome: nome)));
+}

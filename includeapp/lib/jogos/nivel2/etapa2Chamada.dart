@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
-class NivelZero extends StatefulWidget {
+class Etapa2Chamada extends StatefulWidget {
   final String nome;
 
-  const NivelZero({super.key, required this.nome});
+  const Etapa2Chamada({super.key, required this.nome});
 
   @override
-  State<NivelZero> createState() => _NivelZeroState();
+  State<Etapa2Chamada> createState() => _Etapa2ChamadaState();
 }
 
-class _NivelZeroState extends State<NivelZero> {
+class _Etapa2ChamadaState extends State<Etapa2Chamada> {
 
   @override
   void initState() {
@@ -20,7 +20,7 @@ class _NivelZeroState extends State<NivelZero> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidget(context, "Nível 0", widget.nome),
+      appBar: appBarWidget(context, "Nível 2", widget.nome),
       drawer: drawerFazer(context, widget.nome),
     );
   }

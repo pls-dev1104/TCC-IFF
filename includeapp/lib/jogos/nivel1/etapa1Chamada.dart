@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
-class NivelUm extends StatefulWidget {
+class Etapa1Chamada extends StatefulWidget {
   final String nome;
 
-  const NivelUm({super.key, required this.nome});
+  const Etapa1Chamada({super.key, required this.nome});
 
   @override
-  State<NivelUm> createState() => _NivelUmState();
+  State<Etapa1Chamada> createState() => _Etapa1Chamada();
 }
 
-class _NivelUmState extends State<NivelUm> {
+class _Etapa1Chamada extends State<Etapa1Chamada> {
+
+  var botaoCerto = false;
+  var botaoErro1 = false;
+  var botaoErro2 = false;
+  var botaoErro3 = false;
 
   @override
   void initState() {
@@ -35,8 +41,8 @@ class _NivelUmState extends State<NivelUm> {
                 Container(
                   padding: EdgeInsets.all(20),
                   margin: EdgeInsets.all(20),
-                  width: telaWidth * 0.75,
-                  height: telaHeigth * 0.8,
+                  width: telaWidth * 0.30,
+                  height: telaHeigth * 0.9,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.circular(20)
@@ -45,48 +51,62 @@ class _NivelUmState extends State<NivelUm> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsetsGeometry.only(top: 40),
+                        padding: EdgeInsetsGeometry.only(top: 20),
                         child: Image.asset(
-                          "assets/imagem/MeninoInputNome.png",
-                          width: 200,
+                          "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg",
+                          width: 285,
                           ),
                         ),
 
+                      Padding(
+                        padding: EdgeInsetsGeometry.only(top: 30),
+                        child: Text("Onde devo clicar para entrar na tela de discar?", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),),
+                      ),
 
                       Padding(
-                        padding: EdgeInsetsGeometry.only(top: 180),
+                        padding: EdgeInsetsGeometry.only(top: 60),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ElevatedButton(
-                              style: botaoMiniJogo(),
+                              style: VerificacaoBotao(botaoCerto),
                               onPressed: () {
-
-                            }, child: Text("1", style: TextStyle(
+                                acerto(context, widget.nome);
+                              },
+                              child: Text("1", style: TextStyle(
                               fontSize: 22
                             ),)),
 
                             ElevatedButton(
-                              style: botaoMiniJogo(),
+                              style: VerificacaoBotao(botaoErro1),
                               onPressed: () {
-
-                            }, child: Text("2", style: TextStyle(
+                                setState(() {
+                                  botaoErro1 = true;
+                                });
+                              }, 
+                              child: Text("2", style: TextStyle(
                               fontSize: 22
                             ),)),
 
                             ElevatedButton(
-                              style: botaoMiniJogo(),
+                              style: VerificacaoBotao(botaoErro2),
                               onPressed: () {
-
-                            }, child: Text("3", style: TextStyle(
+                                setState(() {
+                                  botaoErro2 = true;
+                                });
+                              }, 
+                              child: Text("3", style: TextStyle(
                               fontSize: 22
                             ),)),
 
                             ElevatedButton(
-                              style: botaoMiniJogo(),
+                              style: VerificacaoBotao(botaoErro3),
                               onPressed: () {
-
-                            }, child: Text("4", style: TextStyle(
+                                setState(() {
+                                  botaoErro3 =true;
+                                });
+                              }, 
+                              child: Text("4", style: TextStyle(
                               fontSize: 22
                             ),)),
                           ],
