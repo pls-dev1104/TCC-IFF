@@ -38,62 +38,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-   apiKey: "AIzaSyDotSo5nz_0Z7IxIVVmEwR7w5ZTCtgKTBg",
-
-  authDomain: "includeapp-2cee9.firebaseapp.com",
-
-  projectId: "includeapp-2cee9",
-
-  storageBucket: "includeapp-2cee9.firebasestorage.app",
-
-  messagingSenderId: "654176978946",
-
-  appId: "1:654176978946:web:6ccdf04a0e0fc02636ff1b"
-
+    apiKey: "AIzaSyDotSo5nz_0Z7IxIVVmEwR7w5ZTCtgKTBg",
+    authDomain: "includeapp-2cee9.firebaseapp.com",
+    projectId: "includeapp-2cee9",
+    storageBucket: "includeapp-2cee9.firebasestorage.app",
+    messagingSenderId: "654176978946",
+    appId: "1:654176978946:web:6ccdf04a0e0fc02636ff1b",
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-   apiKey: "AIzaSyDotSo5nz_0Z7IxIVVmEwR7w5ZTCtgKTBg",
-
-  authDomain: "includeapp-2cee9.firebaseapp.com",
-
-  projectId: "includeapp-2cee9",
-
-  storageBucket: "includeapp-2cee9.firebasestorage.app",
-
-  messagingSenderId: "654176978946",
-
-  appId: "1:654176978946:web:6ccdf04a0e0fc02636ff1b"
-
+    apiKey: "AIzaSyDotSo5nz_0Z7IxIVVmEwR7w5ZTCtgKTBg",
+    authDomain: "includeapp-2cee9.firebaseapp.com",
+    projectId: "includeapp-2cee9",
+    storageBucket: "includeapp-2cee9.firebasestorage.app",
+    messagingSenderId: "654176978946",
+    appId: "1:654176978946:web:6ccdf04a0e0fc02636ff1b",
   );
 
   static const FirebaseOptions linux = FirebaseOptions(
-   apiKey: "AIzaSyDotSo5nz_0Z7IxIVVmEwR7w5ZTCtgKTBg",
-
-  authDomain: "includeapp-2cee9.firebaseapp.com",
-
-  projectId: "includeapp-2cee9",
-
-  storageBucket: "includeapp-2cee9.firebasestorage.app",
-
-  messagingSenderId: "654176978946",
-
-  appId: "1:654176978946:web:6ccdf04a0e0fc02636ff1b"
-
+    apiKey: "AIzaSyDotSo5nz_0Z7IxIVVmEwR7w5ZTCtgKTBg",
+    authDomain: "includeapp-2cee9.firebaseapp.com",
+    projectId: "includeapp-2cee9",
+    storageBucket: "includeapp-2cee9.firebasestorage.app",
+    messagingSenderId: "654176978946",
+    appId: "1:654176978946:web:6ccdf04a0e0fc02636ff1b",
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-   apiKey: "AIzaSyDotSo5nz_0Z7IxIVVmEwR7w5ZTCtgKTBg",
-
-  authDomain: "includeapp-2cee9.firebaseapp.com",
-
-  projectId: "includeapp-2cee9",
-
-  storageBucket: "includeapp-2cee9.firebasestorage.app",
-
-  messagingSenderId: "654176978946",
-
-  appId: "1:654176978946:web:6ccdf04a0e0fc02636ff1b"
-
+    apiKey: "AIzaSyDotSo5nz_0Z7IxIVVmEwR7w5ZTCtgKTBg",
+    authDomain: "includeapp-2cee9.firebaseapp.com",
+    projectId: "includeapp-2cee9",
+    storageBucket: "includeapp-2cee9.firebasestorage.app",
+    messagingSenderId: "654176978946",
+    appId: "1:654176978946:web:6ccdf04a0e0fc02636ff1b",
   );
 }

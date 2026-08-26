@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/banco_de_dados/firebase_options.dart';
-import 'package:includeapp/home.dart';
+import 'package:includeapp/configuracoes/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:includeapp/prelooby/login_teste.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const App());
 }
 
 class App extends StatelessWidget {
-  const App({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class App extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const Home(),
+      home: const LoginTeste(),
     );
   }
 }

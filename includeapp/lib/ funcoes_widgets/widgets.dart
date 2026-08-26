@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/configurancoes.dart';
+import 'package:includeapp/configuracoes/configurancoes.dart';
 //import ;'package:includeapp/perfil.dart'
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 //import 'package:includeapp/inicial.dart';
@@ -40,9 +40,6 @@ Widget drawerFazer(BuildContext context, String nome) {
         ),
 
         ListTile(
-<<<<<<< HEAD
-          title: Text("Ajuda", style: TextStyle(fontSize: 20)),
-=======
           title: Text("Mini-jogos", style: 
             TextStyle(
               fontSize: 20
@@ -57,7 +54,7 @@ Widget drawerFazer(BuildContext context, String nome) {
             ),
           ),
           onTap: () {
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Perfil(nome: nome)), (route) => false);
+         //   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Perfil(nome: nome)), (route) => false);
           },
         ),
 
@@ -67,7 +64,6 @@ Widget drawerFazer(BuildContext context, String nome) {
               fontSize: 20
             ),
           ),
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
           onTap: () {
             alertDialogAjuda(context);
           },
@@ -76,16 +72,7 @@ Widget drawerFazer(BuildContext context, String nome) {
         ListTile(
           title: Text("Configurações", style: TextStyle(fontSize: 20)),
           onTap: () {
-<<<<<<< HEAD
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Configurancoes(nome: nome),
-              ),
-            );
-=======
             Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: nome)), (route) => false);
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
           },
         ),
       ],
@@ -136,8 +123,6 @@ ButtonStyle botaoMiniJogo() {
     ),
   );
 }
-<<<<<<< HEAD
-=======
 
 ButtonStyle botaoMiniJogoErro() {
   return ElevatedButton.styleFrom(
@@ -253,4 +238,3 @@ Widget padronizacaoJogo(BuildContext context, String pNome, String pImagem, Stri
     ],
   );
 }
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
