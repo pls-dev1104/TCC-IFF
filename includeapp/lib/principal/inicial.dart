@@ -5,7 +5,7 @@ import 'package:includeapp/jogos/nivelUm.dart';
 import 'package:includeapp/jogos/nivelZero.dart';
 import 'package:includeapp/jogos/telaCarregamento.dart';
 
-import 'jogos/nivelDois.dart';
+import '../jogos/nivelDois.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});

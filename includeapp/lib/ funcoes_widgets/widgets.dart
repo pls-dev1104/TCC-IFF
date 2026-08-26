@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/configurancoes.dart';
+import 'package:includeapp/configuracoes/configurancoes.dart';
 //import ;'package:includeapp/perfil.dart'
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 //import 'package:includeapp/inicial.dart';
