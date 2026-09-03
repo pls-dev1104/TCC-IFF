@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+String nomeUsuario = "";
+
 void alertDialogAjuda(BuildContext context) {
   showDialog(
     context: context, 

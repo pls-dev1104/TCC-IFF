@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/configurancoes.dart';
-//import ;'package:includeapp/perfil.dart'
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
-//import 'package:includeapp/inicial.dart';
+import 'package:includeapp/inicial.dart';
+import 'package:includeapp/perfil.dart';
 
-Widget drawerFazer(BuildContext context, String nome) {
+Widget drawerFazer(BuildContext context) {
   return Drawer(
     child: ListView(
       children: [
@@ -19,36 +19,15 @@ Widget drawerFazer(BuildContext context, String nome) {
         ListTile(
           title: Text("Início", style: TextStyle(fontSize: 20)),
           onTap: () {
-           /* Navigator.pushAndRemoveUntil(
+           Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => Inicial(nome: nome)),
+              MaterialPageRoute(builder: (context) => Inicial()),
               (route) => false,
-            );*/
+            );
           },
         ),
 
         ListTile(title: Text("Mini-jogos", style: TextStyle(fontSize: 20))),
-
-        ListTile(
-          title: Text("Perfil", style: TextStyle(fontSize: 20)),
-          onTap: () {
-          //  Navigator.push(
-             // context,
-              //MaterialPageRoute(builder: (context) => Perfil(nome: nome)),
-           // );
-          },
-        ),
-
-        ListTile(
-<<<<<<< HEAD
-          title: Text("Ajuda", style: TextStyle(fontSize: 20)),
-=======
-          title: Text("Mini-jogos", style: 
-            TextStyle(
-              fontSize: 20
-            ),
-          ),
-        ),
 
         ListTile(
           title: Text("Perfil", style: 
@@ -57,7 +36,7 @@ Widget drawerFazer(BuildContext context, String nome) {
             ),
           ),
           onTap: () {
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Perfil(nome: nome)), (route) => false);
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Perfil()), (route) => false);
           },
         ),
 
@@ -67,7 +46,6 @@ Widget drawerFazer(BuildContext context, String nome) {
               fontSize: 20
             ),
           ),
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
           onTap: () {
             alertDialogAjuda(context);
           },
@@ -76,16 +54,7 @@ Widget drawerFazer(BuildContext context, String nome) {
         ListTile(
           title: Text("Configurações", style: TextStyle(fontSize: 20)),
           onTap: () {
-<<<<<<< HEAD
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Configurancoes(nome: nome),
-              ),
-            );
-=======
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: nome)), (route) => false);
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: "")), (route) => false);
           },
         ),
       ],
@@ -109,11 +78,11 @@ PreferredSizeWidget appBarWidget(
         children: [
           IconButton(
             style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF2563EB)),
-            onPressed: () {/*
+            onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Perfil(nome: nome)),
-              );*/
+                MaterialPageRoute(builder: (context) => Perfil()),
+              );
             },
             icon: Icon(Icons.account_circle, color: Colors.white, size: 24),
           ),
@@ -126,47 +95,75 @@ PreferredSizeWidget appBarWidget(
 
 // ===
 
-ButtonStyle botaoMiniJogo() {
+PreferredSizeWidget appBarWidgetMiniJogo(
+  BuildContext context,
+  String titulo,
+) {
+  return AppBar(
+    centerTitle: true,
+    title: Text(titulo, style: TextStyle(color: Colors.white)),
+    iconTheme: IconThemeData(color: Colors.white),
+  );
+}
+
+// ===
+
+ButtonStyle botaoMiniJogo(bool pTelaPC) {
   return ElevatedButton.styleFrom(
     backgroundColor: Colors.blueAccent,
     foregroundColor: Colors.white,
-    minimumSize: Size(100, 75),
+    minimumSize: tamanhoBotaoPorTela(pTelaPC),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadiusGeometry.circular(30),
     ),
   );
 }
-<<<<<<< HEAD
-=======
 
-ButtonStyle botaoMiniJogoErro() {
+ButtonStyle botaoMiniJogoErro(bool pTelaPc) {
   return ElevatedButton.styleFrom(
     backgroundColor: Colors.redAccent,
     foregroundColor: Colors.white,
-    minimumSize: Size(100, 75),
+    minimumSize: tamanhoBotaoPorTela(pTelaPc),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadiusGeometry.circular(30),
     ),
   );
 }
 
-ButtonStyle VerificacaoBotao(bool numero) {
-  if (!numero) {
-    return botaoMiniJogo();
+Size tamanhoBotaoPorTela(bool pTelaPc) {
+  if (pTelaPc) {
+    return Size(125, 80);
   } else {
-    return botaoMiniJogoErro();
+    return Size(90, 70);
   }
 }
 
-Widget padronizacaoJogo(BuildContext context, String pNome, String pImagem, String pPergunta, Widget Function(BuildContext) pProximaTela, double pTelaWidth, double pTelaHeight, bool pbotao1, bool pbotao2, bool pbotao3, bool pbotao4, bool pEscolhaCerta1, bool pEscolhaCerta2, bool pEscolhaCerta3, bool pEscolhaCerta4, void Function() pErro1, void Function() pErro2, void Function() pErro3, void Function() pErro4, Widget pOpcao1, Widget pOpcao2, Widget pOpcao3, Widget pOpcao4) {
+ButtonStyle verificacaoBotao(bool numero, pTelaPc) {
+  if (!numero) {
+    return botaoMiniJogo(pTelaPc);
+  } else {
+    return botaoMiniJogoErro(pTelaPc);
+  }
+}
+
+Widget padronizacaoJogo(
+  BuildContext context, 
+  String pNome, pImagem, pPergunta, 
+  Widget Function(BuildContext) pProximaTela, 
+  double pBorderWidth, pBorderHeight, pImagemTela, 
+  int pCacheImagemTela,
+  bool pTelaPc, pbotao1, pbotao2, pbotao3, pbotao4, pEscolhaCerta1, pEscolhaCerta2, pEscolhaCerta3, pEscolhaCerta4, 
+  void Function() pErro1, pErro2, pErro3, pErro4, 
+  Widget pOpcao1, pOpcao2, pOpcao3, pOpcao4) {
+
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        padding: EdgeInsets.all(20),
-        margin: EdgeInsets.all(20),
-        width: pTelaWidth * 0.30,
-        height: pTelaHeight * 0.9,
+        padding: EdgeInsets.all(0),
+        margin: EdgeInsets.all(10),
+        width: pBorderWidth,
+        height: pBorderHeight,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(20),
@@ -175,74 +172,86 @@ Widget padronizacaoJogo(BuildContext context, String pNome, String pImagem, Stri
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsetsGeometry.only(top: 0),
+              padding: EdgeInsetsGeometry.all(10),
               child: Image.asset(
                 pImagem,
-                width: 285,
-                cacheWidth: 570,
+                width: pImagemTela,
+                cacheWidth: pCacheImagemTela,
               ),
             ),
 
             Padding(
-              padding: EdgeInsetsGeometry.only(top: 30),
+              padding: EdgeInsetsGeometry.only(top: 5),
               child: Text(
                 pPergunta,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
 
             Padding(
-              padding: EdgeInsetsGeometry.only(top: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              padding: EdgeInsets.all(10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    style: VerificacaoBotao(pbotao1),
-                    onPressed: () {
-                      if (pEscolhaCerta1) {
-                        acerto(context, pProximaTela);
-                      } else {
-                        pErro1();
-                      }
-                    },
-                    child: pOpcao1,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        style: verificacaoBotao(pbotao1, pTelaPc),
+                        onPressed: () {
+                          if (pEscolhaCerta1) {
+                            acerto(context, pProximaTela);
+                          } else {
+                            pErro1();
+                          }
+                        },
+                        child: pOpcao1,
+                      ),
+
+                      ElevatedButton(
+                        style: verificacaoBotao(pbotao2, pTelaPc),
+                        onPressed: () {
+                          if (pEscolhaCerta2) {
+                            acerto(context, pProximaTela);
+                          } else {
+                            pErro2();
+                          }
+                        },
+                        child: pOpcao2,
+                      ),
+                    ],
                   ),
 
-                  ElevatedButton(
-                    style: VerificacaoBotao(pbotao2),
-                    onPressed: () {
-                      if (pEscolhaCerta2) {
-                        acerto(context, pProximaTela);
-                      } else {
-                        pErro2();
-                      }
-                    },
-                    child: pOpcao2,
-                  ),
+                  SizedBox(height: 15),
 
-                  ElevatedButton(
-                    style: VerificacaoBotao(pbotao3),
-                    onPressed: () {
-                      if (pEscolhaCerta3) {
-                        acerto(context, pProximaTela);
-                      } else {
-                        pErro3();
-                      }
-                    },
-                    child: pOpcao3,
-                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        style: verificacaoBotao(pbotao3, pTelaPc),
+                        onPressed: () {
+                          if (pEscolhaCerta3) {
+                            acerto(context, pProximaTela);
+                          } else {
+                            pErro3();
+                          }
+                        },
+                        child: pOpcao3,
+                      ),
 
-                  ElevatedButton(
-                    style: VerificacaoBotao(pbotao4),
-                    onPressed: () {
-                      if (pEscolhaCerta4) {
-                        acerto(context, pProximaTela);
-                      } else {
-                        pErro4();
-                      }
-                    },
-                    child: pOpcao4,
+                      ElevatedButton(
+                        style: verificacaoBotao(pbotao4, pTelaPc),
+                        onPressed: () {
+                          if (pEscolhaCerta4) {
+                            acerto(context, pProximaTela);
+                          } else {
+                            pErro4();
+                          }
+                        },
+                        child: pOpcao4,
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -253,4 +262,3 @@ Widget padronizacaoJogo(BuildContext context, String pNome, String pImagem, Stri
     ],
   );
 }
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589

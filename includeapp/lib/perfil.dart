@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-//import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-//import 'package:includeapp/configurancoes.dart';
-//import 'package:includeapp/jogos/nivelDois.dart';
-=======
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/configurancoes.dart';
 import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,8 +33,8 @@ class _PerfilState extends State<Perfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: appBarWidget(context, "Perfil", widget.nome),
-      //drawer: drawerFazer(context, widget.nome),
+      appBar: appBarWidget(context, "Perfil", nomeUsuario),
+      drawer: drawerFazer(context),
       body: SingleChildScrollView(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -111,7 +105,7 @@ class _PerfilState extends State<Perfil> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Informações do ",
+                                    "Informações do $nomeUsuario",
                                     style: TextStyle(
                                       fontSize: fontSizePerfil,
                                       fontWeight: FontWeight.bold,
@@ -159,31 +153,16 @@ class _PerfilState extends State<Perfil> {
                                 child: ListView(
                                   children: [
                                     ListTile(
-<<<<<<< HEAD
-                                      title: Text(
-                                        "Oi",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: fontSizeTelaInferior,
-                                        ),
-                                      ),
-                                      leading: Icon(
-                                        Icons.abc_outlined,
-                                        size: 25,
-                                      ),
-                                      onTap: () {},
-=======
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: Icon(Icons.abc_outlined, size: 25),
                                       onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada(nome: widget.nome,)));
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada()));
                                       },
                                     ),
                     
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: Icon(Icons.abc_outlined, size: 25,),
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
                                     ),
 
                                     ListTile(
@@ -201,30 +180,16 @@ class _PerfilState extends State<Perfil> {
                                     ),
 
                                     ListTile(
-<<<<<<< HEAD
-                                      title: Text(
-                                        "Oi",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: fontSizeTelaInferior,
-                                        ),
-                                      ),
-                                      leading: Icon(
-                                        Icons.abc_outlined,
-                                        size: 25,
-                                      ),
-=======
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: Icon(Icons.abc_outlined, size: 25,),
                                       onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada(nome: widget.nome)));
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada()));
                                       },
                                     ),
                                     
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: Icon(Icons.abc_outlined, size: 25,),
->>>>>>> a4e67a2898efcd1d03f7dca5dc9e3e24717c1589
                                     ),
 
                                     ListTile(
