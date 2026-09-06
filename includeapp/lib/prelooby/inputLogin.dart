@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
+import 'package:includeapp/inicial.dart';
 import 'package:includeapp/prelooby/gerador_senha.dart';
 import 'package:includeapp/prelooby/login_teste.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,6 +26,7 @@ TextEditingController nomeUs = TextEditingController();
   if (!mounted) return;
 
     String nome = nomeUs.text;
+    nomeUsuario = nomeUs.text;
 
     if (nome.isEmpty){    
       setState(() {
@@ -34,7 +37,7 @@ TextEditingController nomeUs = TextEditingController();
 
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => GeradorSenha(nome: nomeUs.text)),
+      MaterialPageRoute(builder: (_) => GeradorSenha(nome: nome,)),
     );
  }
 

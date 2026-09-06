@@ -25,7 +25,7 @@ class App extends StatelessWidget {
           textColor: Colors.white,
         ),
       ),
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,  
       home: const Home(),
     );
   }

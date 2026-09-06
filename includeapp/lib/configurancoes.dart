@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
 class Configurancoes extends StatefulWidget {
@@ -21,7 +22,7 @@ class _ConfigurancoesState extends State<Configurancoes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarWidget(context, "Configurações", widget.nome),
-      drawer: drawerFazer(context, widget.nome),
+      drawer: drawerFazer(context),
     );
   }
 }

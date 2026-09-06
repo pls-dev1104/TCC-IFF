@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Etapa1Alarme extends StatefulWidget {
-  final String nome;
 
-  const Etapa1Alarme({super.key, required this.nome});
+  const Etapa1Alarme({super.key});
 
   @override
   State<Etapa1Alarme> createState() => _Etapa1AlarmeState();

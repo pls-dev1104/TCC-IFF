@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
-//import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivelUm.dart';
-//import 'package:includeapp/jogos/nivelZero.dart';
-import 'package:includeapp/jogos/telaCarregamento.dart';
-import 'jogos/nivel0/etapa0Chamada.dart';
-//import 'jogos/nivel1/etapa1Chamada.dart';
-//import 'jogos/nivel2/etapa1Alarme.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+import 'package:includeapp/jogos/nivel0/etapa0Chamada.dart';
+import 'package:includeapp/jogos/nivel1/etapa1Chamada.dart';
+import 'package:includeapp/jogos/nivel2/etapa1Alarme.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});
@@ -24,8 +21,8 @@ class _InicialState extends State<Inicial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: appBarWidget(context, "Inicial")
-      //drawer: drawerFazer(context),
+      appBar: appBarWidget(context, "Inicial", nomeUsuario),
+      drawer: drawerFazer(context),
 
       body: SingleChildScrollView(
         child: LayoutBuilder(
@@ -33,7 +30,7 @@ class _InicialState extends State<Inicial> {
             return Column(
               children: [
                 SizedBox(height: 20),
-                Text("Bem-vindo!"),
+                Text("Bem-vindo, $nomeUsuario!"),
                 SizedBox(height: 20),
 
                 Row(
@@ -65,14 +62,7 @@ class _InicialState extends State<Inicial> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => TelaCarregamento(
-                                     
-                                      proximaTelaNivel: NivelZero(
-                                       
-                                      ),
-                                    ),
-                                  ),
+                                  MaterialPageRoute(builder: ((context) => Etapa0Chamada()))
                                 );
                               },
                               child: Column(
@@ -107,15 +97,10 @@ class _InicialState extends State<Inicial> {
                                 ),
                               ),
                               onPressed: () {
-                                Navigator.pushReplacement(
+                                Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => TelaCarregamento(
-                                      
-                                      proximaTelaNivel: NivelUm(
-                                        
-                                      ),
-                                    ),
+                                    builder: (context) => Etapa1Chamada()
                                   ),
                                 );
                               },
@@ -151,15 +136,12 @@ class _InicialState extends State<Inicial> {
                                 ),
                               ),
                               onPressed: () {
-                                /*Navigator.pushReplacement(
+                                Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => TelaCarregamento(
-                                      
-                                  
-                                    ),
+                                    builder: (context) => Etapa1Alarme(),
                                   ),
-                                );*/
+                                );
                               },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -196,7 +178,12 @@ class _InicialState extends State<Inicial> {
                           ),
                         ),
                         onPressed: () {
-                          alertDialogAjuda(context);
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Etapa1Alarme(),
+                            ),
+                          );
                         },
                         child: Icon(Icons.live_help_outlined, size: 50),
                       ),
