@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
+//import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
 import 'package:includeapp/jogos/nivel1/etapa5Chamada.dart';
 
 class Etapa4Chamada extends StatefulWidget {

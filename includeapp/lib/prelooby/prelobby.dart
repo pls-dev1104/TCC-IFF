@@ -10,53 +10,29 @@ class Prelobby extends StatefulWidget {
 }
 
 class _PrelobbyState extends State<Prelobby> {
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("Prelobby", style: TextStyle(color: Colors.white),)),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("Prelobby", style: TextStyle(color: Colors.white)),
+      ),
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
             final telaWidth = constraints.maxWidth;
             final telaHeight = constraints.maxHeight;
             final telaPC = telaWidth > 600;
-            final double pessoaWidth;
-            final double pessoaEsquerdo;
-            final double pessoaTop;
-            final double fontSizeBalao;
-            final double fontSizeElevated;
-            final double botaoPadding;
-            final double balaoTop;
-            final double balaoEsquerda;
-            final double balaoDireito;
 
-            if (telaPC) {
-              pessoaWidth = telaWidth * 0.22;
-              pessoaEsquerdo = telaWidth * 0.3125;
-              pessoaTop = telaHeight * 0.15;
-              fontSizeBalao = telaWidth * 0.015;
-              fontSizeElevated = telaWidth * 0.02;
-              botaoPadding = telaWidth * 0.0075;
-              balaoTop = telaHeight * 0.13;
-              balaoEsquerda = telaWidth * 0.46;
-              balaoDireito = telaWidth * 0.32;
-            } else {
-              pessoaWidth = telaWidth * 0.55;
-              pessoaEsquerdo = telaWidth * 0.10;
-              pessoaTop = telaHeight * 0.25;
-              fontSizeBalao = telaWidth * 0.045;
-              fontSizeElevated = telaWidth * 0.07;
-              botaoPadding = telaHeight * 0.015;
-              balaoTop = telaHeight * 0.15;
-              balaoEsquerda = telaWidth * 0.45;
-              balaoDireito = telaWidth * 0.16;
-            }
+            final double pessoaWidth = telaPC ? telaWidth * 0.22 : telaWidth * 0.55;
+            final double pessoaEsquerdo = telaPC ? telaWidth * 0.3125 : telaWidth * 0.10;
+            final double pessoaTop = telaPC ? telaHeight * 0.15 : telaHeight * 0.25;
+            final double fontSizeBalao = telaPC ? telaWidth * 0.015 : telaWidth * 0.045;
+            final double fontSizeElevated = telaPC ? telaWidth * 0.02 : telaWidth * 0.07;
+            final double botaoPadding = telaPC ? telaWidth * 0.0075 : telaHeight * 0.015;
+            final double balaoTop = telaPC ? telaHeight * 0.13 : telaHeight * 0.15;
+            final double balaoEsquerda = telaPC ? telaWidth * 0.46 : telaWidth * 0.45;
+            final double balaoDireito = telaPC ? telaWidth * 0.32 : telaWidth * 0.16;
 
             return Column(
               children: [
@@ -71,52 +47,54 @@ class _PrelobbyState extends State<Prelobby> {
                           width: pessoaWidth,
                         ),
                       ),
-
                       Positioned(
                         left: balaoEsquerda,
                         top: balaoTop,
                         right: balaoDireito,
                         child: Bubble(
-                          padding: EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12),
                           color: Colors.white,
                           border: BubbleBorder(
-                            tail: Tail.triangle(
-                              tailJoin: TailJoin.sharp,
-                            ),
+                            tail: Tail.triangle(tailJoin: TailJoin.sharp),
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(10),
                             width: 2,
                           ),
                           child: Text(
-                            "Olá, seja muito bem-vindo ao IncludeAPP", 
-                            style: TextStyle(fontSize: fontSizeBalao), 
+                            "Olá, seja muito bem-vindo ao IncludeAPP",
+                            style: TextStyle(fontSize: fontSizeBalao),
                           ),
                         ),
                       )
                     ],
-                  ), 
+                  ),
                 ),
-
                 Padding(
-                  padding: EdgeInsetsGeometry.only(bottom: botaoPadding),
+                  padding: EdgeInsets.only(bottom: botaoPadding),
                   child: SizedBox(
                     width: telaWidth * 0.8,
                     height: telaHeight * 0.065,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
-                        foregroundColor: Colors.white
+                        foregroundColor: Colors.white,
                       ),
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (_) => Inputlogin()));
-                    }, child: Text("Continuar", style: TextStyle(fontSize: fontSizeElevated),)),
+                          MaterialPageRoute(builder: (_) => const Inputlogin()),
+                        );
+                      },
+                      child: Text(
+                        "Continuar",
+                        style: TextStyle(fontSize: fontSizeElevated),
+                      ),
+                    ),
                   ),
                 )
               ],
             );
-          }
+          },
         ),
       ),
     );

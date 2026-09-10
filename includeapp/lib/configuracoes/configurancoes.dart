@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
+//import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
 class Configurancoes extends StatefulWidget {
