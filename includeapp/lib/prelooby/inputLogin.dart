@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
-//import 'package:includeapp/inicial.dart';
 import 'package:includeapp/prelooby/gerador_senha.dart';
 import 'package:includeapp/registrar/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';

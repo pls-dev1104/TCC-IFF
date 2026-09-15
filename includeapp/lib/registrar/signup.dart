@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/principal/inicial.dart';
 import 'authentication.dart';
-import 'home.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});
@@ -158,7 +158,7 @@ class _SignupFormState extends State<SignupForm> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Home(),
+                          builder: (context) => const Inicial(),
                         ),
                       );
                     } else {

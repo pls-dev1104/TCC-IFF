@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
+import 'package:shared_preferences/shared_preferences.dart'; 
 
 class Inicial extends StatefulWidget {
+
   const Inicial({super.key});
 
   @override
@@ -9,6 +11,23 @@ class Inicial extends StatefulWidget {
 }
 
 class _InicialState extends State<Inicial> {
+
+  String nomeUsuario = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _carregarNomeUsuario(); // Busca o nome assim que a tela abre
+  }
+
+  Future<void> _carregarNomeUsuario() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      // Pega a string salva na chave "usuario" ou usa "Visitante" como padrão se for nulo
+      nomeUsuario = prefs.getString("usuario") ?? "Visitante"; 
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +37,7 @@ class _InicialState extends State<Inicial> {
             return Column(
               children: [
                 const SizedBox(height: 20),
-                const Text("Bem-vindo!", style: TextStyle(fontSize: 22)),
+                Text("Bem-vindo,$nomeUsuario !", style: const TextStyle(fontSize: 22)),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

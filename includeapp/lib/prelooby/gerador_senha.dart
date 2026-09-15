@@ -25,28 +25,25 @@ class _GeradorSenhaState extends State<GeradorSenha> {
   }
 
 String _gerarEmail(String nome) {
-  // 1. Limpa o nome recebido
+  // 1. Deixar o nome padrao fifa kkkkk
   String nomeLimpo = nome
       .trim()
       .toLowerCase()
       .replaceAll(RegExp(r'\s+'), '.')
       .replaceAll(RegExp(r'[^a-z0-9.]'), '');
 
-  // Se o usuário não digitou nada válido, usa 'usuario' como padrão
-  if (nomeLimpo.isEmpty) nomeLimpo = 'usuario';
-
-  // 2. Gera 4 dígitos numéricos aleatórios
+  // 2. Gera numeros para diferenciar os emails
   final random = Random();
   String quatroDigitos = '';
   for (int i = 0; i < 4; i++) {
     quatroDigitos += random.nextInt(10).toString();
   }
 
-  // 3. Junta tudo e retorna o email final
+  // 3. Junta tudo e da o email final
   return '$nomeLimpo$quatroDigitos@includeapp.com';
 }
 
-  // Gera uma senha aleatória com no mínimo 6 dígitos numéricos
+  // Gera uma senha de seis digitos no minimo
   String _gerarSenha(int tamanho) {
     final random = Random();
     String senha = '';
@@ -56,10 +53,10 @@ String _gerarEmail(String nome) {
     return senha;
   }
 
-// Função para salvar no Firebase Authentication e redirecionar
+// Salvar no firebase
   Future<void> _criarContaERedirecionar() async {
     try {
-      // Chama o método signUp diretamente
+      // Metodo signUp para salvar no authentication
       String? result = await AuthenticationHelper().signUp(
         email: emailGerado,
         password: senhaGerada,
@@ -68,14 +65,16 @@ String _gerarEmail(String nome) {
       if (!mounted) return;
 
       if (result == null) {
-        // Sucesso! Redireciona para a Tela Inicial
+        // Deu bom vai pro inicio
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const Inicial()), 
+          MaterialPageRoute(
+            builder: (_) => Inicial(),
+          ), 
           (Route<dynamic> route) => false,
         );
       } else {
-        // Falha no registro! Mostra o erro traduzido
+        // Deu ruim mostra os erro do firebase traduzido
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -112,7 +111,6 @@ String _gerarEmail(String nome) {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Center(
-          // Uso de SingleChildScrollView para evitar transbordo (overflow) em telas menores
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -126,7 +124,7 @@ String _gerarEmail(String nome) {
                 ),
                 const SizedBox(height: 30),
 
-                // Card com as Credenciais
+                // Card 
                 Card(
                   elevation: 4,
                   shape: RoundedRectangleBorder(

@@ -15,7 +15,7 @@ Future<void> main() async {
 }
 
 class App extends StatelessWidget {
-  const new({super.key});
+  const new({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class App extends StatelessWidget {
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          // Retorna apenas uma tela em branco no milissegundo de verificação
+          //Tela branca de espera de connectividade
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Scaffold(); 
           }
@@ -44,7 +44,7 @@ class App extends StatelessWidget {
           if (snapshot.hasData) {
             return const Inicial(); 
           }
-          // Caso contrário, vai para a tela inicial do App
+          //Se nao tiver nada volta pra primeira pagina
           return const Prelobby(); 
         },
       ),

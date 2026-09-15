@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/configuracoes/configurancoes.dart';
 import 'package:includeapp/configuracoes/perfil.dart';
-import 'package:includeapp/inicial.dart';
+import 'package:includeapp/principal/inicial.dart';
 
 Widget drawerFazer(BuildContext context) {
   return Drawer(

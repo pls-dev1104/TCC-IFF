@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/inicial.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
+import 'package:includeapp/principal/inicial.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
