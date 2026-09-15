@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+import 'package:includeapp/jogos/nivel0/etapa0Chamada.dart';
+import 'package:includeapp/jogos/nivel1/etapa1Chamada.dart';
+import 'package:includeapp/jogos/nivel2/etapa1Alarme.dart';
 import 'package:shared_preferences/shared_preferences.dart'; 
 
 class Inicial extends StatefulWidget {
@@ -28,51 +31,151 @@ class _InicialState extends State<Inicial> {
     });
   }
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBarWidget(context, "Inicial", nomeUsuario),
+      drawer: drawerFazer(context),
+
       body: SingleChildScrollView(
         child: LayoutBuilder(
           builder: (context, constraints) {
             return Column(
               children: [
-                const SizedBox(height: 20),
-                Text("Bem-vindo,$nomeUsuario !", style: const TextStyle(fontSize: 22)),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
+                Text("Bem-vindo, $nomeUsuario!"),
+                SizedBox(height: 20),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(20),
-                      margin: const EdgeInsets.all(20),
+                      padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(20),
                       ),
+
                       child: Column(
                         children: [
-                          _buildLevelButton(
-                            title: "Nível 0",
-                            subtitle: "Apps básicos do celular",
-                            onPressed: () {},
+                          SizedBox(
+                            width: 200,
+                            height: 180,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueAccent,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    30,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: ((context) => Etapa0Chamada()))
+                                );
+                              },
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    "Nível 0",
+                                    style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Text("Apps básicos do celular"),
+                                ],
+                              ),
+                            ),
                           ),
-                          const SizedBox(height: 30),
-                          _buildLevelButton(
-                            title: "Nível 1",
-                            subtitle: "Conversar e Instalar",
-                            onPressed: () {},
+
+                          SizedBox(height: 30),
+
+                          SizedBox(
+                            width: 200,
+                            height: 180,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueAccent,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    30,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Etapa1Chamada()
+                                  ),
+                                );
+                              },
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    "Nível 1",
+                                    style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Text("Conversar e Instalar"),
+                                ],
+                              ),
+                            ),
                           ),
-                          const SizedBox(height: 30),
-                          _buildLevelButton(
-                            title: "Nível 2",
-                            subtitle: "Navegar e Participar",
-                            onPressed: () {},
+
+                          SizedBox(height: 30),
+
+                          SizedBox(
+                            width: 200,
+                            height: 180,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blueAccent,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    30,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Etapa1Alarme(),
+                                  ),
+                                );
+                              },
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    "Nível 2",
+                                    style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Text("Navegar e Participar"),
+                                ],
+                              ),
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
+
                 Column(
                   children: [
                     SizedBox(
@@ -87,13 +190,20 @@ class _InicialState extends State<Inicial> {
                           ),
                         ),
                         onPressed: () {
-                          alertDialogAjuda(context);
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Etapa1Alarme(),
+                            ),
+                          );
                         },
-                        child: const Icon(Icons.live_help_outlined, size: 50),
+                        child: Icon(Icons.live_help_outlined, size: 50),
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    const Text(
+
+                    SizedBox(height: 10),
+
+                    Text(
                       "Ajuda?",
                       style: TextStyle(
                         fontSize: 20,
@@ -105,40 +215,6 @@ class _InicialState extends State<Inicial> {
               ],
             );
           },
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLevelButton({
-    required String title,
-    required String subtitle,
-    required VoidCallback onPressed,
-  }) {
-    return SizedBox(
-      width: 200,
-      height: 180,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blueAccent,
-          foregroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
-        ),
-        onPressed: onPressed,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(subtitle, textAlign: TextAlign.center),
-          ],
         ),
       ),
     );
