@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/registrar/authentication.dart';
  
@@ -104,10 +105,7 @@ String _gerarEmail(String nome) {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Gerador de Credenciais'),
-        centerTitle: true,
-      ),
+      appBar: appBarWidgetMiniJogo(context, "Gerador de usuario"),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Center(

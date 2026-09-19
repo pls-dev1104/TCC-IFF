@@ -156,7 +156,8 @@ Widget padronizacaoJogo(
   void Function() pErro1, pErro2, pErro3, pErro4, 
   Widget pOpcao1, pOpcao2, pOpcao3, pOpcao4) {
 
-  return Column(
+  return SingleChildScrollView( 
+    child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
@@ -260,5 +261,6 @@ Widget padronizacaoJogo(
         ),
       ),
     ],
+  ),
   );
 }

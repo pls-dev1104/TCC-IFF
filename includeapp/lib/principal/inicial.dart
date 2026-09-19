@@ -31,6 +31,7 @@ class _InicialState extends State<Inicial> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarWidget(context, "Inicial", nomeUsuario),

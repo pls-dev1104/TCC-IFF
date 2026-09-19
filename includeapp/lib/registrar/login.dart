@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/registrar/authentication.dart';
 import 'signup.dart';
@@ -9,6 +10,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBarWidgetMiniJogo(context,"Login"),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
