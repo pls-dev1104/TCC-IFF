@@ -163,12 +163,7 @@ Widget padronizacaoJogo(
       Container(
         padding: EdgeInsets.all(0),
         margin: EdgeInsets.all(10),
-        width: pBorderWidth,
-        height: pBorderHeight,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(20),
-        ),
+        
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
