@@ -52,6 +52,7 @@ class SignupForm extends StatefulWidget {
 class _SignupFormState extends State<SignupForm> {
   final _formKey = GlobalKey<FormState>();
 
+  String? nome;
   String? email;
   String? password;
   bool _obscureText = true;
@@ -75,6 +76,23 @@ class _SignupFormState extends State<SignupForm> {
       key: _formKey,
       child: Column(
         children: <Widget>[
+          //nome
+          TextFormField(
+            decoration: const InputDecoration(
+              prefixIcon: Icon(Icons.person_outline),
+              labelText: 'Nome',
+              border: border,
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Campo vazio';
+              }
+              return null;
+            },
+            onSaved: (val) => nome = val,
+            keyboardType: TextInputType.name,
+          ),
+          space,
           // Email
           TextFormField(
             decoration: const InputDecoration(
@@ -152,7 +170,7 @@ class _SignupFormState extends State<SignupForm> {
                   _formKey.currentState!.save();
 
                   AuthenticationHelper()
-                      .signUp(email: email!, password: password!)
+                      .signUp(email: email!, password: password!,nome: nome!)
                       .then((result) {
                     if (result == null) {
                       Navigator.pushReplacement(

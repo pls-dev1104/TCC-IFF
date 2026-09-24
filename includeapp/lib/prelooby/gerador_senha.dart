@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/principal/inicial.dart';
@@ -61,11 +62,13 @@ String _gerarEmail(String nome) {
       String? result = await AuthenticationHelper().signUp(
         email: emailGerado,
         password: senhaGerada,
+        nome: widget.nome,
       );
 
       if (!mounted) return;
 
       if (result == null) {
+        await FirebaseAuth.instance.currentUser?.reload();
         // Deu bom vai pro inicio
         Navigator.pushAndRemoveUntil(
           context,

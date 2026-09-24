@@ -1,9 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivel0/etapa0Chamada.dart';
 import 'package:includeapp/jogos/nivel1/etapa1Chamada.dart';
 import 'package:includeapp/jogos/nivel2/etapa1Alarme.dart';
-import 'package:shared_preferences/shared_preferences.dart'; 
+
 
 class Inicial extends StatefulWidget {
 
@@ -14,25 +15,12 @@ class Inicial extends StatefulWidget {
 }
 
 class _InicialState extends State<Inicial> {
-
-  String nomeUsuario = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _carregarNomeUsuario(); // Busca o nome assim que a tela abre
-  }
-
-  Future<void> _carregarNomeUsuario() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      // Pega a string salva na chave "usuario" ou usa "Visitante" como padrão se for nulo
-      nomeUsuario = prefs.getString("usuario") ?? "Visitante"; 
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    
+    final user = FirebaseAuth.instance.currentUser;
+    final String nomeUsuario = user?.displayName ?? "Usuário";
+
     return Scaffold(
       appBar: appBarWidget(context, "Inicial", nomeUsuario),
       drawer: drawerFazer(context),

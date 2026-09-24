@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:includeapp/principal/inicial.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,21 +18,35 @@ class _HomeState extends State<Home> {
     verificarUsuario();
   }
 
-  Future<void> verificarUsuario()  async{
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  Future<void> verificarUsuario() async {
+    // Verifica diretamente no Firebase se existe um usuário logado
+    final user = FirebaseAuth.instance.currentUser;
 
-    String? usuario = prefs.getString("usuario");
+    // Um pequeno delay de meio segundo apenas para a animação de carregamento aparecer suavemente
+    await Future.delayed(const Duration(milliseconds: 500));
 
     if (!mounted) return;
-    if (usuario == null){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const Prelobby()),);
-    }else{
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Inicial()));
+
+    // Se o usuário for nulo (não está logado), vai pro Prelobby. Senão, vai pra tela Inicial.
+    if (user == null){
+      Navigator.pushReplacement(
+        context, 
+        MaterialPageRoute(builder: (_) => const Prelobby()),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context, 
+        MaterialPageRoute(builder: (_) => const Inicial()),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: CircularProgressIndicator(),),);
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
   }
 }

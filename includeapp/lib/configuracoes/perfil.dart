@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:includeapp/registrar/authentication.dart';
 
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
@@ -13,27 +13,29 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
+  
   Future<void> efetuarLogoff() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove("usuario");
+    // Apenas desloga do Firebase (onde seu nome, email e senha estão)
+    await AuthenticationHelper().signOut();
 
-    if (!context.mounted) return;
+    if (!mounted) return;
 
-    Navigator.pushReplacement(
+    // Limpa o histórico de navegação e volta pro começo
+    Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => Prelobby()),
+      MaterialPageRoute(builder: (context) => const Prelobby()),
+      (route) => false,
     );
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    // Pegando o nome atualizado salvo no Firebase Authentication
+    final user = FirebaseAuth.instance.currentUser;
+    final String nomeDoUsuario = user?.displayName ?? "Usuário";
+
     return Scaffold(
-      appBar: appBarWidget(context, "Perfil", nomeUsuario),
+      appBar: appBarWidget(context, "Perfil", nomeDoUsuario),
       drawer: drawerFazer(context),
       body: SingleChildScrollView(
         child: LayoutBuilder(
@@ -105,7 +107,7 @@ class _PerfilState extends State<Perfil> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Informações do $nomeUsuario",
+                                    "Informações do $nomeDoUsuario",
                                     style: TextStyle(
                                       fontSize: fontSizePerfil,
                                       fontWeight: FontWeight.bold,
@@ -118,7 +120,7 @@ class _PerfilState extends State<Perfil> {
                               left: telaLeftPessoa,
                               top: telaTopPessoa,
                               child: Container(
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.white,
                                   shape: BoxShape.circle,
                                 ),
@@ -154,7 +156,7 @@ class _PerfilState extends State<Perfil> {
                                   children: [
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25),
+                                      leading: const Icon(Icons.abc_outlined, size: 25),
                                       onTap: () {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada()));
                                       },
@@ -162,26 +164,17 @@ class _PerfilState extends State<Perfil> {
                     
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25,),
-                                    ),
-
-                                    ListTile(
-                                      title: Text(
-                                        "Oi",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: fontSizeTelaInferior,
-                                        ),
-                                      ),
-                                      leading: Icon(
-                                        Icons.abc_outlined,
-                                        size: 25,
-                                      ),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
                                     ),
 
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25,),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
+                                    ),
+
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
                                       onTap: () {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada()));
                                       },
@@ -189,59 +182,35 @@ class _PerfilState extends State<Perfil> {
                                     
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: Icon(Icons.abc_outlined, size: 25,),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
                                     ),
 
                                     ListTile(
-                                      title: Text(
-                                        "Oi",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: fontSizeTelaInferior,
-                                        ),
-                                      ),
-                                      leading: Icon(
-                                        Icons.abc_outlined,
-                                        size: 25,
-                                      ),
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
                                       onTap: () {},
                                     ),
 
                                     ListTile(
-                                      title: Text(
-                                        "Oi",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: fontSizeTelaInferior,
-                                        ),
-                                      ),
-                                      leading: Icon(
-                                        Icons.abc_outlined,
-                                        size: 25,
-                                      ),
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
                                     ),
 
                                     ListTile(
                                       title: Text(
                                         "Configurações",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: fontSizeTelaInferior,
-                                        ),
+                                        style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),
                                       ),
-                                      leading: Icon(Icons.settings, size: 25),
+                                      leading: const Icon(Icons.settings, size: 25),
                                       onTap: () {},
                                     ),
 
                                     ListTile(
                                       title: Text(
                                         "Sair do perfil",
-                                        style: TextStyle(
-                                          color: Colors.red,
-                                          fontSize: fontSizeTelaInferior,
-                                        ),
+                                        style: TextStyle(color: Colors.red, fontSize: fontSizeTelaInferior),
                                       ),
-                                      leading: Icon(Icons.abc, size: 25),
+                                      leading: const Icon(Icons.logout, color: Colors.red, size: 25), // Ícone trocado para logout
                                       onTap: () {
                                         efetuarLogoff();
                                       },
