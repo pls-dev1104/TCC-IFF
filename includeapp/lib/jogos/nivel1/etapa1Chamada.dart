@@ -61,7 +61,7 @@ class _Etapa1Chamada extends State<Etapa1Chamada> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Etapa 1"),
+      appBar: appBarWidgetMiniJogo(context, "Fase 1"),
       body: Center(
         child: SingleChildScrollView(
           child: LayoutBuilder(
@@ -83,7 +83,7 @@ class _Etapa1Chamada extends State<Etapa1Chamada> {
               } else {
                 borderWidth = telaWidth * 0.9;
                 borderHeight = telaHeight * 0.85;
-                imagemTela = telaWidth * 0.50;
+                imagemTela = telaWidth * 0.40;
                 cacheImagemTela = 200;
               }
 
