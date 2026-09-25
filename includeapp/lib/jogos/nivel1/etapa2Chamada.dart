@@ -22,9 +22,10 @@ class _Etapa2ChamadaState extends State<Etapa2Chamada> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaDiscarNumero.jpg";
-  final pergunta = "Depois de digitar o número, qual botão devo apertar \npara realizar a chamada?";
+  final pergunta = "Depois de digitar o número, qual botão devo apertar para realizar a chamada?";
   final opcao1 = Icon(Icons.home_filled, size: 30);
   final opcao2 = Row(
+    mainAxisSize: MainAxisSize.min,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Icon(Icons.call, size: 25,),
@@ -80,10 +81,10 @@ class _Etapa2ChamadaState extends State<Etapa2Chamada> {
               final int cacheImagemTela;
 
               if (telaPC) {
-                imagemTela = telaWidth * 0.15;
+                imagemTela = telaWidth * 0.125;
                 cacheImagemTela = 400;
               } else {
-                imagemTela = telaWidth * 0.55;
+                imagemTela = telaWidth * 0.60;
                 cacheImagemTela = 900;
               }
 

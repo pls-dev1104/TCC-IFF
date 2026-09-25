@@ -73,10 +73,10 @@ class _Etapa6Chamada extends State<Etapa6Chamada> {
               final int cacheImagemTela;
 
               if (telaPC) {
-                imagemTela = telaWidth * 0.15;
+                imagemTela = telaWidth * 0.125;
                 cacheImagemTela = 400;
               } else {
-                imagemTela = telaWidth * 0.55;
+                imagemTela = telaWidth * 0.60;
                 cacheImagemTela = 900;
               }
 
