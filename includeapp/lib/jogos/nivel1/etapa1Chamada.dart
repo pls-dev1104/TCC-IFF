@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
 
@@ -67,27 +66,20 @@ class _Etapa1Chamada extends State<Etapa1Chamada> {
           child: LayoutBuilder(
             builder: (context, constraints) {
               final telaWidth = MediaQuery.of(context).size.width;
-              final telaHeight = MediaQuery.of(context).size.height;
 
               final telaPC = telaWidth > 600;
-              final double borderWidth;
-              final double borderHeight;
               final double imagemTela;
               final int cacheImagemTela;
 
               if (telaPC) {
-                borderWidth = telaWidth * 0.30;
-                borderHeight = telaHeight * 0.875;
-                imagemTela = telaWidth * 0.13;
+                imagemTela = telaWidth * 0.15;
                 cacheImagemTela = 400;
               } else {
-                borderWidth = telaWidth * 0.9;
-                borderHeight = telaHeight * 0.85;
-                imagemTela = telaWidth * 0.40;
-                cacheImagemTela = 200;
+                imagemTela = telaWidth * 0.55;
+                cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, nomeUsuario, imagem, pergunta, (context) => Etapa2Chamada(), borderWidth, borderHeight, imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

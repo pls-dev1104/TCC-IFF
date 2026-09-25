@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivel1/etapa3Chamada.dart';
 
@@ -23,7 +22,7 @@ class _Etapa2ChamadaState extends State<Etapa2Chamada> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaDiscarNumero.jpg";
-  final pergunta = "Depois de digitar o número, qual botão devo apertar para realizar a chamada?";
+  final pergunta = "Depois de digitar o número, qual botão devo apertar \npara realizar a chamada?";
   final opcao1 = Icon(Icons.home_filled, size: 30);
   final opcao2 = Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -69,33 +68,26 @@ class _Etapa2ChamadaState extends State<Etapa2Chamada> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Etapa 2"),
+      appBar: appBarWidgetMiniJogo(context, "Fase 2"),
       body: Center(
         child: SingleChildScrollView(
           child: LayoutBuilder(
             builder: (context, constraints) {
               final telaWidth = MediaQuery.of(context).size.width;
-              final telaHeight = MediaQuery.of(context).size.height;
 
               final telaPC = telaWidth > 600;
-              final double borderWidth;
-              final double borderHeight;
               final double imagemTela;
               final int cacheImagemTela;
 
               if (telaPC) {
-                borderWidth = telaWidth * 0.30;
-                borderHeight = telaHeight * 0.90;
-                imagemTela = telaWidth * 0.130;
+                imagemTela = telaWidth * 0.15;
                 cacheImagemTela = 400;
               } else {
-                borderWidth = telaWidth * 0.9;
-                borderHeight = telaHeight * 0.875;
-                imagemTela = telaWidth * 0.50;
-                cacheImagemTela = 200;
+                imagemTela = telaWidth * 0.55;
+                cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, nomeUsuario, imagem, pergunta, (context) => Etapa3Chamada(), borderWidth, borderHeight, imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa3Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

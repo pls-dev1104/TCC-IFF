@@ -148,9 +148,9 @@ ButtonStyle verificacaoBotao(bool numero, pTelaPc) {
 
 Widget padronizacaoJogo(
   BuildContext context, 
-  String pNome, pImagem, pPergunta, 
+  String pImagem, pPergunta, 
   Widget Function(BuildContext) pProximaTela, 
-  double pBorderWidth, pBorderHeight, pImagemTela, 
+  double pImagemTela, 
   int pCacheImagemTela,
   bool pTelaPc, pbotao1, pbotao2, pbotao3, pbotao4, pEscolhaCerta1, pEscolhaCerta2, pEscolhaCerta3, pEscolhaCerta4, 
   void Function() pErro1, pErro2, pErro3, pErro4, 
@@ -167,14 +167,12 @@ Widget padronizacaoJogo(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsetsGeometry.all(10),
-              child: Image.asset(
+  
+            Image.asset(
                 pImagem,
                 width: pImagemTela,
                 cacheWidth: pCacheImagemTela,
               ),
-            ),
 
             Padding(
               padding: EdgeInsetsGeometry.only(top: 5),
@@ -191,7 +189,7 @@ Widget padronizacaoJogo(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
                         style: verificacaoBotao(pbotao1, pTelaPc),
@@ -204,6 +202,8 @@ Widget padronizacaoJogo(
                         },
                         child: pOpcao1,
                       ),
+
+                      SizedBox(width: 120),
 
                       ElevatedButton(
                         style: verificacaoBotao(pbotao2, pTelaPc),
@@ -222,7 +222,7 @@ Widget padronizacaoJogo(
                   SizedBox(height: 15),
 
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
                         style: verificacaoBotao(pbotao3, pTelaPc),
@@ -235,6 +235,8 @@ Widget padronizacaoJogo(
                         },
                         child: pOpcao3,
                       ),
+
+                      SizedBox(width: 120),
 
                       ElevatedButton(
                         style: verificacaoBotao(pbotao4, pTelaPc),
