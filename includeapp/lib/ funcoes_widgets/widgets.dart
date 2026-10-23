@@ -166,22 +166,18 @@ Widget padronizacaoJogo(
   pOpcao3,
   pOpcao4,
 ) {
-  // Estilo padrão dos botões, agora maior e com efeito de elevação
   ButtonStyle estiloBotao(bool pCor) {
     return verificacaoBotao(pCor, pTelaPc).copyWith(
       minimumSize: WidgetStateProperty.all(
-        Size(pTelaPc ? 220 : 150, pTelaPc ? 70 : 60),
+        Size(pTelaPc ? 220 : 120, pTelaPc ? 70 : 70),
       ),
       padding: WidgetStateProperty.all(
-        const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       ),
       shape: WidgetStateProperty.all(
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
       elevation: WidgetStateProperty.all(6),
-      textStyle: WidgetStateProperty.all(
-        const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-      ),
     );
   }
 
@@ -190,20 +186,20 @@ Widget padronizacaoJogo(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          margin: const EdgeInsets.all(16),
-          padding: const EdgeInsets.all(20),
+          margin: EdgeInsets.all(16),
+          padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
+            gradient: LinearGradient( //O fundo da imagem
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [Color(0xFFF5F7FA), Color(0xFFE4E9F2)],
             ),
             borderRadius: BorderRadius.circular(28),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
                 color: Colors.black26,
                 blurRadius: 12,
-                offset: Offset(0, 6),
+                offset: Offset(0, 8),
               ),
             ],
           ),
@@ -211,7 +207,7 @@ Widget padronizacaoJogo(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(18),
                 child: Image.asset(
                   pImagem,
                   width: pImagemTela,
@@ -219,20 +215,20 @@ Widget padronizacaoJogo(
                 ),
               ),
 
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
 
               Container(
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   horizontal: 24,
                   vertical: 14,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(18),
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
                       color: Colors.black12,
-                      blurRadius: 6,
+                      blurRadius: 12,
                       offset: Offset(0, 3),
                     ),
                   ],
@@ -240,7 +236,7 @@ Widget padronizacaoJogo(
                 child: Text(
                   pPergunta,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF2E3A59),
@@ -248,13 +244,13 @@ Widget padronizacaoJogo(
                 ),
               ),
 
-              const SizedBox(height: 28),
+              SizedBox(height: 28),
 
               Padding(
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
                 child: Wrap(
                   alignment: WrapAlignment.center,
-                  spacing: 24,
+                  spacing: 30,
                   runSpacing: 20,
                   children: [
                     ElevatedButton(
