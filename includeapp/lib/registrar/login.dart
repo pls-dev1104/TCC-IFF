@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/registrar/authentication.dart';
-import 'signup.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -17,28 +16,6 @@ class Login extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.all(16.0),
             child: LoginForm(),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(width: 30),
-              const Text(
-                "Ainda não possui cadastro? ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Signup()),
-                  );
-                },
-                child: const Text(
-                  "Registre-se!",
-                  style: TextStyle(fontSize: 20, color: Colors.blue),
-                ),
-              ),
-            ],
           ),
         ],
       ),

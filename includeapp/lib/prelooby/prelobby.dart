@@ -13,10 +13,6 @@ class _PrelobbyState extends State<Prelobby> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("Prelobby", style: TextStyle(color: Colors.white)),
-      ),
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {

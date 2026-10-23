@@ -41,10 +41,6 @@ class _InputloginState extends State<Inputlogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("InputLogin", style: TextStyle(color: Colors.white)),
-      ),
       resizeToAvoidBottomInset: false,
       body: Center(
         child: LayoutBuilder(

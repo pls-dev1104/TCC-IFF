@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:includeapp/registrar/authentication.dart';
 
@@ -157,32 +156,13 @@ class _PerfilState extends State<Perfil> {
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: const Icon(Icons.abc_outlined, size: 25),
-                                      onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada()));
-                                      },
+                                      onTap: () {},
                                     ),
                     
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: const Icon(Icons.abc_outlined, size: 25,),
-                                    ),
-
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
-                                    ),
-
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
-                                      onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => Etapa2Chamada()));
-                                      },
-                                    ),
-                                    
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
+                                      onTap: () {},
                                     ),
 
                                     ListTile(
@@ -194,14 +174,24 @@ class _PerfilState extends State<Perfil> {
                                     ListTile(
                                       title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
                                       leading: const Icon(Icons.abc_outlined, size: 25,),
+                                      onTap: () {},
+                                    ),
+                                    
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
+                                      onTap: () {},
                                     ),
 
                                     ListTile(
-                                      title: Text(
-                                        "Configurações",
-                                        style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),
-                                      ),
-                                      leading: const Icon(Icons.settings, size: 25),
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
+                                      onTap: () {},
+                                    ),
+
+                                    ListTile(
+                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
+                                      leading: const Icon(Icons.abc_outlined, size: 25,),
                                       onTap: () {},
                                     ),
 

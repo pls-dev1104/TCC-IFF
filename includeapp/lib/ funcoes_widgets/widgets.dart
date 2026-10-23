@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
-import 'package:includeapp/configuracoes/configurancoes.dart';
 import 'package:includeapp/configuracoes/perfil.dart';
 import 'package:includeapp/principal/inicial.dart';
+import 'package:includeapp/principal/mini_jogos.dart';
 
 Widget drawerFazer(BuildContext context) {
   return Drawer(
@@ -19,7 +19,7 @@ Widget drawerFazer(BuildContext context) {
         ListTile(
           title: Text("Início", style: TextStyle(fontSize: 20)),
           onTap: () {
-           Navigator.pushAndRemoveUntil(
+            Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => Inicial()),
               (route) => false,
@@ -27,34 +27,32 @@ Widget drawerFazer(BuildContext context) {
           },
         ),
 
-        ListTile(title: Text("Mini-jogos", style: TextStyle(fontSize: 20))),
-
         ListTile(
-          title: Text("Perfil", style: 
-            TextStyle(
-              fontSize: 20
-            ),
-          ),
+          title: Text("Mini-jogos", style: TextStyle(fontSize: 20)),
           onTap: () {
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Perfil()), (route) => false);
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => MiniJogos()),
+              (route) => false,
+            );
           },
         ),
 
         ListTile(
-          title: Text("Ajuda", style: 
-            TextStyle(
-              fontSize: 20
-            ),
-          ),
+          title: Text("Perfil", style: TextStyle(fontSize: 20)),
+          onTap: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => Perfil()),
+              (route) => false,
+            );
+          },
+        ),
+
+        ListTile(
+          title: Text("Ajuda", style: TextStyle(fontSize: 20)),
           onTap: () {
             alertDialogAjuda(context);
-          },
-        ),
-
-        ListTile(
-          title: Text("Configurações", style: TextStyle(fontSize: 20)),
-          onTap: () {
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Configurancoes(nome: "")), (route) => false);
           },
         ),
       ],
@@ -95,10 +93,7 @@ PreferredSizeWidget appBarWidget(
 
 // ===
 
-PreferredSizeWidget appBarWidgetMiniJogo(
-  BuildContext context,
-  String titulo,
-) {
+PreferredSizeWidget appBarWidgetMiniJogo(BuildContext context, String titulo) {
   return AppBar(
     centerTitle: true,
     title: Text(titulo, style: TextStyle(color: Colors.white)),
@@ -227,8 +222,10 @@ Widget padronizacaoJogo(
               const SizedBox(height: 16),
 
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 14,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(18),
