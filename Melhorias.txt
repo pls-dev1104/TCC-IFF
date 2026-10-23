@@ -1,0 +1,5 @@
+Coisas a resolver / melhorar (Em ordem de necessidade):
+
+1-Criar a tela inicial do jeito que desejamos manter daqui para a frente
+2-Melhorar tela de mini-jogos.
+3-Melhorar a tela de login.
