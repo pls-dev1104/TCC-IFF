@@ -2,4 +2,11 @@ Coisas a resolver / melhorar (Em ordem de necessidade):
 
 1-Criar a tela inicial do jeito que desejamos manter daqui para a frente
 2-Melhorar tela de mini-jogos.
-3-Melhorar a tela de login.
+3-Mexer no perfil e mexer no ajuda.
+4-Banco de dados{
+    1-Salvar as imagens no banco de dados.
+    2-Caso seja util vamos padronizar a estrutura do jogo no bd.
+    3-Salvar o nivel em que o usuario está.
+}
+5- Estilizar o site todo
+
