@@ -4,6 +4,55 @@ import 'package:includeapp/configuracoes/perfil.dart';
 import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/principal/mini_jogos.dart';
 
+//Widget que cria os 20 botoes 
+class BotaoNivel extends StatelessWidget {
+  final String titulo;
+  final String subtitulo;
+  final VoidCallback aoClicar; // A ação que o botão vai executar
+
+  const BotaoNivel({
+    super.key,
+    required this.titulo,
+    required this.subtitulo,
+    required this.aoClicar,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+      ),
+      onPressed: aoClicar,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            titulo,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            subtitulo,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 13),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//===
+
 Widget drawerFazer(BuildContext context) {
   return Drawer(
     child: ListView(

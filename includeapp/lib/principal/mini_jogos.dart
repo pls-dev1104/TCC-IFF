@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart'; // Importa o arquivo de widgets
 import 'package:includeapp/jogos/nivel0/etapa0Chamada.dart';
 import 'package:includeapp/jogos/nivel1/etapa1Chamada.dart';
 import 'package:includeapp/jogos/nivel2/etapa1Alarme.dart';
@@ -13,178 +13,66 @@ class MiniJogos extends StatefulWidget {
 }
 
 class _MiniJogosState extends State<MiniJogos> {
+  final List<Map<String, dynamic>> listaNiveis = [
+    {
+      'titulo': 'Nível 0',
+      'subtitulo': 'Apps básicos do celular',
+      'tela': const Etapa0Chamada(),
+    },
+    {
+      'titulo': 'Nível 1',
+      'subtitulo': 'Apps básicos do celular',
+      'tela': const Etapa1Chamada(),
+    },
+    {
+      'titulo': 'Nível 2',
+      'subtitulo': 'Apps básicos do celular',
+      'tela': const Etapa1Alarme(),
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
     final String nomeUsuario = user?.displayName ?? "Usuário";
 
     return Scaffold(
-      appBar: appBarWidget(context, "Níveis", nomeUsuario),
+      appBar: appBarWidget(context, "MiniJogos", nomeUsuario),
       drawer: drawerFazer(context),
-      
-      // SingleChildScrollView direto no body com padding
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20), // Espaçamento externo da tela
+        padding: const EdgeInsets.all(20),
         child: Container(
-          width: double.infinity, // Ocupa a largura disponível (agora funciona pois não tem Row)
-          padding: const EdgeInsets.all(20), // Espaçamento interno do container
-       
-          child: GridView.count(
-            crossAxisCount: 2, // 2 botões por linha
+          width: double.infinity,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 20, // Espaço vertical entre linhas
-            crossAxisSpacing: 20, // Espaço horizontal entre colunas
-            childAspectRatio: 1.0, // Deixa o botão quadrado (1.0 = largura igual a altura)
-            
-            children: [
-              
-              // Botão Nível 0
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-                onPressed: () {
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              childAspectRatio: 1.0,
+            ),
+            itemCount: listaNiveis.length,
+            itemBuilder: (context, index) {
+              final nivelAtual = listaNiveis[index];
+              return BotaoNivel(
+                titulo: nivelAtual['titulo'],
+                subtitulo: nivelAtual['subtitulo'],
+                aoClicar: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Etapa0Chamada(),
+                      builder: (context) => nivelAtual['tela'],
                     ),
                   );
                 },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Nível 0",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "Apps básicos do celular",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 13),
-                    ),
-                  ],
-                ),
-              ),
-
-              // Botão Nível 1
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Etapa1Chamada(),
-                    ),
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Nível 1",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "Conversar e Instalar",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 13),
-                    ),
-                  ],
-                ),
-              ),
-
-              // --- LINHA 2 ---
-
-              // Botão Nível 2
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Etapa1Alarme(),
-                    ),
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Nível 2",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "Navegar e Participar",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 13),
-                    ),
-                  ],
-                ),
-              ),
-              
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-                onPressed: () {},
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Nível 3",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "Teste",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 13),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+              );
+            },
           ),
         ),
       ),
