@@ -12,20 +12,82 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
-  
   Future<void> efetuarLogoff() async {
-    // Apenas desloga do Firebase (onde seu nome, email e senha estão)
+   final confirmar = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Sair da conta'),
+        content: const Text(
+          'Esta ação vai sair da sua conta.'
+          'Deseja continuar?',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Voltar'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Sair', style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+    if (confirmar == true){
     await AuthenticationHelper().signOut();
+    _finalizarLogoff();
+    }
+  }
 
+//==================
+
+  Future<void> excluirConta() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+    final confirmar = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Excluir conta'),
+        content: const Text(
+          'Esta ação é permanente e não pode ser desfeita.'
+          'Todos os seus dados de login serão removidos. Deseja continuar?',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancelar'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Excluir', style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+    if (confirmar == true) {
+      await user.delete();
+      _finalizarExclusao();
+    }
+
+       
+  }
+  void _finalizarExclusao() {
     if (!mounted) return;
-
-    // Limpa o histórico de navegação e volta pro começo
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => const Prelobby()),
       (route) => false,
     );
   }
+  void _finalizarLogoff() {
+    if (!mounted) return;
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const Prelobby()),
+      (route) => false,
+    );
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -154,55 +216,66 @@ class _PerfilState extends State<Perfil> {
                                 child: ListView(
                                   children: [
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25),
+                                      title: Text(
+                                        "Informações Pessoais",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
+                                      leading: const Icon(
+                                        Icons.account_circle,
+                                        size: 25,
+                                      ),
                                       onTap: () {},
                                     ),
-                    
                                     ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
+                                      title: Text(
+                                        "Tema Escuro/Claro",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
+                                      leading: const Icon(
+                                        Icons.dark_mode,
+                                        size: 25,
+                                      ),
                                       onTap: () {},
                                     ),
-
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
-                                      onTap: () {},
-                                    ),
-
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
-                                      onTap: () {},
-                                    ),
-                                    
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
-                                      onTap: () {},
-                                    ),
-
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
-                                      onTap: () {},
-                                    ),
-
-                                    ListTile(
-                                      title: Text("Oi", style: TextStyle(color: Colors.black, fontSize: fontSizeTelaInferior),),
-                                      leading: const Icon(Icons.abc_outlined, size: 25,),
-                                      onTap: () {},
-                                    ),
-
                                     ListTile(
                                       title: Text(
                                         "Sair do perfil",
-                                        style: TextStyle(color: Colors.red, fontSize: fontSizeTelaInferior),
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
                                       ),
-                                      leading: const Icon(Icons.logout, color: Colors.red, size: 25), // Ícone trocado para logout
+                                      leading: const Icon(
+                                        Icons.logout,
+                                        color: Colors.redAccent,
+                                        size: 25,
+                                      ), // Ícone trocado para logout
                                       onTap: () {
                                         efetuarLogoff();
+                                      },
+                                    ),
+                                    ListTile(
+                                      title: Text(
+                                        "Excluir conta",
+                                        style: TextStyle(
+                                          color: Colors.redAccent,
+                                          fontSize: fontSizeTelaInferior,
+                                        ),
+                                      ),
+                                      leading: const Icon(
+                                        Icons.delete_forever,
+                                        color: Colors.redAccent,
+                                        size: 25,
+                                      ),
+                                      // >>> NOVO: chamada da exclusão de conta
+                                      onTap: () {
+                                        excluirConta();
                                       },
                                     ),
                                   ],

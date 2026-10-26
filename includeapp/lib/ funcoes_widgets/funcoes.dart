@@ -6,24 +6,21 @@ void alertDialogAjuda(BuildContext context) {
   showDialog(
     context: context, 
     builder: (context) => AlertDialog(
-      title: Text("Mapa do conhecimento", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+      title: Text("Ajuda?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
       content: SizedBox(
         width: 160,
         height: 400,
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text("Este local tem o intuito de ser o lugar você aprenderá a usar o celular de forma divertida por meio de minijogos.\n", style: TextStyle(fontSize: 16)),
+              Text("Este app tem o intuito de te ensinar a mexer no celular através de quizes.\n", style: TextStyle(fontSize: 16)),
               Column(
                 children: [
-                  Text("Nível 0:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                  Text("você aprenderá a criar um alarme, salvar o contato de alguém, chamadas e muito mais.\n"),
+                  Icon(Icons.account_circle, color: Colors.black, size: 24),
+                  Text("Ao clicar nesse botão você será direcionado para a página referente ao seu perfil.\n"),
 
-                  Text("Nível 1:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),                                          Text("você aprenderá a criar um email, instalação de apps, whatsapp e etc.\n"),
-                  Text("você aprenderá a criar um email, instalação de apps, whatsapp e etc.\n"),
-
-                  Text("Nível 2:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                  Text("você aprenderá a navegar na internet, login em apps, mexer no youtube, além de outras coisas.\n")
+                  Icon(Icons.menu, color: Colors.black, size: 24),
+                  Text("Ao clicar nesse icone você abrirá uma menu lateral no qual você pode escolher qual página se direcionar.\n"),
                 ],
               )
             ],

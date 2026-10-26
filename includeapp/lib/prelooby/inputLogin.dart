@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:includeapp/prelooby/gerador_senha.dart';
+import 'package:includeapp/registrar/gerador_senha.dart';
 import 'package:includeapp/registrar/login.dart';
 import 'package:just_bubble/just_bubble.dart';
 
