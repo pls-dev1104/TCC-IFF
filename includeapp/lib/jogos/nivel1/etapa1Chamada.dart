@@ -32,11 +32,13 @@ class _Etapa1Chamada extends State<Etapa1Chamada> {
   final opcao4 = Icon(Icons.menu, size: 30,);
 
   void somAcerto() async {
-    await tocar.play(AssetSource("som/acerto.mp3"));
+    await tocar.stop();
+    await tocar.play(AssetSource("som/acerto.mp3"), mode: PlayerMode.lowLatency);
   }
 
   void somErro() async {
-    await tocar.play(AssetSource("som/erro.mp3"));
+    await tocar.stop();
+    await tocar.play(AssetSource("som/erro.mp3"), mode: PlayerMode.lowLatency);
   }
 
   void erro1() {

@@ -220,7 +220,7 @@ Widget padronizacaoJogo(
   ButtonStyle estiloBotao(bool pCor) {
     return verificacaoBotao(pCor, pTelaPc).copyWith(
       minimumSize: WidgetStateProperty.all(
-        Size(pTelaPc ? 220 : 120, pTelaPc ? 70 : 70),
+        Size(pTelaPc ? 220 : 115, pTelaPc ? 70 : 70),
       ),
       padding: WidgetStateProperty.all(
         EdgeInsets.symmetric(horizontal: 20, vertical: 20),

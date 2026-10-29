@@ -26,18 +26,20 @@ class _Etapa6Chamada extends State<Etapa6Chamada> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaAdicionarNovoContato.jpg";
-  final pergunta = "Insira as informações e \nonde você salvará o contato?";
-  final opcao1 = Text("Salvar", style: TextStyle(fontSize: 18),);
+  final pergunta = "Insira as informações e onde você salvará o contato?";
+  final opcao1 = Text("Salvar", style: TextStyle(fontSize: 22),);
   final opcao2 = Icon(Icons.star_border, size: 30);
-  final opcao3 = Text("Criar contato", style: TextStyle(fontSize: 18),);
+  final opcao3 = Text("+", style: TextStyle(fontSize: 20),);
   final opcao4 = Icon(Icons.cancel_outlined, size: 30,);
 
   void somAcerto() async {
-    await tocar.play(AssetSource("som/acerto.mp3"));
+    await tocar.stop();
+    await tocar.play(AssetSource("som/acerto.mp3"), mode: PlayerMode.lowLatency);
   }
 
   void somErro() async {
-    await tocar.play(AssetSource("som/erro.mp3"));
+    await tocar.stop();
+    await tocar.play(AssetSource("som/erro.mp3"), mode: PlayerMode.lowLatency);
   }
 
   void erro1() {

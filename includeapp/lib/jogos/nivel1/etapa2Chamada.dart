@@ -28,24 +28,19 @@ class _Etapa2ChamadaState extends State<Etapa2Chamada> {
   final imagem = "assets/imagem/jogosImagem/level1/telaDiscarNumero.jpg";
   final pergunta = "Depois de digitar o número, qual botão devo apertar para realizar a chamada?";
   final opcao1 = Icon(Icons.home_filled, size: 30);
-  final opcao2 = Row(
-    mainAxisSize: MainAxisSize.min,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Icon(Icons.call, size: 25,),
-      SizedBox(width: 5,),
-      Text("Ligar", style: TextStyle(fontSize: 25),)
-    ],
-  );
+  final opcao2 = Text("Ligar", style: TextStyle(fontSize: 25),);
+    
   final opcao3 = Icon(Icons.backspace_outlined, size: 30);
   final opcao4 = Icon(Icons.grid_3x3, size: 30);
 
   void somAcerto() async {
-    await tocar.play(AssetSource("som/acerto.mp3"));
+    await tocar.stop();
+    await tocar.play(AssetSource("som/acerto.mp3"), mode: PlayerMode.lowLatency);
   }
 
   void somErro() async {
-    await tocar.play(AssetSource("som/erro.mp3"));
+    await tocar.stop();
+    await tocar.play(AssetSource("som/erro.mp3"), mode: PlayerMode.lowLatency);
   }
 
   void erro1() {

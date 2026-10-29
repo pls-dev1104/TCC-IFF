@@ -28,16 +28,18 @@ class _Etapa5Chamada extends State<Etapa5Chamada> {
   final imagem = "assets/imagem/jogosImagem/level1/telaContatosChamadas.jpg";
   final pergunta = "Onde devo apertar para criar \num novo contato?";
   final opcao1 = Icon(Icons.person, size: 30);
-  final opcao2 = Text("Criar contato", style: TextStyle(fontSize: 18),);
+  final opcao2 = Icon(Icons.person_add_alt_1_outlined, size: 30);
   final opcao3 = Icon(Icons.share_rounded, size: 30,);
-  final opcao4 = Text("Compartilhar", style: TextStyle(fontSize: 18),);
+  final opcao4 = Icon(Icons.arrow_back_outlined, size: 30);
 
   void somAcerto() async {
-    await tocar.play(AssetSource("som/acerto.mp3"));
+    await tocar.stop();
+    await tocar.play(AssetSource("som/acerto.mp3"), mode: PlayerMode.lowLatency);
   }
 
   void somErro() async {
-    await tocar.play(AssetSource("som/erro.mp3"));
+    await tocar.stop();
+    await tocar.play(AssetSource("som/erro.mp3"), mode: PlayerMode.lowLatency);
   }
 
   void erro1() {
