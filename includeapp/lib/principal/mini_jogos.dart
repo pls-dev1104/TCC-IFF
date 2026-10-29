@@ -37,7 +37,7 @@ class _MiniJogosState extends State<MiniJogos> {
     final String nomeUsuario = user?.displayName ?? "Usuário";
 
     return Scaffold(
-      appBar: appBarWidget(context, "MiniJogos", nomeUsuario),
+      appBar: appBarWidget(context, "Níveis", nomeUsuario),
       drawer: drawerFazer(context),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -57,6 +57,7 @@ class _MiniJogosState extends State<MiniJogos> {
               crossAxisSpacing: 20,
               childAspectRatio: 1.0,
             ),
+            
             itemCount: listaNiveis.length,
             itemBuilder: (context, index) {
               final nivelAtual = listaNiveis[index];

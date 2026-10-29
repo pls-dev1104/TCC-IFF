@@ -77,7 +77,7 @@ Widget drawerFazer(BuildContext context) {
         ),
 
         ListTile(
-          title: Text("Mini-jogos", style: TextStyle(fontSize: 20)),
+          title: Text("Níveis", style: TextStyle(fontSize: 20)),
           onTap: () {
             Navigator.pushAndRemoveUntil(
               context,
