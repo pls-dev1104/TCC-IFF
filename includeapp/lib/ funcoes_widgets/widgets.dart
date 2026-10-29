@@ -206,7 +206,9 @@ Widget padronizacaoJogo(
   pEscolhaCerta2,
   pEscolhaCerta3,
   pEscolhaCerta4,
-  void Function() pErro1,
+  void Function() pSomAcerto,
+  pSomErro,
+  pErro1,
   pErro2,
   pErro3,
   pErro4,
@@ -306,9 +308,11 @@ Widget padronizacaoJogo(
                       style: estiloBotao(pbotao1),
                       onPressed: () {
                         if (pEscolhaCerta1) {
+                          pSomAcerto();
                           acerto(context, pProximaTela);
                         } else {
                           pErro1();
+                          pSomErro();
                         }
                       },
                       child: pOpcao1,
@@ -317,9 +321,11 @@ Widget padronizacaoJogo(
                       style: estiloBotao(pbotao2),
                       onPressed: () {
                         if (pEscolhaCerta2) {
+                          pSomAcerto();
                           acerto(context, pProximaTela);
                         } else {
                           pErro2();
+                          pSomErro();
                         }
                       },
                       child: pOpcao2,
@@ -328,9 +334,11 @@ Widget padronizacaoJogo(
                       style: estiloBotao(pbotao3),
                       onPressed: () {
                         if (pEscolhaCerta3) {
+                          pSomAcerto();
                           acerto(context, pProximaTela);
                         } else {
                           pErro3();
+                          pSomErro();
                         }
                       },
                       child: pOpcao3,
@@ -339,9 +347,11 @@ Widget padronizacaoJogo(
                       style: estiloBotao(pbotao4),
                       onPressed: () {
                         if (pEscolhaCerta4) {
+                          pSomAcerto();
                           acerto(context, pProximaTela);
                         } else {
                           pErro4();
+                          pSomErro();
                         }
                       },
                       child: pOpcao4,

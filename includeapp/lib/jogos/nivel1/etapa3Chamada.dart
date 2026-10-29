@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivel1/etapa4Chamada.dart';
+import 'package:audioplayers/audioplayers.dart';
+
 
 class Etapa3Chamada extends StatefulWidget {
 
@@ -11,6 +13,9 @@ class Etapa3Chamada extends StatefulWidget {
 }
 
 class _Etapa3Chamada extends State<Etapa3Chamada> {
+  double visibilidade = 0;
+  final AudioPlayer tocar = AudioPlayer();
+
   bool botao1 = false;
   bool botao2 = false;
   bool botao3 = false;
@@ -27,6 +32,14 @@ class _Etapa3Chamada extends State<Etapa3Chamada> {
   final opcao2 = Icon(Icons.home_filled, size: 30);
   final opcao3 = Icon(Icons.person_add_alt, size: 30);
   final opcao4 = Icon(Icons.menu, size: 30,);
+
+  void somAcerto() async {
+    await tocar.play(AssetSource("som/acerto.mp3"));
+  }
+
+  void somErro() async {
+    await tocar.play(AssetSource("som/erro.mp3"));
+  }
 
   void erro1() {
     setState(() {
@@ -79,7 +92,7 @@ class _Etapa3Chamada extends State<Etapa3Chamada> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa4Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa4Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )
