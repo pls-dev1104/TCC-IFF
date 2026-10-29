@@ -4,7 +4,7 @@ import 'package:includeapp/configuracoes/perfil.dart';
 import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/principal/mini_jogos.dart';
 
-//Widget que cria os 20 botoes 
+//Widget que cria os botoes 
 class BotaoNivel extends StatelessWidget {
   final String titulo;
   final String subtitulo;
