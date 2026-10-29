@@ -67,8 +67,15 @@ class _Etapa6Chamada extends State<Etapa6Chamada> {
   @override
   void initState() {
     super.initState();
+    AudioCache().load('som/acerto.mp3');
+    AudioCache().load('som/erro.mp3');
   }
 
+  @override
+  void dispose() {
+    tocar.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

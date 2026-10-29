@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
@@ -13,7 +12,6 @@ class Etapa1Chamada extends StatefulWidget {
 }
 
 class _Etapa1Chamada extends State<Etapa1Chamada> {
-  double visibilidade = 0;
   final AudioPlayer tocar = AudioPlayer();
 
   bool botao1 = false;
@@ -65,23 +63,17 @@ class _Etapa1Chamada extends State<Etapa1Chamada> {
     });
   }
 
-  void mostrarResultado() {
-    setState(() {
-      visibilidade = 1;
-    });
-
-    Timer(Duration(seconds: 3), () {
-      if (mounted) {
-        setState(() {
-          visibilidade = 0;
-        });
-      }
-    });
-  }
-
   @override
   void initState() {
     super.initState();
+    AudioCache().load('som/acerto.mp3');
+    AudioCache().load('som/erro.mp3');
+  }
+
+  @override
+  void dispose() {
+    tocar.dispose();
+    super.dispose();
   }
 
   @override

@@ -68,6 +68,14 @@ class _Etapa3Chamada extends State<Etapa3Chamada> {
   @override
   void initState() {
     super.initState();
+    AudioCache().load('som/acerto.mp3');
+    AudioCache().load('som/erro.mp3');
+  }
+
+  @override
+  void dispose() {
+    tocar.dispose();
+    super.dispose();
   }
 
   @override
