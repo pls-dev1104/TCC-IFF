@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/configuracoes/perfil.dart';
 import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/principal/mini_jogos.dart';
+import 'package:includeapp/principal/ranking.dart';
 
 //Widget que cria os botoes 
 class BotaoNivel extends StatelessWidget {
@@ -118,6 +120,7 @@ PreferredSizeWidget appBarWidget(
 ) {
   return AppBar(
     centerTitle: true,
+    automaticallyImplyLeading: false,
     title: Text(titulo, style: TextStyle(color: Colors.white)),
     iconTheme: IconThemeData(color: Colors.white),
     actions: [
@@ -128,14 +131,13 @@ PreferredSizeWidget appBarWidget(
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Perfil()),
+                MaterialPageRoute(builder: (context) => Ranking()),
               );
             },
-            icon: Icon(Icons.account_circle, color: Colors.white, size: 24),
+            icon: SvgPicture.asset("assets/svg/medalha.svg"),
           ),
         ],
       ),
-      SizedBox(width: 10),
     ],
   );
 }
