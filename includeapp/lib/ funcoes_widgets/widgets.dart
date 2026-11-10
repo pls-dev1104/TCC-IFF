@@ -167,7 +167,6 @@ PreferredSizeWidget appBarWidgetMiniJogo(
             preferredSize: Size.fromHeight(16),
             child: Padding(
               padding: EdgeInsets.fromLTRB(16, 0, 16, 6),
-              // Anima do progresso anterior até o atual ao abrir a etapa
               child: TweenAnimationBuilder<double>(
                 tween: Tween(begin: progressoInicial, end: progressoFinal),
                 duration: Duration(milliseconds: 600),
@@ -269,7 +268,7 @@ Widget padronizacaoJogo(
     );
   }
 
-  return SingleChildScrollView(
+  return Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
