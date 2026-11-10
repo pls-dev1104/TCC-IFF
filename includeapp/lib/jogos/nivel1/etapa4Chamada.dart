@@ -83,7 +83,7 @@ class _Etapa4Chamada extends State<Etapa4Chamada> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Etapa 4"),
+      appBar: appBarWidgetMiniJogo(context, "Fase 4", etapaAtual: 4, totalEtapas: 6),
       body: Center(
         child: SingleChildScrollView(
           child: LayoutBuilder(

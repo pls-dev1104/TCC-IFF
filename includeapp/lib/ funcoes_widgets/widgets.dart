@@ -1,4 +1,3 @@
-//Widgets
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
@@ -145,11 +144,46 @@ PreferredSizeWidget appBarWidget(
 
 // ===
 
-PreferredSizeWidget appBarWidgetMiniJogo(BuildContext context, String titulo) {
+PreferredSizeWidget appBarWidgetMiniJogo(
+  BuildContext context,
+  String titulo, {
+  int? etapaAtual,
+  int? totalEtapas,
+}) {
+  final int atual = etapaAtual ?? 0;
+  final int total = totalEtapas ?? 0;
+  final bool mostrarProgresso = total > 0;
+
+  // Etapas já concluídas / total (na etapa 1 começa vazia)
+  final double progressoFinal = ((atual - 1) / total).clamp(0.0, 1.0);
+  final double progressoInicial = ((atual - 2) / total).clamp(0.0, 1.0);
+
   return AppBar(
     centerTitle: true,
     title: Text(titulo, style: TextStyle(color: Colors.white)),
     iconTheme: IconThemeData(color: Colors.white),
+    bottom: mostrarProgresso
+        ? PreferredSize(
+            preferredSize: Size.fromHeight(16),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(16, 0, 16, 6),
+              // Anima do progresso anterior até o atual ao abrir a etapa
+              child: TweenAnimationBuilder<double>(
+                tween: Tween(begin: progressoInicial, end: progressoFinal),
+                duration: Duration(milliseconds: 600),
+                builder: (context, valor, _) {
+                  return LinearProgressIndicator(
+                    value: valor,
+                    minHeight: 10,
+                    borderRadius: BorderRadius.circular(10),
+                    backgroundColor: Colors.white24,
+                    color: Colors.white70,
+                  );
+                },
+              ),
+            ),
+          )
+        : null,
   );
 }
 
@@ -366,6 +400,105 @@ Widget padronizacaoJogo(
           ),
         ),
       ],
+    ),
+  );
+}
+
+Widget fimdoquiz(
+  BuildContext context, 
+  int nivel, [
+  Widget Function(BuildContext)? proximaTela,
+]) {
+  ButtonStyle estiloBotaoFim() {
+    return ElevatedButton.styleFrom(
+      backgroundColor: Color(0xFF2563EB),
+      foregroundColor: Colors.white,
+      minimumSize: Size(double.infinity, 64),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+    );
+  }
+
+  return Center(
+    child: SingleChildScrollView(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: 480),
+        child: Container(
+          margin: EdgeInsets.all(16),
+          padding: EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFFF5F7FA), Color(0xFFE4E9F2)],
+            ),
+            borderRadius: BorderRadius.circular(28),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 12,
+                offset: Offset(0, 8),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              Icon(Icons.emoji_events, size: 96, color: Color(0xFF2563EB)),
+              SizedBox(height: 16),
+              Text(
+                "Parabéns",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF2E3A59),
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                "O nível 1 foi concluído",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, color: Color(0xFF2E3A59)),
+              ),
+              SizedBox(height: 32),
+
+              // Só aparece se existir uma próxima fase
+              if (proximaTela != null) ...[
+                ElevatedButton.icon(
+                  style: estiloBotaoFim(),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: proximaTela),
+                    );
+                  },
+                  icon: Icon(Icons.arrow_forward),
+                  label: Text(
+                    "Próxima fase",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(height: 16),
+              ],
+
+              ElevatedButton.icon(
+                style: estiloBotaoFim(),
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => Inicial()),
+                    (route) => false,
+                  );
+                },
+                icon: Icon(Icons.home),
+                label: Text(
+                  "Voltar ao início",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     ),
   );
 }

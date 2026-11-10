@@ -28,7 +28,7 @@ class _MiniJogosState extends State<MiniJogos> {
     {
       'titulo': 'Nível 0',
       'subtitulo': 'Apps básicos do celular',
-      'tela': const Etapa1basico(),
+      'tela': const Etapa1Basico(),
     },
     {
       'titulo': 'Nível 1',
@@ -43,47 +43,47 @@ class _MiniJogosState extends State<MiniJogos> {
     {
       'titulo': 'Nível 3',
       'subtitulo': 'Whatsapp',
-      'tela':const Etapa1whatsapp(),
+      'tela':const Etapa1Whatsapp(),
     },
     {
       'titulo': 'Nível 4',
       'subtitulo': 'Criação de email',
-      'tela':const Etapa1email(),
+      'tela':const Etapa1Email(),
     },
     {
       'titulo': 'Nível 5',
       'subtitulo': 'Login Google/Pesquisar',
-      'tela':const Etapa1google(),
+      'tela':const Etapa1Google(),
     },
     {
       'titulo': 'Nível 6',
       'subtitulo': 'Usar Youtube',
-      'tela':const Etapa1youtube(),
+      'tela':const Etapa1Youtube(),
     },
     {
       'titulo': 'Nível 7',
       'subtitulo': 'Instalação e desinstalação de apps',
-      'tela':const Etapa1apps(),
+      'tela':const Etapa1Apps(),
     },
     {
       'titulo': 'Nível 8',
       'subtitulo': 'GOV',
-      'tela':const Etapa1gov(),
+      'tela':const Etapa1Gov(),
     },
     {
       'titulo': 'Nível 9',
       'subtitulo': 'INSS',
-      'tela':const Etapa1inss(),
+      'tela':const Etapa1Inss(),
     },
     {
       'titulo': 'Nível 10',
       'subtitulo': 'Bancos',
-      'tela':const Etapa1bancos(),
+      'tela':const Etapa1Bancos(),
     },
     {
       'titulo': 'Nível 11',
       'subtitulo': 'Uber',
-      'tela':const Etapa1uber(),
+      'tela':const Etapa1Uber(),
     },
     {
       'titulo': 'Nível 12',
