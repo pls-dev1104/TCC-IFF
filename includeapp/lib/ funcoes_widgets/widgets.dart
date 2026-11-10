@@ -417,83 +417,86 @@ Widget fimdoquiz(
     );
   }
 
-  return Center(
-    child: SingleChildScrollView(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 480),
-        child: Container(
-          margin: EdgeInsets.all(16),
-          padding: EdgeInsets.all(24),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFFF5F7FA), Color(0xFFE4E9F2)],
-            ),
-            borderRadius: BorderRadius.circular(28),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 12,
-                offset: Offset(2, 8),
+  return Scaffold(
+    body: Center(
+      child: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 480),
+          child: Container(
+            margin: EdgeInsets.all(16),
+            padding: EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0xFFF5F7FA), Color(0xFFE4E9F2)],
               ),
-            ],
-          ),
-          child: Column(
-            children: [
-              Icon(Icons.emoji_events, size: 96, color: Color(0xFF2563EB)),
-              SizedBox(height: 16),
-              Text(
-                "Parabéns",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF2E3A59),
+              borderRadius: BorderRadius.circular(28),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 12,
+                  offset: Offset(2, 8),
                 ),
-              ),
-              SizedBox(height: 8),
-              Text(
-                "O nível 1 foi concluído",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, color: Color(0xFF2E3A59)),
-              ),
-              SizedBox(height: 32),
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.emoji_events, size: 96, color: Color(0xFF2563EB)),
+                SizedBox(height: 16),
+                Text(
+                  "Parabéns!",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF2E3A59),
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  "O nível $nivel foi concluído",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18, color: Color(0xFF2E3A59)),
+                ),
+                SizedBox(height: 32),
 
-              if (proximaTela != null) ...[
+                if (proximaTela != null) ...[
+                  ElevatedButton.icon(
+                    style: estiloBotaoFim(),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: proximaTela),
+                      );
+                    },
+                    icon: Icon(Icons.arrow_forward),
+                    label: Text(
+                      "Próxima fase",
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                ],
+
                 ElevatedButton.icon(
                   style: estiloBotaoFim(),
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: proximaTela),
+                      MaterialPageRoute(builder: (context) => Inicial()),
+                      (route) => false,
                     );
                   },
-                  icon: Icon(Icons.arrow_forward),
+                  icon: Icon(Icons.home),
                   label: Text(
-                    "Próxima fase",
+                    "Voltar ao início",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(height: 16),
               ],
-
-              ElevatedButton.icon(
-                style: estiloBotaoFim(),
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => Inicial()),
-                    (route) => false,
-                  );
-                },
-                icon: Icon(Icons.home),
-                label: Text(
-                  "Voltar ao início",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
