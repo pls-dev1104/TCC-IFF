@@ -435,7 +435,7 @@ Widget fimdoquiz(
               BoxShadow(
                 color: Colors.black26,
                 blurRadius: 12,
-                offset: Offset(0, 8),
+                offset: Offset(2, 8),
               ),
             ],
           ),
@@ -460,7 +460,6 @@ Widget fimdoquiz(
               ),
               SizedBox(height: 32),
 
-              // Só aparece se existir uma próxima fase
               if (proximaTela != null) ...[
                 ElevatedButton.icon(
                   style: estiloBotaoFim(),
