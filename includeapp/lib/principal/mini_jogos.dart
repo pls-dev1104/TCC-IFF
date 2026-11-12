@@ -32,7 +32,7 @@ class _MiniJogosState extends State<MiniJogos> {
     },
     {
       'titulo': 'Nível 1',
-      'subtitulo': 'Chamadas,Contatos',
+      'subtitulo': 'Chamadas e Contatos',
       'tela': const Etapa1Chamada(),
     },
     {

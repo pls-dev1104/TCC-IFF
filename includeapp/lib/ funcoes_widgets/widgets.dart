@@ -466,9 +466,9 @@ Widget fimdoquiz(
                   ElevatedButton.icon(
                     style: estiloBotaoFim(),
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: proximaTela),
+                        MaterialPageRoute(builder: proximaTela), (route) => false,
                       );
                     },
                     icon: Icon(Icons.arrow_forward),
