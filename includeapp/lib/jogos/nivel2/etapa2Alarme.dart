@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel3/etapa1whatsapp.dart';
+import 'package:includeapp/jogos/nivel2/etapa3Alarme.dart';
 
 class Etapa2Alarme extends StatefulWidget {
 
@@ -21,15 +21,15 @@ class _Etapa2Alarme extends State<Etapa2Alarme> {
 
   bool escolhaCerta1 = false;
   bool escolhaCerta2 = false;
-  bool escolhaCerta3 = true;
-  bool escolhaCerta4 = false;
+  bool escolhaCerta3 = false;
+  bool escolhaCerta4 = true;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "Onde configuro a hora e crio o alarme?";
-  final opcao1 = Text("Coloque o nome, aperte em 'Toque' e ok", style: TextStyle(fontSize: 18),);
-  final opcao2 = Text("Aperte em vibrar e depois ok", style: TextStyle(fontSize: 18));
-  final opcao3 = Text("Modifique o horário das horas e minutos e ok", style: TextStyle(fontSize: 18),);
-  final opcao4 = Text("Aperte em 'Novo Alarme e ok", style: TextStyle(fontSize: 18),);
+  final pergunta = "Onde configuro a hora?";
+  final opcao1 = Text("Tocar uma vez", style: TextStyle(fontSize: 18),);
+  final opcao2 = Text("Novo Alarme", style: TextStyle(fontSize: 18));
+  final opcao3 = Text("Vibrar", style: TextStyle(fontSize: 18),);
+  final opcao4 = Text("00  00", style: TextStyle(fontSize: 18),);
 
   void somAcerto() async {
     await tocar.stop();
@@ -81,7 +81,7 @@ class _Etapa2Alarme extends State<Etapa2Alarme> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Fase 2"),
+      appBar: appBarWidgetMiniJogo(context, "Fase 2", etapaAtual: 2, totalEtapas: 6),
       body: Center(
         child: SingleChildScrollView(
           child: LayoutBuilder(
@@ -100,7 +100,7 @@ class _Etapa2Alarme extends State<Etapa2Alarme> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => fimdoquiz(context, 2, (context) => Etapa1Whatsapp()), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa3Alarme(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

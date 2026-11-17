@@ -29,7 +29,7 @@ class _Etapa6Chamada extends State<Etapa6Chamada> {
   final pergunta = "Insira as informações e onde você salvará o contato?";
   final opcao1 = Text("Salvar", style: TextStyle(fontSize: 22),);
   final opcao2 = Icon(Icons.star_border, size: 30);
-  final opcao3 = Text("+", style: TextStyle(fontSize: 20),);
+  final opcao3 = Text("+", style: TextStyle(fontSize: 30),);
   final opcao4 = Icon(Icons.cancel_outlined, size: 30,);
 
   void somAcerto() async {

@@ -256,7 +256,7 @@ Widget padronizacaoJogo(
   ButtonStyle estiloBotao(bool pCor) {
     return verificacaoBotao(pCor, pTelaPc).copyWith(
       fixedSize: WidgetStateProperty.all(
-        Size(pTelaPc ? 220 : 115, pTelaPc ? 70 : 70),
+        Size(pTelaPc ? 150 : 115, pTelaPc ? 100 : 90),
       ),
       padding: WidgetStateProperty.all(
         EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -277,7 +277,7 @@ Widget padronizacaoJogo(
           margin: EdgeInsets.all(16),
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
-            gradient: LinearGradient( //O fundo da imagem
+            gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [Color(0xFFF5F7FA), Color(0xFFE4E9F2)],
@@ -427,17 +427,7 @@ Widget fimdoquiz(
             margin: EdgeInsets.all(16),
             padding: EdgeInsets.all(24),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color(0xFFF5F7FA), Color(0xFFE4E9F2)],
-              ),
               borderRadius: BorderRadius.circular(28),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black26,
-                  blurRadius: 12,
-                  offset: Offset(2, 8),
-                ),
-              ],
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,

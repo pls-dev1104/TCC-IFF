@@ -27,7 +27,7 @@ class _Etapa4Chamada extends State<Etapa4Chamada> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/TelaDrowerChamada.jpg";
-  final pergunta = "Qual desses 4 devo apertar para \nentrar na aba de contatos?";
+  final pergunta = "Qual desses 4 devo apertar para entrar na aba de contatos?";
   final opcao1 = Icon(Icons.replay, size: 30);
   final opcao2 = Icon(Icons.settings_outlined, size: 30);
   final opcao3 = Icon(Icons.group, size: 30);

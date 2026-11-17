@@ -81,7 +81,7 @@ class _Etapa1Alarme extends State<Etapa1Alarme> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Fase 1"),
+      appBar: appBarWidgetMiniJogo(context, "Fase 1", etapaAtual: 1, totalEtapas: 6),
       body: Center(
         child: SingleChildScrollView(
           child: LayoutBuilder(
