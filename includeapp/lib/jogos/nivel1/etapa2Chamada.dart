@@ -29,7 +29,6 @@ class _Etapa2ChamadaState extends State<Etapa2Chamada> {
   final pergunta = "Depois de digitar o número, qual botão devo apertar para realizar a chamada?";
   final opcao1 = Icon(Icons.home_filled, size: 30);
   final opcao2 = Text("Ligar", style: TextStyle(fontSize: 25),);
-    
   final opcao3 = Icon(Icons.backspace_outlined, size: 30);
   final opcao4 = Icon(Icons.grid_3x3, size: 30);
 

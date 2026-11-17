@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
+import 'package:includeapp/jogos/nivel2/etapa2Alarme.dart';
 
 class Etapa1Alarme extends StatefulWidget {
 
@@ -25,11 +25,11 @@ class _Etapa1Alarme extends State<Etapa1Alarme> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "1A";
-  final opcao1 = Icon(Icons.dialpad, size: 30);
-  final opcao2 = Icon(Icons.home_filled, size: 30);
-  final opcao3 = Icon(Icons.person_add_alt, size: 30);
-  final opcao4 = Icon(Icons.menu, size: 30,);
+  final pergunta = "Onde devo apertar para criar um novo alarme?";
+  final opcao1 = Icon(Icons.add, size: 30);
+  final opcao2 = Icon(Icons.alarm, size: 30);
+  final opcao3 = Icon(Icons.watch_later_outlined, size: 30);
+  final opcao4 = Icon(Icons.hourglass_empty, size: 30,);
 
   void somAcerto() async {
     await tocar.stop();
@@ -100,7 +100,7 @@ class _Etapa1Alarme extends State<Etapa1Alarme> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Alarme(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

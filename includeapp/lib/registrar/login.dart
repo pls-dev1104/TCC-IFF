@@ -46,10 +46,18 @@ class _LoginFormState extends State<LoginForm> {
         children: <Widget>[
           TextFormField(
             decoration: const InputDecoration(
+              floatingLabelBehavior: FloatingLabelBehavior.auto,
               prefixIcon: Icon(Icons.email_outlined),
-              labelText: 'Email',
+              labelText: 'Digite seu email',
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(16)),
+                
+                borderSide: BorderSide(
+                  color: Colors.black
+                )
+              ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                borderRadius: BorderRadius.all(Radius.circular(16)),
               ),
             ),
             validator: (value) {
@@ -63,10 +71,17 @@ class _LoginFormState extends State<LoginForm> {
           const SizedBox(height: 20),
           TextFormField(
             decoration: InputDecoration(
-              labelText: 'Senha',
+              floatingLabelBehavior: FloatingLabelBehavior.auto,
+              labelText: 'Digite sua senha',
               prefixIcon: const Icon(Icons.lock_outline),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderSide: BorderSide(
+                  color: Colors.black
+                ),
+              ),
               border: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                borderRadius: BorderRadius.all(Radius.circular(16)),
               ),
               suffixIcon: GestureDetector(
                 onTap: () {
@@ -88,10 +103,12 @@ class _LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
+          
           const SizedBox(height: 30),
+
           SizedBox(
             height: 54,
-            width: 184,
+            width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
@@ -121,11 +138,12 @@ class _LoginFormState extends State<LoginForm> {
                 }
               },
               style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 17, 86, 143),
                 shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(24.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
                 ),
               ),
-              child: const Text('Login', style: TextStyle(fontSize: 24)),
+              child: const Text('Login', style: TextStyle(fontSize: 24, color: Colors.white)),
             ),
           ),
         ],

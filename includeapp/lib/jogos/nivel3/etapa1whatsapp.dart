@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
+import 'package:includeapp/jogos/nivel4/etapa1email.dart';
 
 class Etapa1Whatsapp extends StatefulWidget {
 
@@ -100,7 +100,7 @@ class _Etapa1Whatsapp extends State<Etapa1Whatsapp> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => fimdoquiz(context, 3, (context) => Etapa1Email()), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )
