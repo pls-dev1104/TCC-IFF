@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:includeapp/configuracoes/firebase_options.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:includeapp/principal/inicial.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase_flutter/supabase_flutter.dart' hide User;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
