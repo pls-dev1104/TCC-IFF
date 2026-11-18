@@ -1,60 +1,59 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:includeapp/configuracoes/firebase_options.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:includeapp/principal/inicial.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    options: DefaultFirebaseOptions.currentPlatform
+  );
+
+  await Supabase.initialize(
+    url: 'https://rutzlttmuncskuvqyrix.supabase.co',
+    publishableKey: 'sb_publishable_c03tSXWgwqj9vBwSJG7iEA_qWde_iWO',
+
+    accessToken: () async {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) return null;
+      return await user.getIdToken();
+    }
   );
   runApp(const App());
 }
 
 class App extends StatelessWidget {
-  const new({super.key,});
-
+  const new({super.key});
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return MaterialApp(
-          title: "IncludeApp",
-            theme: ThemeData(
-              appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF2563EB)),
-              drawerTheme: const DrawerThemeData(
-                backgroundColor: Color(0xFF2563EB),
-              ),
-              listTileTheme: const ListTileThemeData(
-                textColor: Colors.white,
-              ),
-            ),
-            
-          debugShowCheckedModeBanner: false,
-          home: StreamBuilder<User?>(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              //Tela branca de espera de connectividade
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Scaffold(); 
-              }
-              // Se encontrou o usuário, vai para a Home
-              if (snapshot.hasData) {
-                return const Inicial(); 
-              }
-              //Se nao tiver nada volta pra primeira pagina
-              return const Prelobby(); 
-            },
-          ),
-        );
-      },
+    return MaterialApp(
+      title: "IncludeApp",
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF2563EB)),
+        drawerTheme: const DrawerThemeData(backgroundColor: Color(0xFF2563EB)),
+        listTileTheme: const ListTileThemeData(textColor: Colors.white),
+      ),
+
+      debugShowCheckedModeBanner: false,
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          //Tela branca de espera de connectividade
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold();
+          }
+          // Se encontrou o usuário, vai para a Home
+          if (snapshot.hasData) {
+            return const Inicial();
+          }
+          //Se nao tiver nada volta pra primeira pagina
+          return const Prelobby();
+        },
+      ),
     );
   }
 }
