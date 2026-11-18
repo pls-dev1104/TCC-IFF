@@ -2,9 +2,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/configuracoes/perfil.dart';
+import 'package:includeapp/principal/IA.dart';
 import 'package:includeapp/principal/mini_jogos.dart';
 
 class Inicial extends StatefulWidget {
@@ -58,7 +58,10 @@ class _InicialState extends State<Inicial> {
         currentIndex: selecionado,
         onTap: (value) {
           if (value == 4) {
-            alertDialogAjuda(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => IA()),
+            );
           } else {
             setState(() {
               selecionado = value;
