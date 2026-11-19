@@ -67,7 +67,7 @@ BOTÕES NA PARTE DE BAIXO DA TELA:
 - Jogos (ícone de controle): mostra os níveis dos jogos.
 - Tutorial (ícone de vídeo): vídeos de ensino. Ainda está em desenvolvimento.
 - Perfil (ícone de bonequinho): dados da conta e opções de sair ou excluir a conta.
-- Ajuda (ponto de interrogação vermelho): abre a ajuda.
+- Dúvidas/Ajuda (ícone de um robo): abre o Assistente Rogério, com a finalidade de ajudá-lo em qualquer dúvida sobre o app.
 
 MENU LATERAL (Atalhos):
 Aparece na tela de Perfil e abre ao arrastar o dedo da borda esquerda da tela para a direita. Tem 4 opções: Início, Níveis (lista de jogos), Perfil e Ajuda.
@@ -92,15 +92,16 @@ PERFIL:
 - "Excluir conta": apaga a conta para sempre. Pede confirmação antes, então avise a pessoa para ter cuidado.
 - "Informações Pessoais" e "Tema Escuro/Claro": ainda estão em desenvolvimento e não funcionam por enquanto.
 
-AJUDA ATUAL:
-Ao tocar em "Ajuda", a pessoa vê uma janela explicando que o app ensina a mexer no celular por quizzes, o que faz o botão de perfil e o que faz o ícone de menu.
+DÚVIDA/AJUDA ATUAL:
+Ao tocar em "DÚVIDAS?", a pessoa vê uma janela explicando que o app ensina a mexer no celular por quizzes, o que faz o botão de perfil e o que faz o ícone de menu.
 '''
                   }
                 ]
               },
               'generationConfig': {
                 'maxOutputTokens': 300,
-                'temperature': 0.4,
+                'temperature': 0.5,
+                'thinkingConfig': {'thinkingLevel': 'minimal'},
               },
               'contents': [
                 {
@@ -179,11 +180,25 @@ Ao tocar em "Ajuda", a pessoa vê uma janela explicando que o app ensina a mexer
             Expanded(
               child: Center(
                 child: SingleChildScrollView(
-                  child: Text(
-                    _resposta,
-                    style: const TextStyle(fontSize: 22, height: 1.4),
-                    textAlign: TextAlign.center,
-                  ),
+                  child: Column(
+                    children: [
+                      //Image.asset("assets/imagem/perfilRogerio/perfilRogerio.png", width: 200),
+                      Image.asset(
+                        _carregando 
+                        ? "assets/imagem/perfilRogerio/perfilRogerioPensando.png" 
+                        : "assets/imagem/perfilRogerio/perfilRogerio.png",
+                        width: 200
+                      ),
+                      
+                      SizedBox(height: 60),
+
+                      Text(
+                        _resposta,
+                        style: const TextStyle(fontSize: 22, height: 1.4),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  )
                 ),
               ),
             ),
@@ -200,13 +215,19 @@ Ao tocar em "Ajuda", a pessoa vê uma janela explicando que o app ensina a mexer
               width: double.infinity,
               height: 55,
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 17, 86, 143),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
+                ),
+              ),
                 onPressed: _carregando
                     ? null
                     : () {
                         _perguntar(_controlador.text);
                         _controlador.clear();
                       },
-                child: const Text('PERGUNTAR', style: TextStyle(fontSize: 20)),
+                child: const Text('PERGUNTAR', style: TextStyle(fontSize: 20, color: Colors.white)),
               ),
             ),
           ],

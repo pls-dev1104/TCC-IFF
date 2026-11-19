@@ -43,6 +43,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   supabase_flutter: ^2.18.3
   http: ^1.6.0
+  youtube_player_iframe: ^6.0.3
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,7 @@ flutter:
   assets:
     - assets/imagem/login/
     - assets/imagem/jogosImagem/level1/
+    - assets/imagem/perfilRogerio/
     - assets/som/
     - assets/svg/
 
