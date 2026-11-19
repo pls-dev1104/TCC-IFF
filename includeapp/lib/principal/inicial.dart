@@ -6,6 +6,7 @@ import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/configuracoes/perfil.dart';
 import 'package:includeapp/principal/IA.dart';
 import 'package:includeapp/principal/mini_jogos.dart';
+import 'package:includeapp/principal/tutorial.dart';
 
 class Inicial extends StatefulWidget {
   const Inicial({super.key});
@@ -39,8 +40,9 @@ class _InicialState extends State<Inicial> {
         ),
       ),
       MiniJogos(),
+      Tutorial(),
       Perfil(),
-      Perfil(),
+      IA()
     ];
 
     PreferredSizeWidget? appBarExibida;
@@ -56,39 +58,32 @@ class _InicialState extends State<Inicial> {
       body: paginas[selecionado],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selecionado,
-        onTap: (value) {
-          if (value == 4) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => IA()),
-            );
-          } else {
-            setState(() {
-              selecionado = value;
-            });
-          }
-        },
         type: BottomNavigationBarType.fixed,
+        onTap: (indice) {
+          setState(() {
+            selecionado = indice;
+          });
+        },
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/svg/casa.svg", height: 24),
+            icon: SvgPicture.asset("assets/svg/casa.svg", height: 26),
             label: "Inicial",
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/svg/controle.svg", height: 24),
+            icon: SvgPicture.asset("assets/svg/controle.svg", height: 26),
             label: "Jogos",
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/svg/youtube.svg", height: 28),
+            icon: SvgPicture.asset("assets/svg/video.svg", height: 32),
             label: "Tutorial",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: SvgPicture.asset("assets/svg/perfil.svg", height: 26),
             label: "Perfil",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.help_outline_rounded, color: Colors.red,),
-            label: "Ajuda",
+            icon: SvgPicture.asset("assets/svg/robo.svg", height: 30),
+            label: "Dúvidas?",
           ),
         ],
       ),
