@@ -119,11 +119,9 @@ Ao tocar em "DÚVIDAS?", a pessoa vê uma janela explicando que o app ensina a m
 
       if (retorno.statusCode == 200) {
         final dados = jsonDecode(utf8.decode(retorno.bodyBytes));
-        final textoGerado =
-            dados['candidates']?[0]?['content']?['parts']?[0]?['text'];
+        final textoGerado = dados['candidates']?[0]?['content']?['parts']?[0]?['text'];
 
-        String respostaFinal =
-            'Não consegui entender. Pode perguntar de outro jeito?';
+        String respostaFinal = 'Não consegui entender. Pode perguntar de outro jeito?';
 
         if (textoGerado is String && textoGerado.trim().isNotEmpty) {
           final linhas = textoGerado
