@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
 class IA extends StatefulWidget {
   const IA({super.key});
@@ -65,7 +66,7 @@ O IncludeApp ensina a mexer no celular por meio de quizzes (jogos de perguntas e
 BOTÕES NA PARTE DE BAIXO DA TELA:
 - Inicial (ícone de casa): tela de boas-vindas com o nome da pessoa. No canto de cima, à direita, há uma medalha que abre o Ranking.
 - Jogos (ícone de controle): mostra os níveis dos jogos.
-- Tutorial (ícone de vídeo): vídeos de ensino. Ainda está em desenvolvimento.
+- Tutorial (ícone de vídeo): tela com vídeos que ensinam a usar o celular. Veja a seção Tutorial abaixo.
 - Perfil (ícone de bonequinho): dados da conta e opções de sair ou excluir a conta.
 - Dúvidas/Ajuda (ícone de um robo): abre o Assistente Rogério, com a finalidade de ajudá-lo em qualquer dúvida sobre o app.
 
@@ -86,6 +87,15 @@ Nível 1, "Fazer ligações" (6 fases):
 - Fase 5: tocar no ícone de pessoa com sinal de mais (+) para criar um novo contato.
 - Fase 6: preencher os dados da pessoa e tocar em "Salvar" para guardar o contato.
 O Nível 2 ensina a mexer no alarme.
+
+TUTORIAL:
+- Tem o título "Tutorial" no alto da tela.
+- Mostra uma lista de vídeos, um embaixo do outro. Cada vídeo tem uma frase curta escrita acima dele.
+- Para assistir, a pessoa toca no botão de tocar (triângulo) no meio do vídeo. O vídeo não começa sozinho.
+- Cada vídeo tem uma barra embaixo para pausar, avançar e um botão para abrir em tela cheia.
+- Para ver os outros vídeos, a pessoa arrasta o dedo para cima na tela.
+- Os vídeos precisam de internet para funcionar. Se o vídeo não aparecer, peça com carinho para a pessoa verificar a internet.
+- Novos vídeos ainda serão adicionados. Se perguntarem por um vídeo que não está na lista, diga com sinceridade que ele ainda não existe.
 
 PERFIL:
 - "Sair do perfil": sai da conta e volta para a tela de entrada. Pede confirmação antes.
@@ -166,13 +176,9 @@ Ao tocar em "DÚVIDAS?", a pessoa vê uma janela explicando que o app ensina a m
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Ajuda', style: TextStyle(color: Colors.white)),
-        iconTheme: const IconThemeData(color: Colors.white),
-      ),
+      appBar: appBarWidget(context, "Ajuda", ""),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           children: [
             Expanded(
@@ -180,7 +186,6 @@ Ao tocar em "DÚVIDAS?", a pessoa vê uma janela explicando que o app ensina a m
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      //Image.asset("assets/imagem/perfilRogerio/perfilRogerio.png", width: 200),
                       Image.asset(
                         _carregando 
                         ? "assets/imagem/perfilRogerio/perfilRogerioPensando.png" 
@@ -188,11 +193,11 @@ Ao tocar em "DÚVIDAS?", a pessoa vê uma janela explicando que o app ensina a m
                         width: 200
                       ),
                       
-                      SizedBox(height: 60),
+                      SizedBox(height: 40),
 
                       Text(
                         _resposta,
-                        style: const TextStyle(fontSize: 22, height: 1.4),
+                        style: TextStyle(fontSize: 22, height: 1.4),
                         textAlign: TextAlign.center,
                       ),
                     ],
