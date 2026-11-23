@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
+import 'package:includeapp/jogos/nivel6/etapa1youtube.dart';
 
 class Etapa1Email extends StatefulWidget {
 
@@ -25,7 +25,7 @@ class _Etapa1Email extends State<Etapa1Email> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "1E";
+  final pergunta = "1G";
   final opcao1 = Icon(Icons.dialpad, size: 30);
   final opcao2 = Icon(Icons.home_filled, size: 30);
   final opcao3 = Icon(Icons.person_add_alt, size: 30);
@@ -100,7 +100,7 @@ class _Etapa1Email extends State<Etapa1Email> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa1Youtube(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

@@ -1,17 +1,17 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
+import 'package:includeapp/jogos/nivel3/etapa4whatsapp.dart';
 
-class Etapa1Google extends StatefulWidget {
+class Etapa3Whatsapp extends StatefulWidget {
 
-  const Etapa1Google({super.key});
+  const Etapa3Whatsapp({super.key});
 
   @override
-  State<Etapa1Google> createState() => _Etapa1Google();
+  State<Etapa3Whatsapp> createState() => _Etapa3Whatsapp();
 }
 
-class _Etapa1Google extends State<Etapa1Google> {
+class _Etapa3Whatsapp extends State<Etapa3Whatsapp> {
   final AudioPlayer tocar = AudioPlayer();
 
   bool botao1 = false;
@@ -25,11 +25,11 @@ class _Etapa1Google extends State<Etapa1Google> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "1G";
-  final opcao1 = Icon(Icons.dialpad, size: 30);
-  final opcao2 = Icon(Icons.home_filled, size: 30);
-  final opcao3 = Icon(Icons.person_add_alt, size: 30);
-  final opcao4 = Icon(Icons.menu, size: 30,);
+  final pergunta = "Onde eu envio minha resposta?";
+  final opcao1 = Icon(Icons.send, size: 32);
+  final opcao2 = Icon(Icons.keyboard_return, size: 32);
+  final opcao3 = Text("Enviar", style: TextStyle(fontSize: 18));
+  final opcao4 = Icon(Icons.emoji_emotions_outlined, size: 32);
 
   void somAcerto() async {
     await tocar.stop();
@@ -81,7 +81,7 @@ class _Etapa1Google extends State<Etapa1Google> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Fase 1"),
+      appBar: appBarWidgetMiniJogo(context, "Fase 3", etapaAtual: 3, totalEtapas: 5),
       body: Center(
         child: SingleChildScrollView(
           child: LayoutBuilder(
@@ -100,7 +100,7 @@ class _Etapa1Google extends State<Etapa1Google> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa4Whatsapp(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )
