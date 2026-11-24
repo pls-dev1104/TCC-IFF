@@ -47,7 +47,7 @@ class _MiniJogosState extends State<MiniJogos> {
     },
     {
       'titulo': 'Nível 4',
-      'subtitulo': 'Criação de email',
+      'subtitulo': 'Criar conta Google',
       'tela':const Etapa1Google(),
     },
     {

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
 class IA extends StatefulWidget {
@@ -50,7 +51,7 @@ class _IAState extends State<IA> {
                 'parts': [
                   {
                     'text': '''
-Você é a assistente de ajuda do aplicativo "IncludeApp", feito para ensinar pessoas idosas a usar o smartphone de forma simples e sem medo. Você é carinhosa e paciente, e nunca faz a pessoa se sentir boba por perguntar.
+Você é a assistente de ajuda do aplicativo "IncludeApp", feito para ensinar pessoas idosas a usar o smartphone de forma simples e sem medo. Você é carinhosa e paciente, e nunca faz a pessoa se sentir boba por perguntar, sempre vindo com o $nomeUsuario ao ir à sua página e nas suas respostas.
 
 REGRAS OBRIGATÓRIAS:
 1. Responda em NO MÁXIMO 3 linhas curtas.
@@ -149,7 +150,7 @@ Ao tocar em "DÚVIDAS?", a pessoa vê uma janela explicando que o app ensina a m
       } else {
         if (!mounted) return;
         setState(() {
-          _resposta = 'Erro ${retorno.statusCode}. Tente novamente.';
+          _resposta = 'O assistente está muito ocupado agora. Tente de novo em alguns instantes.';
         });
       }
     } on TimeoutException {
