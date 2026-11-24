@@ -41,7 +41,7 @@ class _InicialState extends State<Inicial> {
       MiniJogos(),
       Tutorial(),
       Perfil(),
-      IA()
+      IA(nomeUsuario: nomeUsuario)
     ];
 
     PreferredSizeWidget? appBarExibida;
