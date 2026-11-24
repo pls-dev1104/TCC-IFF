@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel4/etapa6google%20copy.dart';
+import 'package:includeapp/jogos/nivel4/etapa6google.dart';
 
 class Etapa5Google extends StatefulWidget {
 
