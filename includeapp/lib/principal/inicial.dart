@@ -11,7 +11,7 @@ import 'package:includeapp/jogos/nivel12/etapa1seguranca.dart';
 import 'package:includeapp/jogos/nivel2/etapa1Alarme.dart';
 import 'package:includeapp/jogos/nivel3/etapa1whatsapp.dart';
 import 'package:includeapp/jogos/nivel4/etapa1google.dart';
-import 'package:includeapp/jogos/nivel5/etapa1email.dart';
+import 'package:includeapp/jogos/nivel5/Etapa1LoginGoogle.dart';
 import 'package:includeapp/jogos/nivel6/etapa1youtube.dart';
 import 'package:includeapp/jogos/nivel7/etapa1apps.dart';
 import 'package:includeapp/jogos/nivel8/etapa1gov.dart';
@@ -34,7 +34,10 @@ class _InicialState extends State<Inicial> {
       'subtitulo': 'Chamadas e Contatos',
       'tela': const Etapa1Chamada(),
     },
-    {'titulo': 'Nível 2', 'subtitulo': 'Alarme', 'tela': const Etapa1Alarme()},
+    {
+      'titulo': 'Nível 2', 
+      'subtitulo': 'Alarme', 
+      'tela': const Etapa1Alarme()},
     {
       'titulo': 'Nível 3',
       'subtitulo': 'Whatsapp',
@@ -48,7 +51,7 @@ class _InicialState extends State<Inicial> {
     {
       'titulo': 'Nível 5',
       'subtitulo': 'Login Google/Pesquisar',
-      'tela': const Etapa1Email(),
+      'tela': const Etapa1LoginGoogle(),
     },
     {
       'titulo': 'Nível 6',
@@ -60,12 +63,26 @@ class _InicialState extends State<Inicial> {
       'subtitulo': 'Instalação e desinstalação de apps',
       'tela': const Etapa1Apps(),
     },
-    {'titulo': 'Nível 8',
-     'subtitulo': 'GOV',
-     'tela': const Etapa1Gov()},
-    {'titulo': 'Nível 9', 'subtitulo': 'INSS', 'tela': const Etapa1Inss()},
-    {'titulo': 'Nível 10', 'subtitulo': 'Bancos', 'tela': const Etapa1Bancos()},
-    {'titulo': 'Nível 11', 'subtitulo': 'Uber', 'tela': const Etapa1Uber()},
+    { 
+      'titulo': 'Nível 8',
+      'subtitulo': 'GOV',
+      'tela': const Etapa1Gov()
+    },
+    {
+      'titulo': 'Nível 9', 
+      'subtitulo': 'INSS', 
+      'tela': const Etapa1Inss()
+    },
+    {
+      'titulo': 'Nível 10', 
+      'subtitulo': 'Bancos', 
+      'tela': const Etapa1Bancos()
+    },
+    {
+      'titulo': 'Nível 11', 
+      'subtitulo': 'Uber', 
+      'tela': const Etapa1Uber()
+    },
     {
       'titulo': 'Nível 12',
       'subtitulo': '(Extra), Segurança digital',

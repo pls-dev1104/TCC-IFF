@@ -193,6 +193,11 @@ PreferredSizeWidget appBarWidgetMiniJogo(
 
   return AppBar(
     centerTitle: true,
+    leading: IconButton(
+      onPressed: () {
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Inicial()),(_) => false);
+      }, 
+      icon: Icon(Icons.close, size: 24,)),
     title: Text(titulo, style: TextStyle(color: Colors.white)),
     iconTheme: IconThemeData(color: Colors.white),
     bottom: mostrarProgresso
