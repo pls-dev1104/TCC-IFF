@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, file_names
+
 import 'package:flutter/material.dart';
 
 class TelaCarregamento extends StatefulWidget {

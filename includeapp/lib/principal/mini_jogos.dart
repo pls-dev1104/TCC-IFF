@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart'; // Importa o arquivo de widgets
-import 'package:includeapp/jogos/nivel0/etapa1basico.dart';
 import 'package:includeapp/jogos/nivel1/etapa1Chamada.dart';
 import 'package:includeapp/jogos/nivel10/etapa1bancos.dart';
 import 'package:includeapp/jogos/nivel11/etapa1uber.dart';
@@ -25,11 +24,6 @@ class MiniJogos extends StatefulWidget {
 
 class _MiniJogosState extends State<MiniJogos> {
   final List<Map<String, dynamic>> listaNiveis = [
-    {
-      'titulo': 'Nível 0',
-      'subtitulo': 'Apps básicos do celular',
-      'tela': const Etapa1Basico(),
-    },
     {
       'titulo': 'Nível 1',
       'subtitulo': 'Chamadas e Contatos',
@@ -128,7 +122,7 @@ class _MiniJogosState extends State<MiniJogos> {
             itemCount: listaNiveis.length,
             itemBuilder: (context, index) {
               final nivelAtual = listaNiveis[index];
-              return BotaoNivel(
+              return BotaoNivel_MiniJogos(
                 titulo: nivelAtual['titulo'],
                 subtitulo: nivelAtual['subtitulo'],
                 aoClicar: () {

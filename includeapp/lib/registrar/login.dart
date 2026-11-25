@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/principal/inicial.dart';
