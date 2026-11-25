@@ -9,7 +9,7 @@ import 'package:includeapp/jogos/nivel12/etapa1seguranca.dart';
 import 'package:includeapp/jogos/nivel2/etapa1Alarme.dart';
 import 'package:includeapp/jogos/nivel3/etapa1whatsapp.dart';
 import 'package:includeapp/jogos/nivel4/etapa1google.dart';
-import 'package:includeapp/jogos/nivel5/etapa1email.dart';
+import 'package:includeapp/jogos/nivel5/Etapa1LoginGoogle.dart';
 import 'package:includeapp/jogos/nivel6/etapa1youtube.dart';
 import 'package:includeapp/jogos/nivel7/etapa1apps.dart';
 import 'package:includeapp/jogos/nivel8/etapa1gov.dart';
@@ -47,13 +47,13 @@ class _MiniJogosState extends State<MiniJogos> {
     },
     {
       'titulo': 'Nível 4',
-      'subtitulo': 'Criar conta Google',
+      'subtitulo': 'Criar conta Google e pesquisa',
       'tela':const Etapa1Google(),
     },
     {
       'titulo': 'Nível 5',
-      'subtitulo': 'Login Google/Pesquisar',
-      'tela':const Etapa1Email(),
+      'subtitulo': 'Login Google',
+      'tela':const Etapa1LoginGoogle(),
     },
     {
       'titulo': 'Nível 6',

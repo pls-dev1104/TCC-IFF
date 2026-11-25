@@ -1,17 +1,17 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel5/etapa5email.dart';
+import 'package:includeapp/jogos/nivel5/Etapa2LoginGoogle.dart';
 
-class Etapa4Email extends StatefulWidget {
+class Etapa1LoginGoogle extends StatefulWidget {
 
-  const Etapa4Email({super.key});
+  const Etapa1LoginGoogle({super.key});
 
   @override
-  State<Etapa4Email> createState() => _Etapa4Email();
+  State<Etapa1LoginGoogle> createState() => _Etapa1LoginGoogle();
 }
 
-class _Etapa4Email extends State<Etapa4Email> {
+class _Etapa1LoginGoogle extends State<Etapa1LoginGoogle> {
   final AudioPlayer tocar = AudioPlayer();
 
   bool botao1 = false;
@@ -25,10 +25,10 @@ class _Etapa4Email extends State<Etapa4Email> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "Onde eu aperto para criar minha conta?";
-  final opcao1 = Text("E-mail", style: TextStyle(fontSize: 16),);
-  final opcao2 = Text("Telefone", style: TextStyle(fontSize: 16),);
-  final opcao3 = Text("Criar conta", style: TextStyle(fontSize: 16),);
+  final pergunta = "Onde devo colocar o e-mail da minha conta para realizar o login";
+  final opcao1 = Text("Criar conta", style: TextStyle(fontSize: 16),);
+  final opcao2 = Text("Google", style: TextStyle(fontSize: 16),);
+  final opcao3 = Text("E-mail", style: TextStyle(fontSize: 16),);
   final opcao4 = Text("Avançar", style: TextStyle(fontSize: 16),);
 
   void somAcerto() async {
@@ -81,7 +81,7 @@ class _Etapa4Email extends State<Etapa4Email> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Fase 4", etapaAtual: 4, totalEtapas: 6),
+      appBar: appBarWidgetMiniJogo(context, "Fase 1", etapaAtual: 1, totalEtapas: 6),
       body: Center(
         child: SingleChildScrollView(
           child: LayoutBuilder(
@@ -100,7 +100,7 @@ class _Etapa4Email extends State<Etapa4Email> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa5Email(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2LoginGoogle(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

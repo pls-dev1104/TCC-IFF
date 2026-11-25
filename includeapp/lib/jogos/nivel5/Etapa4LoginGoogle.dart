@@ -1,17 +1,17 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel5/etapa3email.dart';
+import 'package:includeapp/jogos/nivel5/Etapa5LoginGoogle.dart';
 
-class Etapa2Email extends StatefulWidget {
+class Etapa4LoginGoogle extends StatefulWidget {
 
-  const Etapa2Email({super.key});
+  const Etapa4LoginGoogle({super.key});
 
   @override
-  State<Etapa2Email> createState() => _Etapa2Email();
+  State<Etapa4LoginGoogle> createState() => _Etapa4LoginGoogle();
 }
 
-class _Etapa2Email extends State<Etapa2Email> {
+class _Etapa4LoginGoogle extends State<Etapa4LoginGoogle> {
   final AudioPlayer tocar = AudioPlayer();
 
   bool botao1 = false;
@@ -81,7 +81,7 @@ class _Etapa2Email extends State<Etapa2Email> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Fase 2", etapaAtual: 2, totalEtapas: 6),
+      appBar: appBarWidgetMiniJogo(context, "Fase 4", etapaAtual: 4, totalEtapas: 6),
       body: Center(
         child: SingleChildScrollView(
           child: LayoutBuilder(
@@ -100,7 +100,7 @@ class _Etapa2Email extends State<Etapa2Email> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa3Email(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa5LoginGoogle(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

@@ -1,17 +1,17 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel5/etapa4email.dart';
+import 'package:includeapp/jogos/nivel5/Etapa4LoginGoogle.dart';
 
-class Etapa3Email extends StatefulWidget {
+class Etapa3LoginGoogle extends StatefulWidget {
 
-  const Etapa3Email({super.key});
+  const Etapa3LoginGoogle({super.key});
 
   @override
-  State<Etapa3Email> createState() => _Etapa3Email();
+  State<Etapa3LoginGoogle> createState() => _Etapa3LoginGoogle();
 }
 
-class _Etapa3Email extends State<Etapa3Email> {
+class _Etapa3LoginGoogle extends State<Etapa3LoginGoogle> {
   final AudioPlayer tocar = AudioPlayer();
 
   bool botao1 = false;
@@ -100,7 +100,7 @@ class _Etapa3Email extends State<Etapa3Email> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa4Email(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa4LoginGoogle(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )
