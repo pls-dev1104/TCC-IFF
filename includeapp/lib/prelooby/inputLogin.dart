@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:includeapp/registrar/gerador_senha.dart';
 import 'package:includeapp/registrar/login.dart';

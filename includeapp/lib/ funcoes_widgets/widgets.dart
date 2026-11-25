@@ -5,12 +5,13 @@ import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/principal/mini_jogos.dart';
 
 //Widget que cria os botoes 
-class BotaoNivel extends StatelessWidget {
+// ignore: camel_case_types
+class BotaoNivel_MiniJogos extends StatelessWidget {
   final String titulo;
   final String subtitulo;
   final VoidCallback aoClicar; // A ação que o botão vai executar
 
-  const BotaoNivel({
+  const BotaoNivel_MiniJogos({
     super.key,
     required this.titulo,
     required this.subtitulo,
@@ -50,6 +51,56 @@ class BotaoNivel extends StatelessWidget {
     );
   }
 }
+
+//===
+
+// ignore: camel_case_types
+class BotaoNivel_Inicial extends StatelessWidget {
+  final String titulo;
+  final String subtitulo;
+  final VoidCallback aoClicar; // A ação que o botão vai executar
+
+  const BotaoNivel_Inicial({
+    super.key,
+    required this.titulo,
+    required this.subtitulo,
+    required this.aoClicar,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+      ),
+      onPressed: aoClicar,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            titulo,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            subtitulo,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 18),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
 //===
 

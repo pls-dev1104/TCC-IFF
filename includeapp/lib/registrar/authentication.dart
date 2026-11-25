@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthenticationHelper {
@@ -12,14 +13,19 @@ class AuthenticationHelper {
     required String nome,
   }) async {
     try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      UserCredential userCredential = await _auth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      String uid = userCredential.user!.uid;
+      await FirebaseFirestore.instance.collection('users').doc(uid).set({
+        'nome': nome,
+        'email': email,
+        'nivel': 1,
+        'criadoEm': FieldValue.serverTimestamp(),
+      });
 
-    await userCredential.user?.updateDisplayName(nome);
-    await userCredential.user?.reload();
-    
+      await userCredential.user?.updateDisplayName(nome);
+      await userCredential.user?.reload();
+
       return null;
     } on FirebaseAuthException catch (e) {
       return e.message;
@@ -32,10 +38,7 @@ class AuthenticationHelper {
     required String password,
   }) async {
     try {
-      await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
       return null;
     } on FirebaseAuthException catch (e) {
       return e.message;
