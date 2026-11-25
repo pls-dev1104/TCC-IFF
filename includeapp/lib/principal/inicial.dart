@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,28 +21,50 @@ class _InicialState extends State<Inicial> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
-    final String nomeUsuario = user?.displayName ?? "Usuário";
+    if (user == null) {
+      return const Scaffold(
+        body: Center(child: Text("Nenhum usuário logado.")),
+      );
+    }
 
+    final String nomeUsuario = user.displayName ?? "Usuário";
+
+    // Lista de páginas do BottomNavigationBar
     final List<Widget> paginas = [
       SingleChildScrollView(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return Column(
+        child: StreamBuilder<DocumentSnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection('users')
+              .doc(user.uid)
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            if (!snapshot.hasData || !snapshot.data!.exists) {
+              return const Center(child: Text("Dados do usuário não encontrados."));
+            }
+            var dados = snapshot.data!.data() as Map<String, dynamic>;          
+            return Center(child:  Column(
               children: [
-                SizedBox(height: 20),
-                Text("Bem-vindo, $nomeUsuario!", style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w500,
-                )),
+                const SizedBox(height: 20),
+                Text(
+                  'Olá, ${dados['nome']}!',
+                  style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ],
+            ),
             );
           },
         ),
       ),
-      MiniJogos(),
-      Tutorial(),
-      Perfil(),
-      IA(nomeUsuario: nomeUsuario)
+      const MiniJogos(),
+      const Tutorial(),
+      const Perfil(),
+      IA(nomeUsuario: nomeUsuario),
     ];
 
     PreferredSizeWidget? appBarExibida;
