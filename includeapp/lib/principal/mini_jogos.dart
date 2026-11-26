@@ -98,8 +98,7 @@ class _MiniJogosState extends State<MiniJogos> {
     final String nomeUsuario = user?.displayName ?? "Usuário";
 
     return Scaffold(
-      appBar: appBarWidget(context, "Níveis", nomeUsuario),
-      drawer: drawerFazer(context),
+      appBar: appBarWidget(context, "Níveis", nomeUsuario),      
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Container(

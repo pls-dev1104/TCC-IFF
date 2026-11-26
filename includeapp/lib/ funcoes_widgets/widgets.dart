@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
-import 'package:includeapp/configuracoes/perfil.dart';
 import 'package:includeapp/principal/inicial.dart';
-import 'package:includeapp/principal/mini_jogos.dart';
+
+//==
 
 //Widget que cria os botoes 
 // ignore: camel_case_types
@@ -104,64 +104,6 @@ class BotaoNivel_Inicial extends StatelessWidget {
 
 //===
 
-Widget drawerFazer(BuildContext context) {
-  return Drawer(
-    child: ListView(
-      children: [
-        DrawerHeader(
-          decoration: BoxDecoration(color: Color(0xFF2563EB)),
-          child: Text(
-            "Atalhos",
-            style: TextStyle(color: Colors.white, fontSize: 26),
-          ),
-        ),
-
-        ListTile(
-          title: Text("Início", style: TextStyle(fontSize: 20)),
-          onTap: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => Inicial()),
-              (route) => false,
-            );
-          },
-        ),
-
-        ListTile(
-          title: Text("Níveis", style: TextStyle(fontSize: 20)),
-          onTap: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => MiniJogos()),
-              (route) => false,
-            );
-          },
-        ),
-
-        ListTile(
-          title: Text("Perfil", style: TextStyle(fontSize: 20)),
-          onTap: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => Perfil()),
-              (route) => false,
-            );
-          },
-        ),
-
-        ListTile(
-          title: Text("Ajuda", style: TextStyle(fontSize: 20)),
-          onTap: () {
-            alertDialogAjuda(context);
-          },
-        ),
-      ],
-    ),
-  );
-}
-
-// ===
-
 PreferredSizeWidget appBarWidget(
   BuildContext context,
   String titulo,
@@ -171,7 +113,7 @@ PreferredSizeWidget appBarWidget(
     centerTitle: true,
     automaticallyImplyLeading: false,
     title: Text(titulo, style: TextStyle(color: Colors.white)),
-    iconTheme: IconThemeData(color: Colors.white),
+    iconTheme: IconThemeData(color: Colors.white),    
   );
 }
 

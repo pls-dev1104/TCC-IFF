@@ -1,52 +1,21 @@
 //Funcoes
 import 'package:flutter/material.dart';
 
-void alertDialogAjuda(BuildContext context) {
-  showDialog(
-    context: context, 
-    builder: (context) => AlertDialog(
-      title: Text("Ajuda?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-      content: SizedBox(
-        width: 160,
-        height: 400,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Text("Este app tem o intuito de te ensinar a mexer no celular através de quizes.\n", style: TextStyle(fontSize: 16)),
-              Column(
-                children: [
-                  Icon(Icons.account_circle, color: Colors.black, size: 24),
-                  Text("Ao clicar nesse botão você será direcionado para a página referente ao seu perfil.\n"),
+//==
+Color background = Color(0xFFFFFFFF);
+Color appbar = Color(0xFF2563EB);
 
-                  Icon(Icons.menu, color: Colors.black, size: 24),
-                  Text("Ao clicar nesse icone você abrirá uma menu lateral no qual você pode escolher qual página se direcionar.\n"),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-      actions: [
-        SizedBox(
-          width: 100,                                    
-          height: 40,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-              foregroundColor: Colors.white               
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            }, 
-            child: Text("Voltar", style: TextStyle(fontSize: 16))),
-        ),                        
-      ],
-    )
-  );
+// Avisa o App quando as cores mudam (para ele se reconstruir)
+final ValueNotifier<int> temaNotifier = ValueNotifier(0);
+
+// Função que altera as duas cores
+void trocarCores() {
+  background = background == Color(0xFFFFFFFF) ? Color(0xFF0F172A) : Color(0xFFFFFFFF);
+  appbar = appbar == Color(0xFF2563EB) ? Color(0xFF1E293B) : Color(0xFF2563EB);
+  temaNotifier.value++; // dispara o rebuild do App
 }
 
-// ===
-
+//Acerto
 void acerto(BuildContext context, Widget Function(BuildContext) navegar) {
   Navigator.push(context, MaterialPageRoute(builder: navegar));
 }

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:includeapp/registrar/authentication.dart';
@@ -13,7 +14,7 @@ class Perfil extends StatefulWidget {
 
 class _PerfilState extends State<Perfil> {
   Future<void> efetuarLogoff() async {
-   final confirmar = await showDialog<bool>(
+    final confirmar = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
         title: const Text('Sair da conta'),
@@ -33,13 +34,13 @@ class _PerfilState extends State<Perfil> {
         ],
       ),
     );
-    if (confirmar == true){
-    await AuthenticationHelper().signOut();
-    _finalizarLogoff();
+    if (confirmar == true) {
+      await AuthenticationHelper().signOut();
+      _finalizarLogoff();
     }
   }
 
-//==================
+  //==================
 
   Future<void> excluirConta() async {
     final user = FirebaseAuth.instance.currentUser;
@@ -68,9 +69,8 @@ class _PerfilState extends State<Perfil> {
       await user.delete();
       _finalizarExclusao();
     }
-
-       
   }
+
   void _finalizarExclusao() {
     if (!mounted) return;
     Navigator.pushAndRemoveUntil(
@@ -79,6 +79,7 @@ class _PerfilState extends State<Perfil> {
       (route) => false,
     );
   }
+
   void _finalizarLogoff() {
     if (!mounted) return;
     Navigator.pushAndRemoveUntil(
@@ -87,7 +88,6 @@ class _PerfilState extends State<Perfil> {
       (route) => false,
     );
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,6 @@ class _PerfilState extends State<Perfil> {
 
     return Scaffold(
       appBar: appBarWidget(context, "Perfil", nomeDoUsuario),
-      drawer: drawerFazer(context),
       body: SingleChildScrollView(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -188,6 +187,7 @@ class _PerfilState extends State<Perfil> {
                                 child: Icon(
                                   Icons.account_circle,
                                   size: bolaPerfil,
+                                  color: Colors.black,
                                 ),
                               ),
                             ),
@@ -219,7 +219,6 @@ class _PerfilState extends State<Perfil> {
                                       title: Text(
                                         "Informações Pessoais",
                                         style: TextStyle(
-                                          color: Colors.black,
                                           fontSize: fontSizeTelaInferior,
                                         ),
                                       ),
@@ -233,7 +232,6 @@ class _PerfilState extends State<Perfil> {
                                       title: Text(
                                         "Tema Escuro/Claro",
                                         style: TextStyle(
-                                          color: Colors.black,
                                           fontSize: fontSizeTelaInferior,
                                         ),
                                       ),
@@ -241,7 +239,7 @@ class _PerfilState extends State<Perfil> {
                                         Icons.dark_mode,
                                         size: 25,
                                       ),
-                                      onTap: () {},
+                                      onTap: trocarCores, // ← sem setState, o notifier já cuida de tudo
                                     ),
                                     ListTile(
                                       title: Text(
