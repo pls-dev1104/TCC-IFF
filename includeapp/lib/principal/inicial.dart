@@ -195,6 +195,7 @@ class _InicialState extends State<Inicial> {
       appBar: appBarExibida,
       body: paginas[selecionado],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         currentIndex: selecionado,
         type: BottomNavigationBarType.fixed,
         onTap: (indice) {
