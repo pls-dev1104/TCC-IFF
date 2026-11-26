@@ -159,7 +159,7 @@ class _InputloginState extends State<Inputlogin> {
                     height: telaHeight * 0.065,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueAccent,
+                        backgroundColor: Colors.green,
                         foregroundColor: Colors.white,
                       ),
                       onPressed: salvar,

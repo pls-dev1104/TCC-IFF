@@ -72,14 +72,6 @@ class _PersonalizarState extends State<Personalizar> {
               const SizedBox(height: 12),
               _buildImageGrid(),
               const SizedBox(height: 24),
-              if (_selectedImage != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text(
-                    'Selecionada: ${_selectedImage!.name}',
-                    style: const TextStyle(fontSize: 14),
-                  ),
-                ),
               const SizedBox(height: 24),
               const SizedBox(height: 30),
 
