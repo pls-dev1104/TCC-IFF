@@ -20,6 +20,7 @@ class AuthenticationHelper {
         'nome': nome,
         'email': email,
         'nivel': 1,
+        'foto_perfil':'basico.jpg' ,
         'criadoEm': FieldValue.serverTimestamp(),
       });
 

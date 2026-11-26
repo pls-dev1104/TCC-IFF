@@ -11,9 +11,9 @@ class Tutorial extends StatefulWidget {
 
 class _TutorialState extends State<Tutorial> {
   final List<List<String>> videos = [
-    ["tUdmis47FPU", "Receba"],
-    ["_ZABVI2ph0Y", "Como ser feliz"],
-    ["4EoPvizY1Jk", "É o Tetra"]
+    ["", "Tutorial"],
+    ["", "Tutorial"],
+    ["", "Tutorial"]
   ];
   late final List<YoutubePlayerController> guardadorDosVideos;
 

@@ -55,10 +55,8 @@ class _AppState extends State<App> {
     return MaterialApp(
       title: "IncludeApp",
       theme: ThemeData(
-        // ⬇️ isto faz textTheme / colorScheme mudarem entre claro e escuro
         brightness: isDark ? Brightness.dark : Brightness.light,
-        appBarTheme: AppBarTheme(backgroundColor: appbar),
-        // ⬇️ listTileTheme removido — não força mais textColor: Colors.white
+        appBarTheme: AppBarTheme(backgroundColor: appbar),        
         scaffoldBackgroundColor: background,
       ),
       debugShowCheckedModeBanner: false,
