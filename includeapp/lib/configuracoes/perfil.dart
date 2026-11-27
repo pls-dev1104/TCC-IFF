@@ -1,9 +1,15 @@
+// ignore_for_file: unnecessary_underscores
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+import 'package:includeapp/configuracoes/personalizar.dart';
 import 'package:includeapp/prelooby/prelobby.dart';
 import 'package:includeapp/registrar/authentication.dart';
+import 'package:supabase_flutter/supabase_flutter.dart' hide User;
+import 'package:cached_network_image/cached_network_image.dart';
 
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
@@ -86,6 +92,70 @@ class _PerfilState extends State<Perfil> {
       context,
       MaterialPageRoute(builder: (context) => const Prelobby()),
       (route) => false,
+    );
+  }
+
+  final _supabase = Supabase.instance.client;
+  static const String _bucketName = 'avatars';
+
+  // ---- Avatar (StreamBuilder) ----
+  Widget _buildAvatar({
+    required double bolaPerfil,
+    required User? user,
+  }) {
+    // Sem usuário logado: mostra o ícone padrão
+    if (user == null) {
+      return Container(
+        width: bolaPerfil,
+        height: bolaPerfil,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.grey.shade300),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: const Icon(Icons.person, size: 40, color: Colors.grey),
+      );
+    }
+
+    return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+      stream: FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .snapshots(),
+      builder: (context, snapshot) {
+        final fileName = snapshot.data?.data()?['foto_perfil'] as String?;
+        final hasImage = fileName != null && fileName.isNotEmpty;
+        final url = hasImage
+            ? _supabase.storage.from(_bucketName).getPublicUrl(fileName)
+            : null;
+
+        return Container(
+          width: bolaPerfil,
+          height: bolaPerfil,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.grey.shade300),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: hasImage
+              ? CachedNetworkImage(
+                  imageUrl: url!,
+                  fit: BoxFit.cover,
+                  placeholder: (_, __) => const Center(
+                    child: SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    ),
+                  ),
+                  errorWidget: (_, __, ___) =>
+                      const Icon(Icons.person, size: 40, color: Colors.grey),
+                )
+              : const Icon(Icons.person, size: 40, color: Colors.grey),
+        );
+      },
     );
   }
 
@@ -176,19 +246,13 @@ class _PerfilState extends State<Perfil> {
                                 ],
                               ),
                             ),
+
                             Positioned(
                               left: telaLeftPessoa,
                               top: telaTopPessoa,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Icon(
-                                  Icons.account_circle,
-                                  size: bolaPerfil,
-                                  color: Colors.black,
-                                ),
+                              child: _buildAvatar(
+                                bolaPerfil: bolaPerfil,
+                                user: user,
                               ),
                             ),
                           ],
@@ -217,16 +281,21 @@ class _PerfilState extends State<Perfil> {
                                   children: [
                                     ListTile(
                                       title: Text(
-                                        "Informações Pessoais",
+                                        "Personalizar",
                                         style: TextStyle(
                                           fontSize: fontSizeTelaInferior,
                                         ),
                                       ),
-                                      leading: const Icon(
-                                        Icons.account_circle,
-                                        size: 25,
-                                      ),
-                                      onTap: () {},
+                                      leading: const Icon(Icons.edit, size: 25),
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Personalizar(),
+                                          ),
+                                        );
+                                      },
                                     ),
                                     ListTile(
                                       title: Text(
@@ -239,7 +308,7 @@ class _PerfilState extends State<Perfil> {
                                         Icons.dark_mode,
                                         size: 25,
                                       ),
-                                      onTap: trocarCores, // ← sem setState, o notifier já cuida de tudo
+                                      onTap: trocarCores,
                                     ),
                                     ListTile(
                                       title: Text(
@@ -253,7 +322,7 @@ class _PerfilState extends State<Perfil> {
                                         Icons.logout,
                                         color: Colors.redAccent,
                                         size: 25,
-                                      ), // Ícone trocado para logout
+                                      ),
                                       onTap: () {
                                         efetuarLogoff();
                                       },
@@ -271,7 +340,6 @@ class _PerfilState extends State<Perfil> {
                                         color: Colors.redAccent,
                                         size: 25,
                                       ),
-                                      // >>> NOVO: chamada da exclusão de conta
                                       onTap: () {
                                         excluirConta();
                                       },

@@ -4,7 +4,6 @@ import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/registrar/authentication.dart';
 
@@ -114,7 +113,7 @@ class _GeradorSenhaState extends State<GeradorSenha> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context, "Gerador de usuario"),
+      appBar: AppBar(centerTitle: true, title: Text('Gerador de Usuário'),),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Center(

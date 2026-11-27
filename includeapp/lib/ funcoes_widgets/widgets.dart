@@ -111,7 +111,6 @@ PreferredSizeWidget appBarWidget(
 ) {
   return AppBar(
     centerTitle: true,
-    automaticallyImplyLeading: false,
     title: Text(titulo, style: TextStyle(color: Colors.white)),
     iconTheme: IconThemeData(color: Colors.white),    
   );

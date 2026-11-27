@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/principal/inicial.dart';
 import 'package:includeapp/registrar/authentication.dart';
 
@@ -11,7 +10,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidgetMiniJogo(context,"Login"),
+      appBar: AppBar(centerTitle: true, title: Text('Login'),),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

@@ -102,7 +102,7 @@ class _InicialState extends State<Inicial> {
       );
     }
 
-    final String nomeUsuario = user.displayName ?? "Usuário";
+    final String nomeUsuario = user.displayName ?? "Usuário";     
 
     // Lista de páginas do BottomNavigationBar
     final List<Widget> paginas = [
