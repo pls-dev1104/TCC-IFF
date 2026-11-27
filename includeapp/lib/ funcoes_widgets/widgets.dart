@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/principal/inicial.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 //==
 
@@ -205,6 +206,8 @@ ButtonStyle verificacaoBotao(bool numero, pTelaPc) {
   }
 }
 
+final FlutterTts leitorVoz = FlutterTts();
+
 Widget padronizacaoJogo(
   BuildContext context,
   String pImagem,
@@ -247,6 +250,14 @@ Widget padronizacaoJogo(
     );
   }
 
+  Future<void> lerPergunta() async {
+    await leitorVoz.setLanguage('pt-BR');
+    await leitorVoz.setPitch(0.7);
+    await leitorVoz.setSpeechRate(0.6);
+    await leitorVoz.setVolume(1);
+    await leitorVoz.stop();
+    await leitorVoz.speak(pPergunta.toString());
+  }
 
   return Center(
     child: Column(
@@ -311,7 +322,23 @@ Widget padronizacaoJogo(
                 ),
               ),
 
-              SizedBox(height: 28),
+              SizedBox(height: 12),
+
+              ElevatedButton.icon(
+                onPressed: lerPergunta,
+                icon: Icon(Icons.volume_up_rounded, size: 28),
+                label: Text('Ouvir', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF4F6BED),
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(horizontal: 28, vertical: 14),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                  elevation: 6,
+                  shadowColor: Color(0x804F6BED),
+                ),
+              ),
+
+              SizedBox(height: 16),
 
               Padding(
                 padding: EdgeInsets.all(10),
@@ -471,3 +498,4 @@ Widget fimdoquiz(
     ),
   );
 }
+
