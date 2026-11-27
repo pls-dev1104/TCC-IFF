@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
+import 'package:includeapp/jogos/nivel6/etapa2youtube.dart';
 
 class Etapa1Youtube extends StatefulWidget {
 
@@ -19,17 +19,17 @@ class _Etapa1Youtube extends State<Etapa1Youtube> {
   bool botao3 = false;
   bool botao4 = false;
 
-  bool escolhaCerta1 = true;
+  bool escolhaCerta1 = false;
   bool escolhaCerta2 = false;
-  bool escolhaCerta3 = false;
+  bool escolhaCerta3 = true;
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "1Y";
-  final opcao1 = Icon(Icons.dialpad, size: 30);
-  final opcao2 = Icon(Icons.home_filled, size: 30);
-  final opcao3 = Icon(Icons.person_add_alt, size: 30);
-  final opcao4 = Icon(Icons.menu, size: 30,);
+  final pergunta = "Onde eu clico para pesquisar um vídeo?";
+  final opcao1 = Icon(Icons.notifications_none, size: 32);
+  final opcao2 = Icon(Icons.cast, size: 32);
+  final opcao3 = Icon(Icons.search, size: 32);
+  final opcao4 = Icon(Icons.account_circle, size: 32);
 
   void somAcerto() async {
     await tocar.stop();
@@ -100,7 +100,7 @@ class _Etapa1Youtube extends State<Etapa1Youtube> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Youtube(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

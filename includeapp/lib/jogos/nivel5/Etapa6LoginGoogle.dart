@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivel6/etapa1youtube.dart';
 
@@ -25,13 +26,14 @@ class _Etapa6LoginGoogle extends State<Etapa6LoginGoogle> {
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "Onde eu aperto para criar minha conta?";
-  final opcao1 = Text("E-mail", style: TextStyle(fontSize: 16),);
-  final opcao2 = Text("Telefone", style: TextStyle(fontSize: 16),);
-  final opcao3 = Text("Criar conta", style: TextStyle(fontSize: 16),);
-  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 16),);
+  final pergunta = "Qual opção eu escolho se eu esqueci a minha senha?";
+  final opcao1 = Text("Criar conta", style: TextStyle(fontSize: 18),);
+  final opcao2 = Text("Avançar", style: TextStyle(fontSize: 20),);
+  final opcao3 = Text("Esqueci a senha", style: TextStyle(fontSize: 16),);
+  final opcao4 = Text("Ajuda", style: TextStyle(fontSize: 20),);
 
   void somAcerto() async {
+    nivelTerminou(5);
     await tocar.stop();
     await tocar.play(AssetSource("som/acerto.mp3"), mode: PlayerMode.lowLatency);
   }
@@ -100,7 +102,7 @@ class _Etapa6LoginGoogle extends State<Etapa6LoginGoogle> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => fimdoquiz(context, 4, (context) => Etapa1Youtube()), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => fimdoquiz(context, 5, (context) => Etapa1Youtube()), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )

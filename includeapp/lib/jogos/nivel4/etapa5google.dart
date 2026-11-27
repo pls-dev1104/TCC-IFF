@@ -26,10 +26,10 @@ class _Etapa5Google extends State<Etapa5Google> {
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
   final pergunta = "Onde eu aperto para criar minha senha?";
-  final opcao1 = Text("Mostrar senha", style: TextStyle(fontSize: 16),);
-  final opcao2 = Text("Senha", style: TextStyle(fontSize: 16),);
+  final opcao1 = Text("Mostrar senha", style: TextStyle(fontSize: 18),);
+  final opcao2 = Text("Senha", style: TextStyle(fontSize: 20),);
   final opcao3 = Text("Crie uma senha", style: TextStyle(fontSize: 16),);
-  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 16),);
+  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 20),);
 
   void somAcerto() async {
     await tocar.stop();

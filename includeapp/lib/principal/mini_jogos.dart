@@ -82,7 +82,7 @@ class _MiniJogosState extends State<MiniJogos> {
     {
       'titulo': 'Nível 12',
       'subtitulo': '(Extra), Segurança digital',
-      'tela':const Etapa1seguranca(),
+      'tela':const Etapa1Seguranca(),
     },
     {
       'titulo': 'Voltar',

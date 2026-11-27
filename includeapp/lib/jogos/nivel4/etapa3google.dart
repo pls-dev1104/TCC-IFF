@@ -26,9 +26,9 @@ class _Etapa3Google extends State<Etapa3Google> {
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
   final pergunta = "Onde eu aperto inserir as informações novamente?";
-  final opcao1 = Text("Avançar", style: TextStyle(fontSize: 16),);
-  final opcao2 = Text("Google", style: TextStyle(fontSize: 16),);
-  final opcao3 = Text("Básicas", style: TextStyle(fontSize: 16),);
+  final opcao1 = Text("Avançar", style: TextStyle(fontSize: 20),);
+  final opcao2 = Text("Google", style: TextStyle(fontSize: 20),);
+  final opcao3 = Text("Básicas", style: TextStyle(fontSize: 18),);
   final opcao4 = Text("Sobre as caixas", style: TextStyle(fontSize: 16),);
 
   void somAcerto() async {

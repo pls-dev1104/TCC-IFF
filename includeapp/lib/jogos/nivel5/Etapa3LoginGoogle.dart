@@ -21,15 +21,15 @@ class _Etapa3LoginGoogle extends State<Etapa3LoginGoogle> {
 
   bool escolhaCerta1 = false;
   bool escolhaCerta2 = false;
-  bool escolhaCerta3 = true;
-  bool escolhaCerta4 = false;
+  bool escolhaCerta3 = false;
+  bool escolhaCerta4 = true;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "Onde eu aperto para criar minha conta?";
-  final opcao1 = Text("E-mail", style: TextStyle(fontSize: 16),);
-  final opcao2 = Text("Telefone", style: TextStyle(fontSize: 16),);
-  final opcao3 = Text("Criar conta", style: TextStyle(fontSize: 16),);
-  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 16),);
+  final pergunta = "Depois de digitar o e-mail, qual botão eu aperto para seguir para a senha?";
+  final opcao1 = Text("Criar conta", style: TextStyle(fontSize: 18),);
+  final opcao2 = Text("Esqueci o e-mail", style: TextStyle(fontSize: 16),);
+  final opcao3 = Text("Ajuda", style: TextStyle(fontSize: 20),);
+  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 20),);
 
   void somAcerto() async {
     await tocar.stop();

@@ -2,6 +2,7 @@
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:includeapp/jogos/nivel3/etapa1whatsapp.dart';
 
@@ -34,6 +35,7 @@ class _Etapa6Alarme extends State<Etapa6Alarme> {
   final opcao4 = Text("Alarme", style: TextStyle(fontSize: 22),);
 
   void somAcerto() async {
+    nivelTerminou(2);
     await tocar.stop();
     await tocar.play(AssetSource("som/acerto.mp3"), mode: PlayerMode.lowLatency);
   }

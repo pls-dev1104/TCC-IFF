@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
-import 'package:includeapp/jogos/nivel1/etapa2Chamada.dart';
+import 'package:includeapp/jogos/nivel8/etapa2gov.dart';
 
 class Etapa1Gov extends StatefulWidget {
 
@@ -19,17 +19,17 @@ class _Etapa1Gov extends State<Etapa1Gov> {
   bool botao3 = false;
   bool botao4 = false;
 
-  bool escolhaCerta1 = true;
-  bool escolhaCerta2 = false;
+  bool escolhaCerta1 = false;
+  bool escolhaCerta2 = true;
   bool escolhaCerta3 = false;
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "1G";
-  final opcao1 = Icon(Icons.dialpad, size: 30);
-  final opcao2 = Icon(Icons.home_filled, size: 30);
-  final opcao3 = Icon(Icons.person_add_alt, size: 30);
-  final opcao4 = Icon(Icons.menu, size: 30,);
+  final pergunta = "Onde eu clico para entrar na minha conta gov.br?";
+  final opcao1 = Text("Ajuda", style: TextStyle(fontSize: 20),);
+  final opcao2 = Text("Entrar com gov.br", style: TextStyle(fontSize: 15),);
+  final opcao3 = Text("Voltar", style: TextStyle(fontSize: 20),);
+  final opcao4 = Text("Sair", style: TextStyle(fontSize: 20),);
 
   void somAcerto() async {
     await tocar.stop();
@@ -100,7 +100,7 @@ class _Etapa1Gov extends State<Etapa1Gov> {
                 cacheImagemTela = 900;
               }
 
-              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Chamada(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Gov(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
             },
           ),
         )
