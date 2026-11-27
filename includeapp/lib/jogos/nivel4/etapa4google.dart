@@ -29,7 +29,7 @@ class _Etapa4Google extends State<Etapa4Google> {
   final opcao1 = Text("Na 1º bolinha", style: TextStyle(fontSize: 16),);
   final opcao2 = Text("No 2º bolinha", style: TextStyle(fontSize: 16),);
   final opcao3 = Text("Usar celular", style: TextStyle(fontSize: 16),);
-  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 16),);
+  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 20),);
 
   void somAcerto() async {
     await tocar.stop();

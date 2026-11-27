@@ -1,15 +1,110 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
+import 'package:includeapp/jogos/nivel12/etapa2seguranca.dart';
 
-class Etapa1seguranca extends StatefulWidget {
-  const new({super.key});
+class Etapa1Seguranca extends StatefulWidget {
+
+  const Etapa1Seguranca({super.key});
 
   @override
-  State<Etapa1seguranca> createState() => _Etapa1segurancaState();
+  State<Etapa1Seguranca> createState() => _Etapa1Seguranca();
 }
 
-class _Etapa1segurancaState extends State<Etapa1seguranca> {
+class _Etapa1Seguranca extends State<Etapa1Seguranca> {
+  final AudioPlayer tocar = AudioPlayer();
+
+  bool botao1 = false;
+  bool botao2 = false;
+  bool botao3 = false;
+  bool botao4 = false;
+
+  bool escolhaCerta1 = false;
+  bool escolhaCerta2 = false;
+  bool escolhaCerta3 = true;
+  bool escolhaCerta4 = false;
+
+  final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
+  final pergunta = "Recebi um link pedindo a senha do meu banco. O que eu faço?";
+  final opcao1 = Text("Clicar no link", style: TextStyle(fontSize: 18),);
+  final opcao2 = Text("Passar a senha", style: TextStyle(fontSize: 17),);
+  final opcao3 = Text("Ignorar e apagar", style: TextStyle(fontSize: 17),);
+  final opcao4 = Text("Responder", style: TextStyle(fontSize: 15),);
+
+  void somAcerto() async {
+    await tocar.stop();
+    await tocar.play(AssetSource("som/acerto.mp3"), mode: PlayerMode.lowLatency);
+  }
+
+  void somErro() async {
+    await tocar.stop();
+    await tocar.play(AssetSource("som/erro.mp3"), mode: PlayerMode.lowLatency);
+  }
+
+  void erro1() {
+    setState(() {
+      botao1 = true;
+    });
+  }
+
+  void erro2() {
+    setState(() {
+      botao2 = true;
+    });
+  }
+
+  void erro3() {
+    setState(() {
+      botao3 = true;
+    });
+  }
+
+  void erro4() {
+    setState(() {
+      botao4 = true;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    AudioCache().load('som/acerto.mp3');
+    AudioCache().load('som/erro.mp3');
+  }
+
+  @override
+  void dispose() {
+    tocar.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: appBarWidgetMiniJogo(context, "Fase 1", etapaAtual: 1, totalEtapas: 6),
+      body: Center(
+        child: SingleChildScrollView(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final telaWidth = MediaQuery.of(context).size.width;
+
+              final telaPC = telaWidth > 600;
+              final double imagemTela;
+              final int cacheImagemTela;
+
+              if (telaPC) {
+                imagemTela = telaWidth * 0.125;
+                cacheImagemTela = 400;
+              } else {
+                imagemTela = telaWidth * 0.60;
+                cacheImagemTela = 900;
+              }
+
+              return padronizacaoJogo(context, imagem, pergunta, (context) => Etapa2Seguranca(), imagemTela, cacheImagemTela, telaPC, botao1, botao2, botao3, botao4, escolhaCerta1, escolhaCerta2, escolhaCerta3, escolhaCerta4, somAcerto, somErro, erro1, erro2, erro3, erro4, opcao1, opcao2, opcao3, opcao4);
+            },
+          ),
+        )
+      ), 
+    );
   }
 }

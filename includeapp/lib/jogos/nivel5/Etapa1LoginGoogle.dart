@@ -26,10 +26,10 @@ class _Etapa1LoginGoogle extends State<Etapa1LoginGoogle> {
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
   final pergunta = "Onde devo colocar o e-mail da minha conta para realizar o login";
-  final opcao1 = Text("Criar conta", style: TextStyle(fontSize: 16),);
-  final opcao2 = Text("Google", style: TextStyle(fontSize: 16),);
-  final opcao3 = Text("E-mail", style: TextStyle(fontSize: 16),);
-  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 16),);
+  final opcao1 = Text("Criar conta", style: TextStyle(fontSize: 18),);
+  final opcao2 = Text("Google", style: TextStyle(fontSize: 20),);
+  final opcao3 = Text("E-mail", style: TextStyle(fontSize: 20),);
+  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 20),);
 
   void somAcerto() async {
     await tocar.stop();

@@ -20,16 +20,16 @@ class _Etapa5LoginGoogle extends State<Etapa5LoginGoogle> {
   bool botao4 = false;
 
   bool escolhaCerta1 = false;
-  bool escolhaCerta2 = false;
-  bool escolhaCerta3 = true;
+  bool escolhaCerta2 = true;
+  bool escolhaCerta3 = false;
   bool escolhaCerta4 = false;
 
   final imagem = "assets/imagem/jogosImagem/level1/telaInicialChamada.jpg";
-  final pergunta = "Onde eu aperto para criar minha conta?";
-  final opcao1 = Text("E-mail", style: TextStyle(fontSize: 16),);
-  final opcao2 = Text("Telefone", style: TextStyle(fontSize: 16),);
-  final opcao3 = Text("Criar conta", style: TextStyle(fontSize: 16),);
-  final opcao4 = Text("Avançar", style: TextStyle(fontSize: 16),);
+  final pergunta = "Qual opção eu escolho para ver a senha que estou digitando?";
+  final opcao1 = Text("Avançar", style: TextStyle(fontSize: 20),);
+  final opcao2 = Text("Mostrar senha", style: TextStyle(fontSize: 18),);
+  final opcao3 = Text("Ajuda", style: TextStyle(fontSize: 20),);
+  final opcao4 = Text("Esqueci a senha", style: TextStyle(fontSize: 16),);
 
   void somAcerto() async {
     await tocar.stop();
