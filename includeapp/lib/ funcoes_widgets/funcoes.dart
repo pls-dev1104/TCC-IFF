@@ -19,3 +19,11 @@ void trocarCores() {
 void acerto(BuildContext context, Widget Function(BuildContext) navegar) {
   Navigator.push(context, MaterialPageRoute(builder: navegar));
 }
+
+Future<void> nivelTerminou(int nivel) async {
+  try {
+    print("Nível $nivel terminou");
+  } catch (erro) {
+    print("Erro ao atualizar o nível $nivel");
+  }
+}

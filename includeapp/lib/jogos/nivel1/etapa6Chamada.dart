@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/funcoes.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:includeapp/jogos/nivel2/etapa1Alarme.dart';
@@ -35,6 +36,7 @@ class _Etapa6Chamada extends State<Etapa6Chamada> {
   final opcao4 = Icon(Icons.cancel_outlined, size: 30,);
 
   void somAcerto() async {
+    nivelTerminou(1);
     await tocar.stop();
     await tocar.play(AssetSource("som/acerto.mp3"), mode: PlayerMode.lowLatency);
   }
