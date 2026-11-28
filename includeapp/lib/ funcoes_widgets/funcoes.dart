@@ -1,4 +1,6 @@
 //Funcoes
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
@@ -25,8 +27,15 @@ void acerto(BuildContext context, Widget Function(BuildContext) navegar) {
 }
 
 Future<void> nivelTerminou(int nivel) async {
+  final user = FirebaseAuth.instance.currentUser;
   try {
     print("Nível $nivel terminou");
+    await FirebaseFirestore.instance
+                  .collection('users')
+                  .doc(user!.uid)               
+                  .update({
+                  'nivel': nivel + 1, 
+              });
   } catch (erro) {
     print("Erro ao atualizar o nível $nivel");
   }
