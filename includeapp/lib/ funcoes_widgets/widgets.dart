@@ -208,6 +208,10 @@ ButtonStyle verificacaoBotao(bool numero, pTelaPc) {
 
 final FlutterTts leitorVoz = FlutterTts();
 
+Future<void> encerrarVoz() async {
+  await leitorVoz.stop();
+}
+
 Widget padronizacaoJogo(
   BuildContext context,
   String pImagem,

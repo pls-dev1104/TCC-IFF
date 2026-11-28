@@ -1,5 +1,6 @@
 //Funcoes
 import 'package:flutter/material.dart';
+import 'package:includeapp/%20funcoes_widgets/widgets.dart';
 
 //==
 Color background = Color(0xFFFFFFFF);
@@ -16,7 +17,10 @@ void trocarCores() {
 }
 
 //Acerto
+
+
 void acerto(BuildContext context, Widget Function(BuildContext) navegar) {
+  encerrarVoz();
   Navigator.push(context, MaterialPageRoute(builder: navegar));
 }
 
